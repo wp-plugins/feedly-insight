@@ -41,7 +41,7 @@ function fi_create_html_search_results( $args ) {
 				clear: both;
 				color: #777;
 				float: left;
-				width: 33%;
+				width: 150px;
 			}
 
 			.fi-info-panel dd {
@@ -78,7 +78,7 @@ function fi_create_html_search_results( $args ) {
 
 			<div class="clear"></div>
 
-			<?php echo fi_get_create_mshots_img( $website, 200, 'alignleft' ); ?>
+			<?php echo fi_get_create_mshots_img( $website, 200, '' ); ?>
 
 			<dl class="fi-info-panel">
 
@@ -102,7 +102,7 @@ function fi_create_html_search_results( $args ) {
 				<dd><?php echo $estimatedEngagement; ?></dd>
 
 				<dt><i class="dashicons dashicons-tag"></i> <?php _e( 'Tags', 'feedly_insight' ); ?></dt>
-				<dd><?php echo $deliciousTags; ?></dd>
+				<dd><?php echo implode( ', ', $deliciousTags ); ?></dd>
 
 			</dl>
 
