@@ -1,0 +1,154 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Feedly Insite\n"
+"POT-Creation-Date: 2014-01-25 04:47+0900\n"
+"PO-Revision-Date: 2014-01-25 22:50+0900\n"
+"Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.3\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n;esc_attr_e;esc_attr__;esc_html_e;esc_html__;"
+"_x;_n:1,2;_n_noop:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../inc/class-dashboard.php:24
+msgid "Feedly Insight"
+msgstr "Feedly Insight"
+
+#: ../inc/class-feedly-get.php:30 ../inc/class-feedly-get.php:31
+#: ../inc/class-feedly-get.php:32 ../inc/class-feedly-get.php:33
+#: ../inc/class-feedly-get.php:35 ../inc/class-feedly-get.php:36
+#: ../inc/class-feedly-get.php:37 ../inc/class-feedly-get.php:38
+#: ../inc/search.php:101
+msgid "none"
+msgstr "なし"
+
+#: ../inc/class-feedly-get.php:39
+msgid "Unknown"
+msgstr "不明"
+
+#: ../inc/dashboard.php:50
+#, php-format
+msgid "Feedly information of %s"
+msgstr "%s の Feedly 情報"
+
+#: ../inc/dashboard.php:53
+msgid "Site name"
+msgstr "サイト名"
+
+#: ../inc/dashboard.php:56
+msgid "Description"
+msgstr "サイト説明文"
+
+#: ../inc/dashboard.php:59 ../inc/search.php:70
+msgid "Subscribers"
+msgstr "購読者数"
+
+#: ../inc/dashboard.php:60 ../inc/search.php:71
+#, php-format
+msgid "%s <small>subscribers</small>"
+msgstr "%s <small>人</small>"
+
+#: ../inc/dashboard.php:64
+msgid "Maybe post/a week."
+msgstr "おそらく 投稿/週？"
+
+#: ../inc/dashboard.php:65 ../inc/search.php:67
+msgid "Velocity"
+msgstr "更新頻度"
+
+#: ../inc/dashboard.php:69
+msgid "Feedly sensed keywords."
+msgstr "Feedly が判断した重要なキーワード"
+
+#: ../inc/dashboard.php:70
+msgid "Topics"
+msgstr "トピックス"
+
+#: ../inc/dashboard.php:82 ../inc/dashboard.php:99
+msgid "Search RSS by Feedly"
+msgstr "Feedly で RSS 情報を検索"
+
+#: ../inc/dashboard.php:85
+msgid "How many search (default is 20)."
+msgstr "検索結果の取得件数 (デフォルト: 20件"
+
+#: ../inc/dashboard.php:101
+msgid "Input URL, domain and any words."
+msgstr "URL、ドメイン名、その他単語で検索できます。"
+
+#: ../inc/dashboard.php:111
+msgid "Version:"
+msgstr "バージョン:"
+
+#: ../inc/search.php:10
+#, php-format
+msgid "%s result"
+msgid_plural "%s results"
+msgstr[0] "%s件"
+msgstr[1] "%s件"
+
+#: ../inc/search.php:11
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "&#8220;%s&#8221; の検索結果"
+
+#: ../inc/search.php:16
+msgid "No items."
+msgstr "項目はありません。"
+
+#: ../inc/search.php:53
+#, php-format
+msgid "Follow %s in feedly"
+msgstr "%s を Feedly でフォローする"
+
+#: ../inc/search.php:64
+msgid "Last update"
+msgstr "最終更新"
+
+#: ../inc/search.php:74
+msgid "Score"
+msgstr "スコア"
+
+#: ../inc/search.php:77
+msgid "Languages"
+msgstr "言語"
+
+#: ../inc/search.php:80
+msgid "Estimated"
+msgstr "評価？"
+
+#: ../inc/search.php:83
+msgid "Tags"
+msgstr "タグ"
+
+#: ../inc/search.php:102
+msgid "M j, Y @ G:i"
+msgstr "Y年n月j日 @ G:i"
+
+#~ msgid ""
+#~ "Add Feedly dashboard widget. Shows your site info, search website & feeds."
+#~ msgstr ""
+#~ "ダッシュボードに Feedly ウィジェットを追加し、サイトの情報や検索が可能に。"
+
+#~ msgid "Feedly contents on this site"
+#~ msgstr "このサイトの Feedly 情報"
+
+#~ msgid "Item"
+#~ msgstr "項目"
+
+#, fuzzy
+#~ msgid "Search"
+#~ msgstr "検索:"
+
+#~ msgid "Blog name"
+#~ msgstr "ブログ名"
+
+#~ msgid "Name"
+#~ msgstr "名前"
