@@ -102,7 +102,7 @@ function fi_create_html_search_results( $args ) {
 				<dd><?php echo $estimatedEngagement; ?></dd>
 
 				<dt><i class="dashicons dashicons-tag"></i> <?php _e( 'Tags', 'feedly_insight' ); ?></dt>
-				<dd><?php echo implode( ', ', $deliciousTags ); ?></dd>
+				<dd><?php echo $deliciousTags; ?></dd>
 
 			</dl>
 

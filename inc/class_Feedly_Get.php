@@ -53,6 +53,7 @@ class FI_Feedly_Get extends FI_Feedly {
 		$count = 0;
 		foreach ( $results as $r ) {
 			$results[$count] = wp_parse_args( $r, $default_args );
+			$results[$count]['deliciousTags'] = implode( ', ', $r['deliciousTags'] );
 			$count ++;
 		}
 		return $results;
