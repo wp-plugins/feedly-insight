@@ -44,20 +44,29 @@ class FI {
 
 	static $plugin_data;
 
+	/**
+	 * constructor
+	 */
 	function __construct() {
 		if ( is_admin() )
 			$this->auto_load_admin();
 		load_plugin_textdomain( FI_TEXT_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-		add_action( 'admin_init', array( $this, '_get_plugin_data' ) );
+		add_action( 'admin_init', array( $this, '_set_plugin_data' ) );
 	}
 
+	/**
+	 * auto load all php files in /inc
+	 */
 	function auto_load_admin() {
 		foreach ( glob( dirname( __FILE__ ) . '/inc/*.php' ) as $path ) {
 			require_once $path;
 		}
 	}
 
-	function _get_plugin_data() {
+	/**
+	 * set plugin data array to static $plugin_data
+	 */
+	function _set_plugin_data() {
 		self::$plugin_data = get_plugin_data( __FILE__ );
 	}
 
