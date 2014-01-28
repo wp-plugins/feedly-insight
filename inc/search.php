@@ -96,7 +96,7 @@ function fi_create_html_search_results( $args ) {
 				<dd><?php echo number_format_i18n( $score ); ?></dd>
 
 				<dt><i class="dashicons dashicons-translation"></i> <?php _e( 'Languages', 'feedly_insight' ) ?></dt>
-				<dd><?php echo $language; ?></dd>
+				<dd><?php echo esc_html( format_code_lang( $language ) ); ?></dd>
 
 				<dt><i class="dashicons dashicons-performance"></i> <?php _e( 'Estimated', 'feedly_insight' ); ?></dt>
 				<dd><?php echo $estimatedEngagement; ?></dd>
