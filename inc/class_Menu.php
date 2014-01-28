@@ -11,11 +11,11 @@ class FI_Feedly_Menu {
 	function register_menu_page() {
 		add_submenu_page(
 			'index.php',
-			'Feedly ' . __('Search'),
-			'Feedly ' . __('Search'),
+			'Feedly ' . __( 'Search' ),
+			'Feedly ' . __( 'Search' ),
 			'manage_options',
 			FI_TEXT_DOMAIN,
-			array( $this, 'search_page')
+			array( $this, 'search_page' )
 		);
 		/* original menu
 		add_menu_page(
@@ -40,6 +40,7 @@ class FI_Feedly_Menu {
 	function search_page() {
 		do_action( 'fi_search_page' );
 	}
+
 	function sub_menu_settings() {
 		do_action( 'fi_settings_page' );
 	}

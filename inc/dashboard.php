@@ -102,7 +102,7 @@ function fi_show_dashboard() {
 
 	<div class="activity-block fi-footer">
 
-		<?php extract( get_plugin_data( FI_FILE ) ); ?>
+		<?php extract( FI::$plugin_data ); ?>
 
 		<span><small><?php _e( 'Version:', 'feedly_insight' ); ?></small>
 			<?php echo $Version; ?></span>
