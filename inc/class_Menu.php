@@ -9,6 +9,15 @@ class FI_Feedly_Menu {
 	}
 
 	function register_menu_page() {
+		add_submenu_page(
+			'index.php',
+			'Feedly ' . __('Search'),
+			'Feedly ' . __('Search'),
+			'manage_options',
+			FI_TEXT_DOMAIN,
+			array( $this, 'search_page')
+		);
+		/* original menu
 		add_menu_page(
 			FI_NAME, // page_title
 			FI_NAME, // menu title
@@ -22,16 +31,17 @@ class FI_Feedly_Menu {
 			__('Settings'),
 			__('Settings'),
 			'manage_options',
-			'my-custom-submenu-page',
+			FI_TEXT_DOMAIN . '_settings',
 			array( $this, 'sub_menu_settings')
 		);
+		*/
 	}
 
-	function menu_page() {
-		do_action( 'fi_menu' );
+	function search_page() {
+		do_action( 'fi_search_page' );
 	}
 	function sub_menu_settings() {
-		do_action( 'fi_settings' );
+		do_action( 'fi_settings_page' );
 	}
 
 }

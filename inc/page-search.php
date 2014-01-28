@@ -1,8 +1,8 @@
 <?php
 
-add_action( 'fi_menu', 'fi_show_menu' );
+add_action( 'fi_search_page', 'fi_show_search_page' );
 
-function fi_show_menu() {
+function fi_show_search_page() {
 
 	?>
 
@@ -11,7 +11,6 @@ function fi_show_menu() {
 		<h2 class="page-title">
 			<img src="<?php echo FI_BTN_URL . 'feedly-follow-square-flat-green_2x.png'; ?>" alt="" width="28" height="28" />
 			<?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?>
-			<small><?php _e( 'Input URL, domain and any words.', 'feedly_insight' ); ?></small>
 		</h2>
 		<div class="clear"></div>
 
@@ -35,7 +34,8 @@ function fi_show_menu() {
 			<label class="screen-reader-text" for="fi-search-input"><?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?></label>
 			<input type="hidden" name="page" value="feedly_insight" />
 			<input class="regular-text" id="fi-search-input" type="text" name="s"
-				   value="<?php if ( ! empty( $_GET['s'] ) ) echo $_GET['s']; ?>" />
+				   value="<?php if ( ! empty( $_GET['s'] ) ) echo $_GET['s']; ?>"
+				   placeholder="<?php _e( 'Input URL, domain and any words.', 'feedly_insight' ); ?>" />
 			<input class="button" type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
 		</form>
 		<p></p>
