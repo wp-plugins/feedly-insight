@@ -1,26 +1,20 @@
+# Copyright (C) 2014 Feedly Insight
+# This file is distributed under the same license as the Feedly Insight package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Feedly Insite\n"
+"Project-Id-Version: Feedly Insight 0.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
 "POT-Creation-Date: 2014-01-28 11:30:21+00:00\n"
-"PO-Revision-Date: 2014-01-28 20:33+0900\n"
-"Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
-"Language-Team: \n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
-"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n;esc_attr_e;esc_attr__;esc_html_e;esc_html__;"
-"_x;_n:1,2;_n_noop:1,2\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: ..\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 
 #: inc/class_Dashboard.php:23
 msgid "Feedly information of %s"
-msgstr "%s の Feedly 情報"
+msgstr ""
 
 #: inc/class_Feedly_Get.php:21 inc/class_Feedly_Get.php:23
 #: inc/class_Feedly_Get.php:25 inc/class_Feedly_Get.php:26
@@ -30,146 +24,129 @@ msgstr "%s の Feedly 情報"
 #: inc/class_Feedly_Get.php:48 inc/class_Feedly_Get.php:49
 #: inc/template_tags.php:19
 msgid "none"
-msgstr "なし"
+msgstr ""
 
 #: inc/class_Feedly_Get.php:27 inc/class_Feedly_Get.php:50
 msgid "Unknown"
-msgstr "不明"
+msgstr ""
 
 #: inc/class_Menu.php:14 inc/class_Menu.php:15
-#, fuzzy
 msgid "Search"
-msgstr "検索:"
+msgstr ""
 
 #: inc/dashboard.php:46
 msgid "Site name"
-msgstr "サイト名"
+msgstr ""
 
 #: inc/dashboard.php:49
 msgid "Description"
-msgstr "サイト説明文"
+msgstr ""
 
 #: inc/dashboard.php:52 inc/search.php:91
 msgid "Subscribers"
-msgstr "購読者数"
+msgstr ""
 
 #: inc/dashboard.php:53 inc/search.php:92
 msgid "%s <small>subscribers</small>"
-msgstr "%s <small>人</small>"
+msgstr ""
 
 #: inc/dashboard.php:57
 msgid "Maybe post/a week."
-msgstr "おそらく 投稿/週？"
+msgstr ""
 
 #: inc/dashboard.php:58 inc/search.php:88
 msgid "Velocity"
-msgstr "更新頻度"
+msgstr ""
 
 #: inc/dashboard.php:62
 msgid "Feedly sensed keywords."
-msgstr "Feedly が判断した重要なキーワード"
+msgstr ""
 
 #: inc/dashboard.php:63
 msgid "Topics"
-msgstr "トピックス"
+msgstr ""
 
 #: inc/dashboard.php:75 inc/dashboard.php:92 inc/page-search.php:13
 #: inc/page-search.php:34
 msgid "Search RSS by Feedly"
-msgstr "Feedly で RSS 情報を検索"
+msgstr ""
 
 #: inc/dashboard.php:78 inc/page-search.php:19
 msgid "How many search (default is 20)."
-msgstr "検索結果の取得件数 (デフォルト: 20件"
+msgstr ""
 
 #: inc/dashboard.php:95 inc/page-search.php:38
 msgid "Input URL, domain and any words."
-msgstr "URL、ドメイン名、その他単語で検索できます。"
+msgstr ""
 
 #: inc/dashboard.php:98 inc/page-search.php:39
-#, fuzzy
 msgctxt "submit button"
 msgid "Search"
-msgstr "検索:"
+msgstr ""
 
 #: inc/dashboard.php:107
 msgid "Version:"
-msgstr "バージョン:"
+msgstr ""
 
 #: inc/search.php:9
 msgid "%s result"
 msgid_plural "%s results"
-msgstr[0] "%s件"
-msgstr[1] "%s件"
+msgstr[0] ""
+msgstr[1] ""
 
 #: inc/search.php:10
 msgid "Search results for &#8220;%s&#8221;"
-msgstr "&#8220;%s&#8221; の検索結果"
+msgstr ""
 
 #: inc/search.php:15
 msgid "No items."
-msgstr "項目はありません。"
+msgstr ""
 
 #: inc/search.php:72
 msgid "Follow %s in feedly"
-msgstr "%s を Feedly でフォローする"
+msgstr ""
 
 #: inc/search.php:85
 msgid "Last update"
-msgstr "最終更新"
+msgstr ""
 
 #: inc/search.php:95
 msgid "Score"
-msgstr "スコア"
+msgstr ""
 
 #: inc/search.php:98
 msgid "Languages"
-msgstr "言語"
+msgstr ""
 
 #: inc/search.php:101
 msgid "Estimated"
-msgstr "評価？"
+msgstr ""
 
 #: inc/search.php:104
 msgid "Tags"
-msgstr "タグ"
+msgstr ""
 
 #: inc/template_tags.php:20
 msgid "M j, Y @ G:i"
-msgstr "Y年n月j日 @ G:i"
+msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "Feedly Insight"
-msgstr "Feedly Insight"
+msgstr ""
 
 #. Plugin URI of the plugin/theme
-#, fuzzy
 msgid "http://"
-msgstr "http://ma.tt/"
+msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
 "Add Feedly dashboard widget. Shows your site info, search website & feeds."
 msgstr ""
-"ダッシュボードに Feedly ウィジェットを追加し、サイトの情報や検索が可能に。"
 
 #. Author of the plugin/theme
 msgid "hayashikejinan"
 msgstr ""
 
 #. Author URI of the plugin/theme
-#, fuzzy
 msgid "http://hayashikejinan.com/"
-msgstr "http://ma.tt/"
-
-#~ msgid "Feedly contents on this site"
-#~ msgstr "このサイトの Feedly 情報"
-
-#~ msgid "Item"
-#~ msgstr "項目"
-
-#~ msgid "Blog name"
-#~ msgstr "ブログ名"
-
-#~ msgid "Name"
-#~ msgstr "名前"
+msgstr ""
