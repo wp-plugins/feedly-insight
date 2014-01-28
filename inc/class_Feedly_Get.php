@@ -35,7 +35,8 @@ class FI_Feedly_Get extends FI_Feedly {
 	function search( $count = 20 ) {
 		$url          = self::FEEDLY_API . self::SEARCH;
 		$query        = http_build_query( array( 'q' => $this->id, 'n' => $count ) );
-		$results      = $this->curl_get_contents( $url . $query )['results'];
+		$results      = $this->curl_get_contents( $url . $query );
+		$results      = $results['results'];
 		$default_args = array(
 			'deliciousTags'       => array( __( 'none', 'feedly_insight' ) ),
 			'subscribers'         => __( 'none', 'feedly_insight' ),

@@ -102,12 +102,14 @@ function fi_show_dashboard() {
 
 	<div class="activity-block fi-footer">
 
+		<?php extract( get_plugin_data( FI_FILE ) ); ?>
+
 		<span><small><?php _e( 'Version:', 'feedly_insight' ); ?></small>
-			<?php echo get_plugin_data( FI_FILE )['Version']; ?></span>
+			<?php echo $Version; ?></span>
 
 		<div class="alignright">
 			<i class="dashicons dashicons-admin-users"></i>Author:
-			<a href="<?php echo get_plugin_data( FI_FILE )['AuthorURI']; ?>" target="_blank">
+			<a href="<?php echo $AuthorURI; ?>" target="_blank">
 				<i class="dashicons dashicons-admin-site"></i>
 			</a>
 			<a href="https://twitter.com/hayashikejinan" target="_blank">
@@ -119,7 +121,7 @@ function fi_show_dashboard() {
 			<a href="https://plus.google.com/u/0/+hayashikejinantatsuo" target="_blank">
 				<i class="dashicons dashicons-googleplus" style="color: #dd4b39"></i>
 			</a>
-			<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . get_plugin_data( FI_FILE )['AuthorURI'] . 'feed/'; ?>" target="_blank">
+			<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>" target="_blank">
 				<img src="http://s3.feedly.com/img/follows/feedly-follow-logo-green_2x.png" alt="follow" width="20" height="20"
 					 class="button-selectable">
 			</a>
