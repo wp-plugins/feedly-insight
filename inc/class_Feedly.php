@@ -58,7 +58,7 @@ class FI_Feedly {
 	 */
 	protected function callback_curl_get_contents( $url, $timeout, $decode ) {
 		$results = wp_remote_get(
-			esc_url( $url ),
+			$url,
 			array( 'timeout' => $timeout, 'sslverify' => false, 'headers' => array( 'Accept-Encoding' => '' ) )
 		);
 		if ( is_wp_error( $results ) || ! $results['response']['code'] === 200 )
