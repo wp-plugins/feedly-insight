@@ -24,7 +24,7 @@ function fi_show_search_page() {
 				foreach ( $values as $value ) {
 					$html .= '<option ';
 					$html .= "value='{$value}'";
-					if ( empty( $_GET ) && $value === 20 || ! empty( $_GET['c'] ) && $value === (int) $_GET['c'] )
+					if ( empty( $_GET['c'] ) && $value === 20 || ! empty( $_GET['c'] ) && $value === (int) $_GET['c'] )
 						$html .= ' selected="selected"';
 					$html .= ">{$value}</option>";
 				}
