@@ -8,7 +8,6 @@ class FI_Feedly_Get extends FI_Feedly {
 
 	const FEEDS        = 'feeds/';
 	const SEARCH       = 'search/feeds?';
-	const SEARCH_QUERY = 'search_feedly';
 
 	function set( $id ) {
 		$this->id = esc_attr( $id );
