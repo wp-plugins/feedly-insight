@@ -1,8 +1,8 @@
 <?php
 
-new FI_Feedly_Menu();
+new FI_Menu();
 
-class FI_Feedly_Menu {
+class FI_Menu {
 
 	function __construct() {
 		add_action( 'admin_menu', array( $this, 'register_menu_page' ) );
