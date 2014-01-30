@@ -5,8 +5,13 @@ class FI_Feedly {
 	protected $request;
 	const FEEDLY_API = 'http://cloud.feedly.com/v3/';
 
+	/**
+	 * get requested URL
+	 *
+	 * @return string
+	 */
 	function get_fi_request() {
-		return $this->request;
+		return (string) $this->request;
 	}
 
 	/**
@@ -35,6 +40,7 @@ class FI_Feedly {
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( $ch, CURLOPT_TIMEOUT, $timeout );
 
+		// エラー処理
 		if ( curl_exec( $ch ) === false )
 			return 'Curl error: ' . curl_error( $ch );
 

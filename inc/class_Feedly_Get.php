@@ -14,6 +14,11 @@ class FI_Feedly_Get extends FI_Feedly {
 		$this->id = esc_attr( $id );
 	}
 
+	/**
+	 * Feedly feed API
+	 *
+	 * @return array
+	 */
 	function feed() {
 		$url          = self::FEEDLY_API . self::FEEDS . rawurlencode( trailingslashit( __FUNCTION__ ) . $this->id );
 		$results      = $this->curl_get_contents( $url );
@@ -32,6 +37,13 @@ class FI_Feedly_Get extends FI_Feedly {
 		return array_map( 'esc_attr', $results );
 	}
 
+	/**
+	 * Feedly search API
+	 *
+	 * @param int $count
+	 *
+	 * @return mixed
+	 */
 	function search( $count = 20 ) {
 		$url          = self::FEEDLY_API . self::SEARCH;
 		$query        = http_build_query( array( 'q' => $this->id, 'n' => $count ) );
