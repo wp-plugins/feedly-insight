@@ -37,6 +37,7 @@ define( 'FI_FILE', __FILE__ );
 define( 'FI_IMG_URL', FI_URL . 'images/' );
 define( 'FI_BTN_URL', FI_IMG_URL . 'buttons/' );
 define( 'FI_TEXT_DOMAIN', 'feedly_insight' );
+define( 'FI_DB_VER', 1.0 );
 
 new FI();
 
@@ -51,6 +52,10 @@ class FI {
 		if ( is_admin() ) $this->auto_load_admin();
 		load_plugin_textdomain( FI_TEXT_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		add_action( 'admin_init', array( $this, '_set_plugin_data' ) );
+
+		register_activation_hook( __FILE__, array( $this, '_activate' ) );
+		register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
+		//add_action( 'plugins_loaded', array('FI_DB', 'update_db_check') );
 	}
 
 	/**
@@ -67,6 +72,18 @@ class FI {
 	 */
 	function _set_plugin_data() {
 		self::$plugin_data = get_plugin_data( __FILE__ );
+	}
+
+	function _activate() {
+		$db = new FI_DB();
+		$db->activate();
+
+		new FI_History();
+	}
+
+	function _deactivate() {
+		$fi = new FI_History();
+		$fi->deactivate();
 	}
 
 }

@@ -2,6 +2,8 @@
 
 // show dashboard widget
 add_action( 'fi_dashboard', 'fi_show_dashboard' );
+add_action( 'admin_print_footer_scripts', 'fi_dashboard_footer_js' );
+
 
 function fi_show_dashboard() {
 
@@ -19,6 +21,12 @@ function fi_show_dashboard() {
 		?>
 
 		<style>
+			.fi-history-placeholder {
+				width: 600px;
+				height: 300px;
+				max-width: 100%;
+			}
+
 			.fi-info-panel dt {
 				clear: both;
 				color: #777;
@@ -41,13 +49,9 @@ function fi_show_dashboard() {
 			}
 		</style>
 
+		<div id="fi-history-placeholder" class="fi-history-placeholder"></div>
+
 		<dl class="activity-block fi-info-panel">
-
-			<dt><i class="dashicons dashicons-admin-site"></i> <?php _e( 'Site name', 'feedly_insight' ) ?></dt>
-			<dd><?php echo $title; ?></dd>
-
-			<dt><i class="dashicons dashicons-editor-help"></i> <?php _e( 'Description', 'feedly_insight' ) ?></dt>
-			<dd><?php echo $description; ?></dd>
 
 			<dt><i class="dashicons dashicons-groups"></i> <?php _e( 'Subscribers', 'feedly_insight' ) ?></dt>
 			<dd><?php printf( __( '%s <small>subscribers</small>', 'feedly_insight' ),
@@ -131,3 +135,53 @@ function fi_show_dashboard() {
 <?php
 
 }
+
+
+function fi_dashboard_footer_js() {
+
+	$db = new FI_DB();
+
+	$result_query = $db->get_subscribers_history();
+	$history      = array();
+	foreach ( $result_query as $h ) {
+		$history[] .= '[' . strtotime( $h['save_date'] ) * 1000 . ',' . $h['subscribers'] . ']';
+	}
+	?>
+
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		jQuery.ajaxSetup({cache: true});
+		jQuery(function ($) {
+			var data = [<?php echo implode( ',' , $history ); ?>];
+
+			$.plot("#fi-history-placeholder", [ data ], {
+				grid  : {
+					borderWidth: 0,
+					borderColor: {
+						//top:
+						left : '#fff',
+						//bottom:
+						right: '#fff'
+					}
+				},
+				series: {
+					color : '#87c040',
+					lines : { show: true },
+					points: { show: true }
+				},
+				xaxis : {
+					mode      : "time",
+					timeformat: "%m/%d"
+				},
+				yaxis : {
+					min: 0
+				}
+			});
+		});
+		/* ]]> */
+	</script>
+
+<?php
+
+}
+

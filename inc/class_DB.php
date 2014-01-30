@@ -1,0 +1,98 @@
+<?php
+
+class FI_DB {
+
+	var $history_table;
+
+	function __construct() {
+		global $wpdb;
+		$this->history_table = $wpdb->prefix . 'feedly_insight_history';
+	}
+
+
+	/**
+	 * for plugin activated ( called from PLUGIN_DIR/feedly-insight.php
+	 */
+	function activate() {
+		global $wpdb, $charset_collate;
+		if ( $wpdb->get_var( "SHOW TABLES LIKE '$this->history_table'" ) != $this->history_table ) {
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+			$sql = "
+				CREATE TABLE {$this->history_table}  (
+					ID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+					save_date DATE,
+					subscribers INT(11),
+					UNIQUE KEY ID (ID)
+				) {$charset_collate};";
+
+			dbDelta( $sql );
+			// Turn Off dbDelta Describe Errors
+			global $EZSQL_ERROR;
+			$EZSQL_ERROR = array();
+
+			update_option( 'feedly_insight_db_ver', FI_DB_VER );
+
+			// first time saving
+			$this->insert_site_history();
+		}
+	}
+
+
+	/**
+	 * insert history to SQL
+	 *
+	 * @param $date
+	 * @param $count
+	 */
+	function insert_history( $date, $count ) {
+		global $wpdb;
+		$wpdb->insert( $this->history_table,
+			array( 'save_date' => $date, 'subscribers' => (int) $count, ),
+			array( '%d', '%d', ) );
+	}
+
+	function insert_site_history() {
+		$feeds = new FI_Feedly_Get();
+		$feeds->set( get_bloginfo( 'rss2_url' ) );
+		$results = $feeds->feed();
+		$this->insert_history( date( 'Ymd' ), $results['subscribers'] );
+	}
+
+	function update() {
+		/*
+		$installed_ver = get_option( 'feedly_insight_db_ver' );
+		if( $installed_ver != FI_DB_VER ) {
+		}
+		*/
+	}
+
+	static function update_db_check() {
+		if ( get_option( 'feedly_insight_db_ver' ) != FI_DB_VER )
+			self::update();
+	}
+
+	/**
+	 * get saved subscribers history
+	 *
+	 * @param int $num
+	 *
+	 * @return mixed
+	 */
+	function get_subscribers_history( $num = 10 ) {
+		global $wpdb;
+		$table = $this->history_table;
+		if ( ! isset( $wpdb->$table ) ) {
+			$wpdb->$table = $table;
+		}
+		$result_query = $wpdb->get_results( "
+			SELECT save_date, subscribers
+			FROM {$wpdb->$table}
+			ORDER BY save_date LIMIT {$num}
+			", ARRAY_A );
+		return $result_query;
+	}
+
+
+}
+
