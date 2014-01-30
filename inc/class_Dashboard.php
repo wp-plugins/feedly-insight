@@ -7,9 +7,7 @@ class FI_Dashboard_Widget {
 	function __construct() {
 		add_action( 'wp_dashboard_setup', array( $this, 'add_dashboard_widgets' ) );
 
-		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && ! function_exists( 'mp6_register_dashicons' ) ):
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
-		endif;
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
 	}
 
 	/**
@@ -33,8 +31,11 @@ class FI_Dashboard_Widget {
 		do_action( 'fi_dashboard' );
 	}
 
-	function enqueue() {
-		wp_enqueue_style( 'dash-icons', '//melchoyce.github.io/dashicons/css/dashicons.css' );
+	function enqueue( $hook ) {
+		if ( 'index.php' != $hook )
+			return;
+		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && ! function_exists( 'mp6_register_dashicons' ) )
+			wp_enqueue_style( 'dash-icons', '//melchoyce.github.io/dashicons/css/dashicons.css' );
 	}
 
 }
