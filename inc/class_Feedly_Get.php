@@ -34,7 +34,8 @@ class FI_Feedly_Get extends FI_Feedly {
 		//
 		$results           = wp_parse_args( $results, $default_args );
 		$results['topics'] = implode( ', ', $results['topics'] );
-		return array_map( 'esc_attr', $results );
+		$results           = array_map( 'esc_attr', $results );
+		return apply_filters( 'fi_feed_result', $results );
 	}
 
 	/**
@@ -67,7 +68,7 @@ class FI_Feedly_Get extends FI_Feedly {
 			$results[$count] = wp_parse_args( $r, $default_args );
 			$count ++;
 		}
-		return $results;
+		return apply_filters( 'fi_search_result', $results );
 	}
 
 	protected function curl_get_contents( $url, $timeout = 5, $decode = true ) {
