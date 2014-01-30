@@ -35,7 +35,10 @@ An answer to that question.
 
 == Changelog ==
 
-* Initial release
+This plugin might be Beta v0.5.0
+Under 0.5 are alpha testing ver.
+
+* Alpha release
 
 == Upgrade notice ==
 
