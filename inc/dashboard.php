@@ -138,6 +138,8 @@ function fi_show_dashboard() {
 
 
 function fi_dashboard_footer_js() {
+	// todo 特定の環境でビジュアルエディタのボタンが表示されないため無理矢理
+	if ( get_current_screen()->id != 'dashboard' ) return;
 
 	$db = FI_DB::init();
 
@@ -156,13 +158,17 @@ function fi_dashboard_footer_js() {
 
 			$.plot("#fi-history-placeholder", [ data ], {
 				grid  : {
-					borderWidth: 0,
-					borderColor: {
+					aboveData    : true,
+					borderWidth  : 0,
+					borderColor  : {
 						//top:
 						left : '#fff',
 						//bottom:
 						right: '#fff'
-					}
+					},
+					clickable    : true,
+					hoverable    : true,
+					autoHighlight: true
 				},
 				series: {
 					color : '#87c040',
