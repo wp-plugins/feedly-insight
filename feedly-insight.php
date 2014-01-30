@@ -75,14 +75,14 @@ class FI {
 	}
 
 	function _activate() {
-		$db = new FI_DB();
+		$db = FI_DB::init();
 		$db->activate();
 
 		new FI_History();
 	}
 
 	function _deactivate() {
-		$fi = new FI_History();
+		$fi = FI_History::init();
 		$fi->deactivate();
 	}
 

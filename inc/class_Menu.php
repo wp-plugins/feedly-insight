@@ -1,10 +1,18 @@
 <?php
 
-new FI_Menu();
+FI_Menu::init();
 
 class FI_Menu {
 
-	function __construct() {
+	static $instance;
+
+	public static function init() {
+		if ( ! self::$instance )
+			self::$instance = new FI_Menu;
+		return self::$instance;
+	}
+
+	private function __construct() {
 		add_action( 'admin_menu', array( $this, 'register_menu_page' ) );
 	}
 

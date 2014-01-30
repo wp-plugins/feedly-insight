@@ -2,7 +2,14 @@
 
 class FI_History {
 
+	static $instance;
 	private $cron_name = 'subscribers_save_event';
+
+	public static function init() {
+		if ( ! self::$instance )
+			self::$instance = new FI_History;
+		return self::$instance;
+	}
 
 	function __construct() {
 
@@ -14,7 +21,7 @@ class FI_History {
 	}
 
 	public function cron_exec() {
-		$db = new FI_DB();
+		$db = FI_DB::init();
 		$db->insert_site_history();
 	}
 

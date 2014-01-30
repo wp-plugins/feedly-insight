@@ -139,7 +139,7 @@ function fi_show_dashboard() {
 
 function fi_dashboard_footer_js() {
 
-	$db = new FI_DB();
+	$db = FI_DB::init();
 
 	$result_query = $db->get_subscribers_history();
 	$history      = array();

@@ -2,7 +2,14 @@
 
 class FI_DB {
 
+	static $instance;
 	var $history_table;
+
+	public static function init() {
+		if ( ! self::$instance )
+			self::$instance = new FI_DB;
+		return self::$instance;
+	}
 
 	function __construct() {
 		global $wpdb;

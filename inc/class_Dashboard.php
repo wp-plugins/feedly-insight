@@ -1,10 +1,18 @@
 <?php
 
-new FI_Dashboard_Widget();
+FI_Dashboard_Widget::init();
 
 class FI_Dashboard_Widget {
 
-	function __construct() {
+	static $instance;
+
+	public static function init() {
+		if ( ! self::$instance )
+			self::$instance = new FI_Dashboard_Widget;
+		return self::$instance;
+	}
+
+	private function __construct() {
 		add_action( 'wp_dashboard_setup', array( $this, 'add_dashboard_widgets' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );

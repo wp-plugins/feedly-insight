@@ -12,6 +12,7 @@ function fi_show_search_page() {
 			<img src="<?php echo FI_BTN_URL . 'feedly-follow-square-flat-green_2x.png'; ?>" alt="" width="28" height="28" />
 			<?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?>
 		</h2>
+
 		<div class="clear"></div>
 
 		<form method="get" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>">
