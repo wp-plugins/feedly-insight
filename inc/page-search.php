@@ -41,7 +41,7 @@ function fi_show_search_page() {
 		<p></p>
 
 		<?php if ( ! empty( $_GET['s'] ) )
-			fi_search_function( esc_attr( $_GET['s'] ), esc_attr( $_GET['c'] ) ); ?>
+			fi_search_function( esc_attr( $_GET['s'] ), esc_attr( intval( $_GET['c'] ) ) ); ?>
 
 	</div>
 
