@@ -93,7 +93,9 @@ function fi_search_css() {
 	<style>
 		.fi-fixed {
 			position: fixed;
+			left: 0;
 			top: 0;
+			width: 100%;
 			z-index: 99999;
 		}
 
@@ -118,15 +120,16 @@ function fi_search_css() {
 		}
 
 		@media only screen and (min-width: 480px) {
-			.fi-fixed {
-				box-shadow: 0 0 5px #000;
-				position: fixed;
-				top: 32px;
-				z-index: 99999;
-			}
-
 			.fi-info-panel dt {
 				width: 120px;
+			}
+		}
+
+		@media only screen and (min-width: 600px) {
+			.fi-fixed {
+				left: auto;
+				top: 32px;
+				width: auto;
 			}
 		}
 	</style>
@@ -141,10 +144,13 @@ function fi_search_footer_js() {
 		jQuery(function ($) {
 			var target = $("#fi-results");
 			var button = $("#fi-clear-results");
+			var input = $('#fi-search-input');
 			button.click(function () {
 				target.hide('slow', function () {
 					target.remove();
+					input.val('');
 				});
+				input.focus();
 			});
 
 			var top = button.offset().top;
