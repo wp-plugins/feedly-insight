@@ -39,7 +39,8 @@ function fi_show_dashboard() {
 			}
 
 			.fi-footer i, .fi-footer img {
-				vertical-align: middle;
+				display: inline-block;
+				vertical-align: top;
 			}
 
 			@media only screen and (min-width: 480px) {
@@ -126,8 +127,8 @@ function fi_show_dashboard() {
 				<i class="dashicons dashicons-googleplus" style="color: #dd4b39"></i>
 			</a>
 			<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>" target="_blank">
-				<img src="http://s3.feedly.com/img/follows/feedly-follow-logo-green_2x.png" alt="follow" width="20" height="20"
-					 class="button-selectable">
+				<img src="http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png" alt="follow"
+					 width="18" height="18" class="button-selectable">
 			</a>
 		</div>
 	</div>
