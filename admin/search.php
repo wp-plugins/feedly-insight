@@ -98,7 +98,7 @@ function fi_create_html_search_results( $args ) {
 
 
 function fi_add_admin_remove_button( $wp_admin_bar ) {
-	$icon  = '<img class="fi-icon" src="' . FI_IMG_URL . '/buttons/feedly-follow-logo-black_2x.png" />';
+	$icon  = '<img class="fi-icon" src="' . FI_IMG_URL . '/buttons/feedly-follow-circle-flat-white_2x.png" />';
 	$title = '<span id="fi-clear-results">' . $icon . __( 'Clear results', 'feedly_insight' ) . '</span>';
 	$wp_admin_bar->add_menu( array(
 		'id'    => 'fi-clear-results-button',
