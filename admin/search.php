@@ -18,19 +18,10 @@ function fi_search_function( $search_words, $number ) {
 
 	<div id="fi-results">
 		<h3 id='fi-block-title' class='activity-block'><?php echo $title; ?></h3>
-
-		<script type="text/javascript">
-			/* <![CDATA[ */
-			jQuery(function ($) {
-				$("#fi-clear-results").click(function () {
-					$("#fi-results").hide('slow', function () {
-						$("#fi-results").remove();
-						$("#wp-admin-bar-fi-clear-results-button").remove();
-					});
-				});
-			});
-			/* ]]> */
-		</script>
+		<button id="fi-clear-results" class="button">
+			<img class="fi-icon" width="16" height="16"
+				 src="<?php echo FI_IMG_URL; ?>/buttons/feedly-follow-logo-green_2x.png" />
+			<?php _e( 'Clear results', 'feedly_insight' ); ?></button>
 
 		<?php fi_create_html_search_results( $results ); ?>
 	</div>
@@ -97,24 +88,13 @@ function fi_create_html_search_results( $args ) {
 }
 
 
-function fi_add_admin_remove_button( $wp_admin_bar ) {
-	$icon  = '<img class="fi-icon" src="' . FI_IMG_URL . '/buttons/feedly-follow-circle-flat-white_2x.png" />';
-	$title = '<span id="fi-clear-results">' . $icon . __( 'Clear results', 'feedly_insight' ) . '</span>';
-	$wp_admin_bar->add_menu( array(
-		'id'    => 'fi-clear-results-button',
-		'meta'  => array( 'title' => __( 'Clear feedly search results when click this button.', 'feedly_insight' ) ),
-		'title' => $title,
-	) );
-}
-
 function fi_search_css() {
 	?>
 	<style>
-		#fi-clear-results img {
-			margin-right: 6px;
-			vertical-align: sub;
-			height: 20px !important;
-			width: 20px !important;
+		.fi-fixed {
+			position: fixed;
+			top: 0;
+			z-index: 99999;
 		}
 
 		.fi-img-ss {
@@ -138,6 +118,13 @@ function fi_search_css() {
 		}
 
 		@media only screen and (min-width: 480px) {
+			.fi-fixed {
+				box-shadow: 0 0 5px #000;
+				position: fixed;
+				top: 32px;
+				z-index: 99999;
+			}
+
 			.fi-info-panel dt {
 				width: 120px;
 			}
@@ -147,8 +134,37 @@ function fi_search_css() {
 }
 
 
+function fi_search_footer_js() {
+	?>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		jQuery(function ($) {
+			var target = $("#fi-results");
+			var button = $("#fi-clear-results");
+			button.click(function () {
+				target.hide('slow', function () {
+					target.remove();
+				});
+			});
+
+			var top = button.offset().top;
+			$(window).scroll(function (event) {
+				var y = $(this).scrollTop();
+				if (y >= top)
+					button.addClass('fi-fixed');
+				else
+					button.removeClass('fi-fixed');
+				//button.width(button.parent().width());
+			});
+		});
+		/* ]]> */
+	</script>
+<?php
+}
+
+
 if ( ! empty( $_GET['search-feedly'] ) ) {
 	add_action( 'admin_head', 'fi_search_css' );
-	add_action( 'admin_bar_menu', 'fi_add_admin_remove_button', 9999 );
+	add_action( 'admin_print_footer_scripts', 'fi_search_footer_js' );
 }
 
