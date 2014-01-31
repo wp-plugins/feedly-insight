@@ -37,6 +37,7 @@ define( 'FI_FILE', __FILE__ );
 define( 'FI_IMG_URL', FI_URL . 'images/' );
 define( 'FI_BTN_URL', FI_IMG_URL . 'buttons/' );
 define( 'FI_TEXT_DOMAIN', 'feedly_insight' );
+define( 'FI_DASHBOARD_WIDGET_SLUG', FI_TEXT_DOMAIN );
 define( 'FI_DB_VER', 1.0 );
 
 new FI();
