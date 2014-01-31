@@ -139,7 +139,7 @@ function fi_show_dashboard() {
 
 function fi_dashboard_footer_js() {
 	// todo 特定の環境でビジュアルエディタのボタンが表示されないため無理矢理
-	if ( get_current_screen()->id != 'dashboard' ) return;
+	if ( get_current_screen()->id != 'dashboard' || ! empty( $_GET ) ) return;
 
 	$db = FI_DB::init();
 
