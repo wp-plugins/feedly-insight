@@ -163,8 +163,26 @@ function fi_search_footer_js() {
 }
 
 
+/**
+ * remove all dashboard widget ( exclude feedly insight
+ */
+function fi_remove_all_dashboard_widgets() {
+	global $wp_meta_boxes;
+	unset( $wp_meta_boxes['dashboard']['side'] );
+	$core = & $wp_meta_boxes['dashboard']['normal']['core'];
+	foreach ( $core as $key => $value ) {
+		if ( $key != FI_DASHBOARD_WIDGET_SLUG ) unset( $core[$key] );
+	}
+}
+
+
+// Run below actions when search feedly.
 if ( ! empty( $_GET['search-feedly'] ) ) {
 	add_action( 'admin_head', 'fi_search_css' );
 	add_action( 'admin_print_footer_scripts', 'fi_search_footer_js' );
+	add_action( 'wp_dashboard_setup', 'fi_remove_all_dashboard_widgets' );
+
+	// remove welcome panel
+	remove_action( 'welcome_panel', 'wp_welcome_panel' );
 }
 
