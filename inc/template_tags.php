@@ -79,3 +79,58 @@ function fi_format_code_lang( $code = '' ) {
 	return strtr( $code, $lang_codes );
 }
 
+
+function fi_get_subscribers() {
+	// run below code when transient is old
+	if ( false === ( $subscribers = get_transient( 'feedly_subscribers' ) ) ) :
+		// encode RSS feed URL
+		$feed_url = rawurlencode( get_bloginfo( 'rss2_url' ) );
+		require_once( FI_DIR . '/admin/class_Feedly_Get.php' );
+		$feed = new FI_Feedly_Get();
+		$feed->set( $feed_url );
+		if ( $subscribers = $feed->feed() ):
+			$subscribers = $subscribers['subscribers'];
+			// set Transient subscribers every half a day.
+			set_transient( 'feedly_subscribers', (int) $subscribers, 60 * 60 * 6 );
+		endif;
+	endif;
+	return (int) $subscribers;
+}
+
+
+function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) {
+	if ( empty( $value ) )
+		$value = number_format_i18n( fi_get_subscribers() );
+	if ( empty( $feed_url ) )
+		$feed_url = 'feed/' . get_bloginfo( 'rss2_url' );
+	$url = 'http://cloud.feedly.com/#subscription%2F' . rawurlencode( $feed_url );
+
+	$title = esc_attr( apply_filters( 'fi_the_button_title', __( 'Syndicate this site using Feedly', 'feedly_insight' ) ) );
+	$class = 'fi-';
+	$img   = '<img class="%1$s" src="%2$s" alt="follow us in feedly" width="%3$d" height="%4$d">%5$s';
+
+	if ( $size === 'vertical' ):
+		$class .= $size;
+		$img = sprintf( $img,
+			'fi-img-feedly-follow',
+			'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png',
+			66, 20, null );
+	elseif ( $size === 'small' ):
+		$class .= 'horizontal';
+		$img = sprintf( $img,
+			'fi-img-feedly-follow fi-left',
+			'http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png',
+			20, 20, '<div style="clear: both;"></div>' );
+	else:
+		$class .= 'horizontal';
+		$img = sprintf( $img,
+			'fi-img-feedly-follow fi-left',
+			'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png',
+			66, 20, '<div style="clear: both;"></div>' );
+	endif;
+	$button = "<div class='{$class}'><div class='fi-arrow'><span class='fi-count'>{$value}</span></div>{$img}</div>";
+
+	$button = "<a class='fi-btn' href='{$url}' target='_blank' title='{$title}'>{$button}</a>";
+	echo apply_filters( 'fi_the_button', $button );
+}
+
