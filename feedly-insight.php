@@ -53,7 +53,7 @@ class FI {
 		$this->auto_load_admin();
 		load_plugin_textdomain( FI_TEXT_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		add_action( 'admin_init', array( $this, '_set_plugin_data' ) );
-		add_action( 'admin_head-index.php', array( $this, 'admin_css' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
 
 		register_activation_hook( __FILE__, array( $this, '_activate' ) );
 		register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
@@ -81,8 +81,11 @@ class FI {
 		self::$plugin_data = get_plugin_data( __FILE__ );
 	}
 
-	function admin_css() {
-		echo '<link rel="stylesheet" href="' . FI_URL . 'css/fi-admin.css" />';
+	function admin_css($hook) {
+		if( 'index.php' != $hook )
+			return;
+		wp_register_style( 'fi_admin_css', FI_URL . 'css/fi-admin.css', false, self::$plugin_data['Version'] );
+		wp_enqueue_style( 'fi_admin_css' );
 	}
 
 	function _activate() {
