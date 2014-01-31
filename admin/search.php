@@ -16,9 +16,21 @@ function fi_search_function( $search_words, $number ) {
 		return;
 	} ?>
 
-	<h3 id='fi-block-title' class='activity-block'><?php echo $title; ?></h3>
-
 	<div id="fi-results">
+		<h3 id='fi-block-title' class='activity-block'><?php echo $title; ?></h3>
+
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			jQuery(function ($) {
+				$("#fi-clear-results").click(function () {
+					$("#fi-results").hide('slow', function () {
+						$("#fi-results").remove();
+					});
+				});
+			});
+			/* ]]> */
+		</script>
+
 		<?php fi_create_html_search_results( $results ); ?>
 	</div>
 
@@ -110,4 +122,17 @@ function fi_create_html_search_results( $args ) {
 	}
 	return;
 }
+
+
+function fi_add_admin_remove_button( $wp_admin_bar ) {
+	$title = '<span id="fi-clear-results">' . __( 'Clear results', 'feedly_insight' ) . '</span>';
+	$wp_admin_bar->add_menu( array(
+		'id'    => 'fi-clear-results-button',
+		'meta'  => array( 'title' => __( 'Clear feedly search results when click this button.', 'feedly_insight' ) ),
+		'title' => $title,
+	) );
+}
+
+if ( ! empty( $_GET['search-feedly'] ) )
+	add_action( 'admin_bar_menu', 'fi_add_admin_remove_button', 9999 );
 
