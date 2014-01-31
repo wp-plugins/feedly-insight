@@ -25,6 +25,7 @@ function fi_search_function( $search_words, $number ) {
 				$("#fi-clear-results").click(function () {
 					$("#fi-results").hide('slow', function () {
 						$("#fi-results").remove();
+						$("#wp-admin-bar-fi-clear-results-button").remove();
 					});
 				});
 			});
