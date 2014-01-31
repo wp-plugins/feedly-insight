@@ -99,7 +99,7 @@ function fi_show_dashboard() {
 			<input class="regular-text" id="fi-search-input" type="text" value="<?php if ( ! empty( $_GET ) ) echo $_GET['search-feedly']; ?>"
 				   placeholder="<?php _e( 'Input URL, domain and any words.', 'feedly_insight' ); ?>"
 				   name="search-feedly" />
-			<input class="button" type="submit"
+			<input class="button button-primary" type="submit"
 				   value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
 		</form>
 		<p></p>
