@@ -26,7 +26,7 @@ class FI_Dashboard_Widget {
 	function add_dashboard_widgets() {
 		wp_add_dashboard_widget(
 			FI_DASHBOARD_WIDGET_SLUG, // Widget slug.
-			sprintf( __( 'Feedly information of %s', 'feedly_insight' ), esc_attr( get_bloginfo( 'name' ) ) ), // Title.
+			FI_NAME, // Title.
 			array( $this, 'dashboard_widget_function' ) // Display function.
 		);
 	}
