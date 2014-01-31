@@ -49,7 +49,7 @@ class FI {
 	 * constructor
 	 */
 	function __construct() {
-		if ( is_admin() ) $this->auto_load_admin();
+		$this->auto_load_admin();
 		load_plugin_textdomain( FI_TEXT_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		add_action( 'admin_init', array( $this, '_set_plugin_data' ) );
 
@@ -62,6 +62,11 @@ class FI {
 	 * auto load all php files in /inc
 	 */
 	function auto_load_admin() {
+		if ( is_admin() ):
+			foreach ( glob( dirname( __FILE__ ) . '/admin/*.php' ) as $path ) {
+				require_once $path;
+			}
+		endif;
 		foreach ( glob( dirname( __FILE__ ) . '/inc/*.php' ) as $path ) {
 			require_once $path;
 		}
