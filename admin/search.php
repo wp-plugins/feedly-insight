@@ -17,13 +17,13 @@ function fi_search_function( $search_words, $number ) {
 	} ?>
 
 	<div id="fi-results">
-		<h3 id='fi-block-title' class='activity-block clear'>
+		<h2 id='fi-block-title' class='activity-block clear'>
 			<?php echo $title; ?>
 			<button id="fi-clear-results" class="button alignright">
 				<img class="fi-icon" width="16" height="14"
 					 src="<?php echo FI_IMG_URL; ?>/buttons/feedly-follow-logo-green_2x.png" />
 				<?php _e( 'Clear results', 'feedly_insight' ); ?></button>
-		</h3>
+		</h2>
 		<?php fi_create_html_search_results( $results ); ?>
 	</div>
 
@@ -44,13 +44,15 @@ function fi_create_html_search_results( $args ) {
 
 				<h2>
 					<small><?php echo $counter . '. '; ?></small>
+					<?php if ( strstr( site_url(), $website ) ): ?>
+						<div class="dashicons dashicons-admin-home"></div>
+					<?php endif; ?>
 					<a href="<?php echo $website; ?>" target="_blank" title="<?php echo $description; ?>">
 						<?php echo wp_trim_words( $title, 30, '&hellip;' ); ?></a>
-
-					<?php if ( strstr( site_url(), $website ) ) echo '<i class="dashicons dashicons-yes"></i>'; ?>
 				</h2>
 
-				<div class="alignright"><?php fi_the_button( 'vertical', number_format_i18n( $subscribers ), $feedId ); ?></div>
+				<div class="alignright">
+					<?php fi_the_button( 'vertical', number_format_i18n( $subscribers ), $feedId ); ?></div>
 				<p><?php echo $description; ?></p>
 
 				<div class="clear"></div>
