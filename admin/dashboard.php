@@ -20,36 +20,6 @@ function fi_show_dashboard() {
 		extract( $results );
 		?>
 
-		<style>
-			.fi-history-placeholder {
-				width: 600px;
-				height: 300px;
-				max-width: 100%;
-			}
-
-			.fi-info-panel dt {
-				clear: both;
-				color: #777;
-				float: left;
-				width: 33%;
-			}
-
-			.fi-info-panel dd {
-				margin-left: 30%;
-			}
-
-			.fi-footer i, .fi-footer img {
-				display: inline-block;
-				vertical-align: top;
-			}
-
-			@media only screen and (min-width: 480px) {
-				.fi-info-panel dt {
-					width: 25%;
-				}
-			}
-		</style>
-
 		<div id="fi-history-placeholder" class="fi-history-placeholder"></div>
 
 		<dl class="activity-block fi-info-panel">
@@ -153,7 +123,7 @@ function fi_dashboard_footer_js() {
 
 	<script type="text/javascript">
 		/* <![CDATA[ */
-		jQuery.ajaxSetup({cache: true});
+		//jQuery.ajaxSetup({cache: true});
 		jQuery(function ($) {
 			var data = [<?php echo implode( ',' , $history ); ?>];
 

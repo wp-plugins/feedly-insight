@@ -95,53 +95,6 @@ function fi_create_html_search_results( $args ) {
 }
 
 
-function fi_search_css() {
-	?>
-	<style>
-		.fi-fixed {
-			position: fixed;
-			left: 0;
-			top: 0;
-			width: 100%;
-			z-index: 99999;
-		}
-
-		.fi-img-ss {
-			height: auto;
-			max-width: 100%;
-		}
-
-		.fi-info-panel dt {
-			clear: both;
-			color: #777;
-			float: left;
-			width: 120px;
-		}
-
-		.fi-info-panel dd {
-			margin-left: 130px;
-		}
-
-		.fi-footer i, .fi-footer img {
-			vertical-align: middle;
-		}
-
-		@media only screen and (min-width: 480px) {
-			.fi-info-panel dt {
-				width: 120px;
-			}
-		}
-
-		@media only screen and (min-width: 600px) {
-			.fi-fixed {
-				top: 32px;
-			}
-		}
-	</style>
-<?php
-}
-
-
 function fi_search_footer_js() {
 	?>
 	<script type="text/javascript">
@@ -175,7 +128,6 @@ function fi_search_footer_js() {
 
 
 if ( ! empty( $_GET['search-feedly'] ) ) {
-	add_action( 'admin_head', 'fi_search_css' );
 	add_action( 'admin_print_footer_scripts', 'fi_search_footer_js' );
 
 	// remove welcome panel

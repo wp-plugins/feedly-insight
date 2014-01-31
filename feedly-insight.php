@@ -82,7 +82,7 @@ class FI {
 	}
 
 	function admin_css() {
-		echo '<link rel="stylesheet" href="' . FI_URL . '/css/fi-buttons.css" />';
+		echo '<link rel="stylesheet" href="' . FI_URL . 'css/fi-admin.css" />';
 	}
 
 	function _activate() {
