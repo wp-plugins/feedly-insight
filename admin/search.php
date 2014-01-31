@@ -14,17 +14,15 @@ function fi_search_function( $search_words, $number ) {
 		echo $title;
 		echo '<p>' . __( 'No items.', 'feedly_insight' ) . '</p>';
 		return;
-	}
+	} ?>
 
-	$output = '';
-	$output .= "<h3 id='fi-block-title' class='activity-block'>{$title}</h3>";
+	<h3 id='fi-block-title' class='activity-block'><?php echo $title; ?></h3>
 
-	echo $output;
+	<div id="fi-results">
+		<?php fi_create_html_search_results( $results ); ?>
+	</div>
 
-	fi_create_html_search_results( $results );
-
-	echo $output;
-
+<?php
 }
 
 
@@ -37,6 +35,11 @@ function fi_create_html_search_results( $args ) {
 		?>
 
 		<style>
+			.fi-img-ss {
+				height: auto;
+				max-width: 100%;
+			}
+
 			.fi-info-panel dt {
 				clear: both;
 				color: #777;
@@ -67,18 +70,15 @@ function fi_create_html_search_results( $args ) {
 					<?php echo wp_trim_words( $title, 30, '&hellip;' ); ?></a>
 
 				<?php if ( strstr( site_url(), $website ) ) echo '<i class="dashicons dashicons-yes"></i>'; ?>
-
-				<a class="" href="http://cloud.feedly.com/#subscription%2F<?php echo urlencode( $feedId ); ?>"
-				   target="blank" title="<?php printf( __( 'Follow %s in feedly', 'feedly_insight' ), $title ); ?>">
-					<img src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png" alt="follow"
-						 width="61" height="20" class="button-selectable"></a>
 			</h2>
 
+			<div class="alignright"><?php fi_the_button( 'vertical', number_format_i18n( $subscribers ), $feedId ); ?></div>
 			<p><?php echo $description; ?></p>
 
 			<div class="clear"></div>
 
-			<?php echo fi_get_create_mshots_img( $website, 200, '' ); ?>
+			<?php echo fi_get_create_mshots_img( $website, 300, 'fi-img-ss' ); ?>
+			<div class="clear"></div>
 
 			<dl class="fi-info-panel">
 
@@ -87,10 +87,6 @@ function fi_create_html_search_results( $args ) {
 
 				<dt><i class="dashicons dashicons-update"></i> <?php _e( 'Velocity', 'feedly_insight' ); ?></dt>
 				<dd><?php echo $velocity; ?></dd>
-
-				<dt><i class="dashicons dashicons-groups"></i> <?php _e( 'Subscribers', 'feedly_insight' ); ?></dt>
-				<dd><?php printf( __( '%s <small>subscribers</small>', 'feedly_insight' ),
-						number_format_i18n( $subscribers ) ); ?></dd>
 
 				<dt><i class="dashicons dashicons-awards"></i> <?php _e( 'Score', 'feedly_insight' ); ?></dt>
 				<dd><?php echo number_format_i18n( $score ); ?></dd>
