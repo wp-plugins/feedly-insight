@@ -13,8 +13,8 @@ function fi_show_dashboard() {
 
 	$results = $feeds->feed();
 
-	if ( ! empty( $_GET['s'] ) ):
-		fi_search_function( esc_attr( $_GET['s'] ), esc_attr( $_GET['c'] ) );
+	if ( ! empty( $_GET['search-feedly'] ) ):
+		fi_search_function( esc_attr( $_GET['search-feedly'] ), esc_attr( $_GET['c'] ) );
 
 	elseif ( $results ):
 		extract( $results );
@@ -96,9 +96,9 @@ function fi_show_dashboard() {
 			?>
 
 			<label class="screen-reader-text" for="fi-search-input"><?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?></label>
-			<input class="regular-text" id="fi-search-input" type="text" value="<?php if ( ! empty( $_GET ) ) echo $_GET['s']; ?>"
+			<input class="regular-text" id="fi-search-input" type="text" value="<?php if ( ! empty( $_GET ) ) echo $_GET['search-feedly']; ?>"
 				   placeholder="<?php _e( 'Input URL, domain and any words.', 'feedly_insight' ); ?>"
-				   name="s" />
+				   name="search-feedly" />
 			<input class="button" type="submit"
 				   value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
 		</form>
