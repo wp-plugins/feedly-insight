@@ -118,7 +118,7 @@ function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) 
 	elseif ( $size === 'small' ):
 		$class .= 'horizontal';
 		$img = sprintf( $img,
-			'fi-img-feedly-follow fi-left',
+			'fi-img-feedly-follow fi-img-small fi-left',
 			'http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png',
 			20, 20, '<div style="clear: both;"></div>' );
 	else:
