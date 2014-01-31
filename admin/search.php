@@ -47,34 +47,6 @@ function fi_create_html_search_results( $args ) {
 		extract( $item );
 		?>
 
-		<style>
-			.fi-img-ss {
-				height: auto;
-				max-width: 100%;
-			}
-
-			.fi-info-panel dt {
-				clear: both;
-				color: #777;
-				float: left;
-				width: 120px;
-			}
-
-			.fi-info-panel dd {
-				margin-left: 130px;
-			}
-
-			.fi-footer i, .fi-footer img {
-				vertical-align: middle;
-			}
-
-			@media only screen and (min-width: 480px) {
-				.fi-info-panel dt {
-					width: 120px;
-				}
-			}
-		</style>
-
 		<div class="inside fi-item-<?php echo $counter; ?>">
 
 			<h2>
@@ -126,7 +98,8 @@ function fi_create_html_search_results( $args ) {
 
 
 function fi_add_admin_remove_button( $wp_admin_bar ) {
-	$title = '<span id="fi-clear-results">' . __( 'Clear results', 'feedly_insight' ) . '</span>';
+	$icon  = '<img class="fi-icon" src="' . FI_IMG_URL . '/buttons/feedly-follow-logo-black_2x.png" />';
+	$title = '<span id="fi-clear-results">' . $icon . __( 'Clear results', 'feedly_insight' ) . '</span>';
 	$wp_admin_bar->add_menu( array(
 		'id'    => 'fi-clear-results-button',
 		'meta'  => array( 'title' => __( 'Clear feedly search results when click this button.', 'feedly_insight' ) ),
@@ -134,6 +107,48 @@ function fi_add_admin_remove_button( $wp_admin_bar ) {
 	) );
 }
 
-if ( ! empty( $_GET['search-feedly'] ) )
+function fi_search_css() {
+	?>
+	<style>
+		#fi-clear-results img {
+			margin-right: 6px;
+			vertical-align: sub;
+			height: 20px !important;
+			width: 20px !important;
+		}
+
+		.fi-img-ss {
+			height: auto;
+			max-width: 100%;
+		}
+
+		.fi-info-panel dt {
+			clear: both;
+			color: #777;
+			float: left;
+			width: 120px;
+		}
+
+		.fi-info-panel dd {
+			margin-left: 130px;
+		}
+
+		.fi-footer i, .fi-footer img {
+			vertical-align: middle;
+		}
+
+		@media only screen and (min-width: 480px) {
+			.fi-info-panel dt {
+				width: 120px;
+			}
+		}
+	</style>
+<?php
+}
+
+
+if ( ! empty( $_GET['search-feedly'] ) ) {
+	add_action( 'admin_head', 'fi_search_css' );
 	add_action( 'admin_bar_menu', 'fi_add_admin_remove_button', 9999 );
+}
 
