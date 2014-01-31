@@ -58,6 +58,8 @@ class FI {
 		register_activation_hook( __FILE__, array( $this, '_activate' ) );
 		register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
 		//add_action( 'plugins_loaded', array('FI_DB', 'update_db_check') );
+
+		FI_History::init();
 	}
 
 	/**
@@ -91,8 +93,6 @@ class FI {
 	function _activate() {
 		$db = FI_DB::init();
 		$db->activate();
-
-		new FI_History();
 	}
 
 	function _deactivate() {
