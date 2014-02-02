@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Feedly Insite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
-"POT-Creation-Date: 2014-01-31 20:41+0900\n"
-"PO-Revision-Date: 2014-01-31 20:45+0900\n"
+"POT-Creation-Date: 2014-02-02 12:14+0900\n"
+"PO-Revision-Date: 2014-02-02 20:19+0900\n"
 "Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -17,11 +17,6 @@ msgstr ""
 "_x;_n:1,2;_n_noop:1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
-
-#: ../admin/class_Dashboard.php:29
-#, php-format
-msgid "Feedly information of %s"
-msgstr "%s の Feedly 情報"
 
 #: ../admin/class_Feedly_Get.php:25 ../admin/class_Feedly_Get.php:27
 #: ../admin/class_Feedly_Get.php:29 ../admin/class_Feedly_Get.php:30
@@ -37,45 +32,45 @@ msgstr "なし"
 msgid "Unknown"
 msgstr "不明"
 
-#: ../admin/dashboard.php:57
+#: ../admin/dashboard.php:27
 msgid "Subscribers"
 msgstr "購読者数"
 
-#: ../admin/dashboard.php:58
+#: ../admin/dashboard.php:28
 #, php-format
 msgid "%s <small>subscribers</small>"
 msgstr "%s <small>人</small>"
 
-#: ../admin/dashboard.php:62
+#: ../admin/dashboard.php:32
 msgid "Maybe post/a week."
 msgstr "おそらく 投稿/週？"
 
-#: ../admin/dashboard.php:63 ../admin/search.php:100
+#: ../admin/dashboard.php:33 ../admin/search.php:68
 msgid "Velocity"
 msgstr "更新頻度"
 
-#: ../admin/dashboard.php:67
+#: ../admin/dashboard.php:37
 msgid "Feedly sensed keywords."
 msgstr "Feedly が判断した重要なキーワード"
 
-#: ../admin/dashboard.php:68
+#: ../admin/dashboard.php:38
 msgid "Topics"
 msgstr "トピックス"
 
-#: ../admin/dashboard.php:81 ../admin/dashboard.php:98
+#: ../admin/dashboard.php:51 ../admin/dashboard.php:68
 #: ../test/page-search.php:13 ../test/page-search.php:35
 msgid "Search RSS by Feedly"
 msgstr "Feedly で RSS 情報を検索"
 
-#: ../admin/dashboard.php:84 ../test/page-search.php:20
+#: ../admin/dashboard.php:54 ../test/page-search.php:20
 msgid "How many search (default is 20)."
 msgstr "検索結果の取得件数 (デフォルト: 20件"
 
-#: ../admin/dashboard.php:100 ../test/page-search.php:39
+#: ../admin/dashboard.php:70 ../test/page-search.php:39
 msgid "Input URL, domain and any words."
 msgstr "URL、ドメイン名、その他単語で検索できます。"
 
-#: ../admin/dashboard.php:112
+#: ../admin/dashboard.php:82
 msgid "Version:"
 msgstr "バージョン:"
 
@@ -95,33 +90,29 @@ msgstr "&#8220;%s&#8221; の検索結果"
 msgid "No items."
 msgstr "項目はありません。"
 
-#: ../admin/search.php:97
-msgid "Last update"
-msgstr "最終更新"
-
-#: ../admin/search.php:103
-msgid "Score"
-msgstr "スコア"
-
-#: ../admin/search.php:106
-msgid "Languages"
-msgstr "言語"
-
-#: ../admin/search.php:109
-msgid "Estimated"
-msgstr "評価？"
-
-#: ../admin/search.php:112
-msgid "Tags"
-msgstr "タグ"
-
-#: ../admin/search.php:128
+#: ../admin/search.php:25
 msgid "Clear results"
 msgstr "検索結果をクリア"
 
-#: ../admin/search.php:131
-msgid "Clear feedly search results when click this button."
-msgstr "クリックすると Feedly 検索結果をクリアします。"
+#: ../admin/search.php:65
+msgid "Last update"
+msgstr "最終更新"
+
+#: ../admin/search.php:71
+msgid "Score"
+msgstr "スコア"
+
+#: ../admin/search.php:74
+msgid "Languages"
+msgstr "言語"
+
+#: ../admin/search.php:78
+msgid "Estimated"
+msgstr "評価？"
+
+#: ../admin/search.php:82
+msgid "Tags"
+msgstr "タグ"
 
 #: ../inc/template_tags.php:43
 msgid "M j, Y @ G:i"
@@ -136,8 +127,8 @@ msgstr "このサイトを Feedly で購読"
 msgid "Search"
 msgstr "検索:"
 
-#~ msgid "Follow %s in feedly"
-#~ msgstr "%s を Feedly でフォローする"
+#~ msgid "Feedly information of %s"
+#~ msgstr "%s の Feedly 情報"
 
 #~ msgid "Site name"
 #~ msgstr "サイト名"
@@ -149,6 +140,9 @@ msgstr "検索:"
 #~ msgctxt "submit button"
 #~ msgid "Search"
 #~ msgstr "検索:"
+
+#~ msgid "Follow %s in feedly"
+#~ msgstr "%s を Feedly でフォローする"
 
 #~ msgid "Feedly Insight"
 #~ msgstr "Feedly Insight"
@@ -163,8 +157,15 @@ msgstr "検索:"
 #~ "ダッシュボードに Feedly ウィジェットを追加し、サイトの情報や検索が可能に。"
 
 #, fuzzy
+#~ msgid "hayashikejinan"
+#~ msgstr "http://ma.tt/"
+
+#, fuzzy
 #~ msgid "http://hayashikejinan.com/"
 #~ msgstr "http://ma.tt/"
+
+#~ msgid "Clear feedly search results when click this button."
+#~ msgstr "クリックすると Feedly 検索結果をクリアします。"
 
 #~ msgid "Feedly contents on this site"
 #~ msgstr "このサイトの Feedly 情報"
