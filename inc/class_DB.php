@@ -60,6 +60,7 @@ class FI_DB {
 	}
 
 	function insert_site_history() {
+		require_once( FI_DIR . 'admin/class_Feedly_Get.php' );
 		$feeds = new FI_Feedly_Get();
 		$feeds->set( get_bloginfo( 'rss2_url' ) );
 		$results = $feeds->feed();
