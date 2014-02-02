@@ -88,13 +88,13 @@ function fi_show_dashboard() {
 				<i class="dashicons dashicons-admin-site"></i>
 			</a>
 			<a href="https://twitter.com/hayashikejinan" target="_blank" title="Twitter">
-				<i class="dashicons dashicons-twitter" style="color: #00aced"></i>
+				<i class="dashicons dashicons-twitter"></i>
 			</a>
 			<a href="https://www.facebook.com/pages/HayashikeJinan/471796902840013" target="_blank" title="Facebook page">
-				<i class="dashicons dashicons-facebook" style="color: #3b5998"></i>
+				<i class="dashicons dashicons-facebook""></i>
 			</a>
 			<a href="https://plus.google.com/u/0/+hayashikejinantatsuo" target="_blank" title="Google+">
-				<i class="dashicons dashicons-googleplus" style="color: #dd4b39"></i>
+				<i class="dashicons dashicons-googleplus"></i>
 			</a>
 			<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>"
 			   target="_blank" title="follow on Feedly">
@@ -102,6 +102,8 @@ function fi_show_dashboard() {
 					 width="18" height="18" class="button-selectable">
 			</a>
 		</div>
+		<div class="clear"></div>
+
 	</div>
 
 <?php
