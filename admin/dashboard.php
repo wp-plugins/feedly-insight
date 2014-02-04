@@ -126,10 +126,17 @@ function fi_dashboard_footer_js() {
 
 	<script type="text/javascript">
 		// <![CDATA[
-		(function($){
+		(function ($) {
+			var label = '<?php _e('Subscribers', 'feedly_insight'); ?>';
 			var data = [<?php echo implode( ',' , $history ); ?>];
+			var target = '#fi-history-placeholder';
 
-			$.plot("#fi-history-placeholder", [ data ], {
+			$.plot(target, [
+				{
+					data : data,
+					label: label
+				}
+			], {
 				grid  : {
 					aboveData    : true,
 					borderWidth  : 0,
@@ -156,6 +163,38 @@ function fi_dashboard_footer_js() {
 					min: 0
 				}
 			});
+
+			$("<div id='tooltip'></div>").css({
+				position          : "absolute",
+				display           : "none",
+				border            : "1px solid #fdd",
+				padding           : "2px",
+				"background-color": "#eee",
+				opacity           : 0.80
+			}).appendTo("body");
+
+			$(target).bind("plothover", function (event, pos, item) {
+
+				if ($("#enablePosition:checked").length > 0) {
+					var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
+					$("#hoverdata").text(str);
+				}
+
+				if ($(target).length > 0) {
+					if (item) {
+						var x = item.datapoint[0],
+							y = item.datapoint[1];
+						var time = $.plot.formatDate(new Date(x), "%Y/%m/%d");
+
+						$("#tooltip").html(time + " " + item.series.label + ": " + y)
+							.css({top: item.pageY + 5, left: item.pageX + 5})
+							.fadeIn(200);
+					} else {
+						$("#tooltip").hide();
+					}
+				}
+			});
+
 		})(jQuery);
 		// ]]>
 	</script>
