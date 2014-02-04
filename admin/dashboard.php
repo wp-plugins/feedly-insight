@@ -125,9 +125,8 @@ function fi_dashboard_footer_js() {
 	?>
 
 	<script type="text/javascript">
-		/* <![CDATA[ */
-		//jQuery.ajaxSetup({cache: true});
-		jQuery(function ($) {
+		// <![CDATA[
+		(function($){
 			var data = [<?php echo implode( ',' , $history ); ?>];
 
 			$.plot("#fi-history-placeholder", [ data ], {
@@ -157,8 +156,8 @@ function fi_dashboard_footer_js() {
 					min: 0
 				}
 			});
-		});
-		/* ]]> */
+		})(jQuery);
+		// ]]>
 	</script>
 
 <?php

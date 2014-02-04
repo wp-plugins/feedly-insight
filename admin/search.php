@@ -98,8 +98,8 @@ function fi_create_html_search_results( $args ) {
 function fi_search_footer_js() {
 	?>
 	<script type="text/javascript">
-		/* <![CDATA[ */
-		jQuery(function ($) {
+		// <![CDATA[
+		(function($){
 			var target = $("#fi-results");
 			var button = $("#fi-clear-results");
 			var input = $('#fi-search-input');
@@ -109,6 +109,8 @@ function fi_search_footer_js() {
 					input.val('');
 				});
 				input.focus();
+				var position = $('#feedly_insight').offset().top;
+				$('html,body').animate({ scrollTop: position }, 'slow', 'swing');
 			});
 
 			var top = button.offset().top;
@@ -120,8 +122,8 @@ function fi_search_footer_js() {
 					button.removeClass('fi-fixed');
 				//button.width(button.parent().width());
 			});
-		});
-		/* ]]> */
+		})(jQuery);
+		// ]]>
 	</script>
 <?php
 }
