@@ -107,26 +107,26 @@ function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) 
 
 	$title = esc_attr( apply_filters( 'fi_the_button_title', __( 'Syndicate this site using Feedly', 'feedly_insight' ) ) );
 	$class = 'fi-';
-	$img   = '<img class="%1$s" src="%2$s" alt="follow us in feedly" width="%3$d" height="%4$d">%5$s';
+	$img   = '<img class="%1$s" src="%2$s" alt="follow us in feedly" width="%3$d" height="%4$d">';
 
 	if ( $size === 'vertical' ):
 		$class .= $size;
 		$img = sprintf( $img,
 			'fi-img-feedly-follow',
 			'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png',
-			66, 20, null );
+			66, 20 );
 	elseif ( $size === 'small' ):
 		$class .= 'horizontal';
 		$img = sprintf( $img,
 			'fi-img-feedly-follow fi-img-small fi-left',
 			'http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png',
-			20, 20, '<div style="clear: both;"></div>' );
+			20, 20 );
 	else:
 		$class .= 'horizontal';
 		$img = sprintf( $img,
 			'fi-img-feedly-follow fi-left',
 			'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png',
-			66, 20, '<div style="clear: both;"></div>' );
+			66, 20 );
 	endif;
 	$button = "<div class='{$class}'><div class='fi-arrow'><span class='fi-count'>{$value}</span></div>{$img}</div>";
 
