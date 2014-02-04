@@ -12,9 +12,17 @@ Add Feedly dashboard widget. Shows your site info, search website & feeds.
 
 == Description ==
 
-Add Feedly dashboard widget. Shows your site info, search website & feeds.
+Add Feedly dashboard widget.
+
+Features include:
+
+* Show your site info in dashboard widget.
+* Search Feedly any website.
+* Record subscribers & show in dashboard widget.
+
 
 This plugin use these external API
+
 * Feedly Cloud API: http://developer.feedly.com/
 * WordPress mshot API: http://s0.wordpress.com/mshots/v1/
 
@@ -35,8 +43,11 @@ An answer to that question.
 
 == Changelog ==
 
-This plugin might be Beta v0.5.0
-Under 0.5 are alpha testing ver.
+= 0.5.0 =
+
+* Beta release
+
+= 0.1.0 =
 
 * Alpha release
 
