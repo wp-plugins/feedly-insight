@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 FI_Dashboard_Widget::init();
 
 class FI_Dashboard_Widget {

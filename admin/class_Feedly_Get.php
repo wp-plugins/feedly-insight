@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 require_once trailingslashit( dirname( __FILE__ ) ) . 'class_Feedly.php';
 
 class FI_Feedly_Get extends FI_Feedly {

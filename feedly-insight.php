@@ -30,6 +30,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 define( 'FI_NAME', 'Feedly Insight' );
 define( 'FI_DIR', plugin_dir_path( __FILE__ ) );
 define( 'FI_URL', plugin_dir_url( __FILE__ ) );

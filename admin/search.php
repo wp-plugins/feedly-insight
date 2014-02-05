@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 function fi_search_function( $search_words, $number ) {
 
 	$feeds = new FI_Feedly_Get();

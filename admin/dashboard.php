@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // show dashboard widget
 add_action( 'fi_dashboard', 'fi_show_dashboard' );
 add_action( 'admin_print_footer_scripts', 'fi_dashboard_footer_js' );
