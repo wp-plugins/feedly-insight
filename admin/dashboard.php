@@ -169,7 +169,7 @@ function fi_dashboard_footer_js() {
 				}
 			});
 
-			$("<div id='tooltip'></div>").css({
+			$("<div id='fi-tooltip'></div>").css({
 				position          : "absolute",
 				display           : "none",
 				border            : "1px solid #fdd",
@@ -191,11 +191,11 @@ function fi_dashboard_footer_js() {
 							y = item.datapoint[1];
 						var time = $.plot.formatDate(new Date(x), "%Y/%m/%d");
 
-						$("#tooltip").html(time + " " + item.series.label + ": " + y)
+						$("#fi-tooltip").html(time + " " + item.series.label + ": " + y)
 							.css({top: item.pageY + 5, left: item.pageX + 5})
 							.fadeIn(200);
 					} else {
-						$("#tooltip").hide();
+						$("#fi-tooltip").hide();
 					}
 				}
 			});
