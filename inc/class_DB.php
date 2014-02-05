@@ -43,9 +43,6 @@ class FI_DB {
 			$EZSQL_ERROR = array();
 
 			update_option( 'feedly_insight_db_ver', FI_DB_VER );
-
-			// first time saving
-			$this->insert_site_history();
 		}
 	}
 
