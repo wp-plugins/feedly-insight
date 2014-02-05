@@ -43,6 +43,11 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.5.1 =
+
+* Fix bugs
+* Prevent direct access php files
+
 = 0.5.0 =
 
 * Beta release
