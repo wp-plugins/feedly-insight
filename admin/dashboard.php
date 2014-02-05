@@ -47,7 +47,8 @@ function fi_show_dashboard() {
 	?>
 
 	<div class="activity-block">
-		<h4><div class="dashicons dashicons-rss"></div>
+		<h4>
+			<div class="dashicons dashicons-rss"></div>
 			<?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?></h4>
 
 		<form method="get">
@@ -84,7 +85,7 @@ function fi_show_dashboard() {
 
 		<div class="alignright">
 			<i class="dashicons dashicons-admin-users"></i>Author:
-			<a href="<?php echo $AuthorURI; ?>" target="_blank" title="Blog">
+			<a href="<?php echo $AuthorURI . '?page_id=827'; ?>" target="_blank" title="Blog">
 				<i class="dashicons dashicons-admin-site"></i>
 			</a>
 			<a href="https://twitter.com/hayashikejinan" target="_blank" title="Twitter">
@@ -161,6 +162,10 @@ function fi_dashboard_footer_js() {
 				},
 				yaxis : {
 					min: 0
+				},
+				legend: {
+					position: "se",
+					show    : true
 				}
 			});
 
