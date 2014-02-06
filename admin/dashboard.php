@@ -165,7 +165,7 @@ function fi_dashboard_footer_js() {
 					timeformat: "%m/%d"
 				},
 				yaxis : {
-					min: 0
+					//min: 0
 				},
 				legend: {
 					position: "se",
