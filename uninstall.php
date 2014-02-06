@@ -10,5 +10,6 @@ if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	require_once( dirname( __FILE__ ) . '/inc/class_DB.php' );
 	$db = FI_DB::init();
 	$db->plugin_uninstall();
+	delete_option( 'feedly_insight_db_ver' );
 }
 
