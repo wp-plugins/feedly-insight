@@ -43,6 +43,10 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.5.2 =
+
+* Disable default min value in graph yaxis (It might be better view
+
 = 0.5.1 =
 
 * Fix bugs
