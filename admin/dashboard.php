@@ -96,7 +96,7 @@ function fi_show_dashboard() {
 				<i class="dashicons dashicons-twitter"></i>
 			</a>
 			<a href="https://www.facebook.com/pages/HayashikeJinan/471796902840013" target="_blank" title="Facebook page">
-				<i class="dashicons dashicons-facebook""></i>
+				<i class="dashicons dashicons-facebook"></i>
 			</a>
 			<a href="https://plus.google.com/u/0/+hayashikejinantatsuo" target="_blank" title="Google+">
 				<i class="dashicons dashicons-googleplus"></i>
