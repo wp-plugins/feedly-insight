@@ -133,7 +133,7 @@ function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) 
 	endif;
 	$button = "<div class='{$class}'><div class='fi-arrow'><span class='fi-count'>{$value}</span></div>{$img}</div>";
 
-	$button = "<a class='fi-btn' href='{$url}' target='_blank' title='{$title}'>{$button}</a>";
+	$button = "<a class='fi-btn' href='{$url}' target='_blank' title='{$title}'>{$button}</a>\n";
 	echo apply_filters( 'fi_the_button', $button );
 }
 

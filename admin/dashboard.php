@@ -26,24 +26,49 @@ function fi_show_dashboard() {
 
 		<div id="fi-history-placeholder" class="fi-history-placeholder"></div>
 
-		<dl class="activity-block fi-info-panel">
+		<div class="activity-block">
 
-			<dt><i class="dashicons dashicons-groups"></i> <?php _e( 'Subscribers', 'feedly_insight' ) ?></dt>
-			<dd><?php printf( __( '%s <small>subscribers</small>', 'feedly_insight' ),
-					number_format_i18n( $subscribers ) ); ?></dd>
+			<?php
+			$url = 'https://twitter.com/share?';
+			$url = $url . http_build_query( array(
+					'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . get_bloginfo( 'rss2_url' ),
+					'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
+						date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
+						$website,
+						number_format_i18n( $subscribers ),
+						'' // todo オプションで文字入れれるようにする？
+					),
+					'hashtags' => FI_TEXT_DOMAIN,
+				) );
+			?>
 
-			<dt><i class="dashicons dashicons-update"></i>
-				<abbr title="<?php _e( 'Maybe post/a week.', 'feedly_insight' ); ?>">
-					<?php _e( 'Velocity', 'feedly_insight' ) ?></abbr></dt>
-			<dd><?php echo $velocity; ?></dd>
+			<dl class="fi-info-panel">
 
-			<dt><i class="dashicons dashicons-tag"></i>
-				<abbr title="<?php _e( 'Feedly sensed keywords.', 'feedly_insight' ); ?>">
-					<?php _e( 'Topics', 'feedly_insight' ) ?></abbr></dt>
-			<dd><?php echo $topics; ?></dd>
+				<dt><i class="dashicons dashicons-groups"></i> <?php _e( 'Subscribers', 'feedly_insight' ) ?></dt>
+				<dd>
+					<span id="fi-tweet-button">
+						<a class="dashicons dashicons-twitter" href="<?php echo $url; ?>" target="_blank"
+						   title="<?php _e( 'Tweet my Feedly', 'feedly_insight' ); ?>">
+						</a>
+					</span>
+					<?php printf( __( '%s <small>subscribers</small>', 'feedly_insight' ),
+						number_format_i18n( $subscribers ) ); ?>
+				</dd>
 
-		</dl>
-		<div class="clear"></div>
+				<dt><i class="dashicons dashicons-update"></i>
+					<abbr title="<?php _e( 'Maybe post/a week.', 'feedly_insight' ); ?>">
+						<?php _e( 'Velocity', 'feedly_insight' ) ?></abbr></dt>
+				<dd><?php echo $velocity; ?></dd>
+
+				<dt><i class="dashicons dashicons-tag"></i>
+					<abbr title="<?php _e( 'Feedly sensed keywords.', 'feedly_insight' ); ?>">
+						<?php _e( 'Topics', 'feedly_insight' ) ?></abbr></dt>
+				<dd><?php echo $topics; ?></dd>
+
+			</dl>
+			<div class="clear"></div>
+
+		</div>
 
 	<?php
 	else:
@@ -77,7 +102,6 @@ function fi_show_dashboard() {
 			<input class="button button-primary" type="submit"
 				   value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
 		</form>
-		<p></p>
 	</div>
 
 	<div class="activity-block fi-footer">
@@ -189,7 +213,7 @@ function fi_dashboard_footer_js() {
 				},
 				yaxis : {
 					//min: 0
-					minTickSize: 1,
+					minTickSize : 1,
 					tickDecimals: 0
 				},
 				legend: {
