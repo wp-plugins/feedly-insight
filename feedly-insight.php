@@ -90,8 +90,8 @@ class FI {
 	function admin_css($hook) {
 		if( 'index.php' != $hook )
 			return;
-		wp_register_style( 'fi_admin_css', FI_URL . 'css/fi-admin.css', false, self::$plugin_data['Version'] );
-		wp_enqueue_style( 'fi_admin_css' );
+		wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, self::$plugin_data['Version'] );
+		wp_enqueue_style( 'fi_admin' );
 	}
 
 	function _activate() {
