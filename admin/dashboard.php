@@ -189,6 +189,8 @@ function fi_dashboard_footer_js() {
 				},
 				yaxis : {
 					//min: 0
+					minTickSize: 1,
+					tickDecimals: 0
 				},
 				legend: {
 					position: "se",
