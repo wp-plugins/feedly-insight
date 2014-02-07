@@ -136,6 +136,29 @@ function fi_dashboard_footer_js() {
 			var data = [<?php echo implode( ',' , $history ); ?>];
 			var target = '#fi-history-placeholder';
 
+			// helper for returning the weekends in a period
+
+			function weekendAreas(axes) {
+
+				var markings = [],
+					d = new Date(axes.xaxis.min);
+				// go to the first Saturday
+				d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 1) % 7))
+				d.setUTCSeconds(0);
+				d.setUTCMinutes(0);
+				d.setUTCHours(0);
+
+				var i = d.getTime();
+
+				// when we don't set yaxis, the rectangle automatically
+				// extends to infinity upwards and downwards
+				do {
+					markings.push({ xaxis: { from: i, to: i + 2 * 24 * 60 * 60 * 1000 } });
+					i += 7 * 24 * 60 * 60 * 1000;
+				} while (i < axes.xaxis.max);
+				return markings;
+			}
+
 			$.plot(target, [
 				{
 					data : data,
@@ -143,7 +166,6 @@ function fi_dashboard_footer_js() {
 				}
 			], {
 				grid  : {
-					aboveData    : true,
 					borderWidth  : 0,
 					borderColor  : {
 						//top:
@@ -153,7 +175,8 @@ function fi_dashboard_footer_js() {
 					},
 					clickable    : true,
 					hoverable    : true,
-					autoHighlight: true
+					autoHighlight: true,
+					markings     : weekendAreas
 				},
 				series: {
 					color : '#87c040',
