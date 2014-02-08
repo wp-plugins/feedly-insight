@@ -20,6 +20,11 @@ Features include:
 * Search Feedly any website.
 * Record subscribers & show in dashboard widget.
 
+Shortcode:
+
+You can use the shortcodes to display Feedly follow button.
+
+[fi_button] or [fi_button size="vertical"] or [fi_button size="small"]
 
 This plugin use these external API
 
@@ -42,6 +47,11 @@ An answer to that question.
 1. 
 
 == Changelog ==
+
+= 0.6.0 =
+
+* add Feedly button shortcode & template tag
+* add plugin option sub menu
 
 = 0.5.3 =
 
