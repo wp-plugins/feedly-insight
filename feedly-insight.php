@@ -106,14 +106,14 @@ class FI {
 	}
 
 	function _activate() {
-		$db = FI_DB::init();
-		$db->activate();
 		if ( ! get_option( FI_OPTION_NAME ) ):
 			add_option( FI_OPTION_NAME, array(
 				'css_enqueue' => 1,
 				'feed_url'    => get_bloginfo( 'rss2_url' ),
 			) );
 		endif;
+		$db = FI_DB::init();
+		$db->activate();
 	}
 
 	function _deactivate() {
