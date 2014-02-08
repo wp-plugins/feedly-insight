@@ -31,16 +31,8 @@ class FI_Dashboard_Widget {
 		wp_add_dashboard_widget(
 			FI_DASHBOARD_WIDGET_SLUG, // Widget slug.
 			FI_NAME, // Title.
-			array( $this, 'dashboard_widget_function' ) // Display function.
+			'fi_show_dashboard' // Display function.
 		);
-	}
-
-	/**
-	 * Create the function to output the contents of our Dashboard Widget.
-	 */
-	function dashboard_widget_function() {
-		// Display whatever it is you want to show.
-		do_action( 'fi_dashboard' );
 	}
 
 	function enqueue( $hook ) {
