@@ -48,6 +48,10 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.6.1 =
+
+* fix bug
+
 = 0.6.0 =
 
 * add Feedly button shortcode & template tag
