@@ -11,13 +11,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * [fi_button size="small"]
  *
  * @param $atts
+ *
+ * @return mixed|void
  */
 function fi_shortcode_button( $atts ) {
 	extract( shortcode_atts( array(
 		'size' => 'horizontal',
 	), $atts ) );
 
-	fi_the_button( $size );
+	return fi_get_button( $size );
 }
 
 add_shortcode( 'fi_button', 'fi_shortcode_button' );

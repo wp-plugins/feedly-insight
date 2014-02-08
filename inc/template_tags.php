@@ -101,9 +101,12 @@ function fi_get_subscribers() {
 }
 
 
-function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) {
+function fi_get_button( $size = 'horizontal', $value = null, $feed_url = null ) {
 	if ( empty( $value ) )
 		$value = number_format_i18n( fi_get_subscribers() );
+	else
+		esc_attr( $value );
+
 	if ( empty( $feed_url ) )
 		$feed_url = 'feed/' . FI::$option['feed_url'];
 	$url = 'http://cloud.feedly.com/#subscription%2F' . rawurlencode( $feed_url );
@@ -131,9 +134,14 @@ function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) 
 			'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png',
 			66, 20 );
 	endif;
-	$button = "<div class='{$class}'><div class='fi-arrow'><span class='fi-count'>{$value}</span></div>{$img}</div>";
+	$button = "<div class='fi-arrow'><span class='fi-count'>{$value}</span></div>{$img}";
 
-	$button = "<a class='fi-btn' href='{$url}' target='_blank' title='{$title}'>{$button}</a>\n";
-	echo apply_filters( 'fi_the_button', $button );
+	$button = "<div class='{$class}'><a class='fi-btn' href='{$url}' target='_blank' title='{$title}'>{$button}</a></div>\n";
+	return apply_filters( 'fi_the_button', $button );
+}
+
+
+function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) {
+	echo( fi_get_button( $size, $value, $feed_url ) );
 }
 
