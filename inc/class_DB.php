@@ -103,9 +103,9 @@ class FI_DB {
 	}
 
 
-	function plugin_uninstall () {
+	function plugin_uninstall() {
 		global $wpdb;
-		$wpdb->query("DROP TABLE IF EXISTS $this->history_table");
+		$wpdb->query( "DROP TABLE IF EXISTS $this->history_table" );
 	}
 
 

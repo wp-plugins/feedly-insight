@@ -103,7 +103,7 @@ function fi_search_footer_js() {
 	?>
 	<script type="text/javascript">
 		// <![CDATA[
-		(function($){
+		(function ($) {
 			var target = $("#fi-results");
 			var button = $("#fi-clear-results");
 			var input = $('#fi-search-input');
