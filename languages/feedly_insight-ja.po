@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Feedly Insite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
-"POT-Creation-Date: 2014-02-02 12:14+0900\n"
-"PO-Revision-Date: 2014-02-02 20:19+0900\n"
+"POT-Creation-Date: 2014-02-08 02:38+0900\n"
+"PO-Revision-Date: 2014-02-08 02:38+0900\n"
 "Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -18,114 +18,161 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../admin/class_Feedly_Get.php:25 ../admin/class_Feedly_Get.php:27
-#: ../admin/class_Feedly_Get.php:29 ../admin/class_Feedly_Get.php:30
-#: ../admin/class_Feedly_Get.php:53 ../admin/class_Feedly_Get.php:54
-#: ../admin/class_Feedly_Get.php:55 ../admin/class_Feedly_Get.php:56
-#: ../admin/class_Feedly_Get.php:58 ../admin/class_Feedly_Get.php:59
-#: ../admin/class_Feedly_Get.php:60 ../admin/class_Feedly_Get.php:61
-#: ../inc/template_tags.php:42
+#: ../admin/class_Feedly_Get.php:29 ../admin/class_Feedly_Get.php:31
+#: ../admin/class_Feedly_Get.php:33 ../admin/class_Feedly_Get.php:34
+#: ../admin/class_Feedly_Get.php:57 ../admin/class_Feedly_Get.php:58
+#: ../admin/class_Feedly_Get.php:59 ../admin/class_Feedly_Get.php:60
+#: ../admin/class_Feedly_Get.php:62 ../admin/class_Feedly_Get.php:63
+#: ../admin/class_Feedly_Get.php:64 ../admin/class_Feedly_Get.php:65
+#: ../inc/template_tags.php:45
 msgid "none"
 msgstr "なし"
 
-#: ../admin/class_Feedly_Get.php:31 ../admin/class_Feedly_Get.php:62
+#: ../admin/class_Feedly_Get.php:35 ../admin/class_Feedly_Get.php:66
 msgid "Unknown"
 msgstr "不明"
 
-#: ../admin/dashboard.php:27
+#: ../admin/class_Menu.php:27 ../admin/class_Menu.php:28
+#: ../admin/page-settings.php:13 ../test/class_Menu.php:22
+#: ../test/class_Menu.php:23 ../test/page-settings.php:10
+msgid "Settings"
+msgstr "設定"
+
+#: ../admin/dashboard.php:33 ../test/dashboard.php:35
+#, php-format
+msgid "%1$s %2$s, Feedly subscribers are %3$d !! %4$s"
+msgstr "%1$s %2$s、Feedly 購読者数は %3$d 人です。%4$s"
+
+#: ../admin/dashboard.php:34 ../test/dashboard.php:36
+msgid "F j, Y"
+msgstr "Y年n月j日"
+
+#: ../admin/dashboard.php:45 ../admin/dashboard.php:157
+#: ../test/dashboard.php:47 ../test/dashboard.php:159
 msgid "Subscribers"
 msgstr "購読者数"
 
-#: ../admin/dashboard.php:28
+#: ../admin/dashboard.php:49 ../test/dashboard.php:51
+msgid "Tweet my Feedly"
+msgstr "Feedly 情報をつぶやく"
+
+#: ../admin/dashboard.php:52 ../test/dashboard.php:54
 #, php-format
 msgid "%s <small>subscribers</small>"
 msgstr "%s <small>人</small>"
 
-#: ../admin/dashboard.php:32
+#: ../admin/dashboard.php:57 ../test/dashboard.php:59
 msgid "Maybe post/a week."
 msgstr "おそらく 投稿/週？"
 
-#: ../admin/dashboard.php:33 ../admin/search.php:68
+#: ../admin/dashboard.php:58 ../admin/search.php:72 ../test/dashboard.php:60
+#: ../test/search.php:72
 msgid "Velocity"
 msgstr "更新頻度"
 
-#: ../admin/dashboard.php:37
+#: ../admin/dashboard.php:62 ../test/dashboard.php:64
 msgid "Feedly sensed keywords."
 msgstr "Feedly が判断した重要なキーワード"
 
-#: ../admin/dashboard.php:38
+#: ../admin/dashboard.php:63 ../test/dashboard.php:65
 msgid "Topics"
 msgstr "トピックス"
 
-#: ../admin/dashboard.php:51 ../admin/dashboard.php:68
+#: ../admin/dashboard.php:79 ../admin/dashboard.php:96
+#: ../test/dashboard.php:81 ../test/dashboard.php:98
 #: ../test/page-search.php:13 ../test/page-search.php:35
 msgid "Search RSS by Feedly"
 msgstr "Feedly で RSS 情報を検索"
 
-#: ../admin/dashboard.php:54 ../test/page-search.php:20
+#: ../admin/dashboard.php:82 ../test/dashboard.php:84
+#: ../test/page-search.php:20
 msgid "How many search (default is 20)."
 msgstr "検索結果の取得件数 (デフォルト: 20件"
 
-#: ../admin/dashboard.php:70 ../test/page-search.php:39
+#: ../admin/dashboard.php:98 ../test/dashboard.php:100
+#: ../test/page-search.php:39
 msgid "Input URL, domain and any words."
 msgstr "URL、ドメイン名、その他単語で検索できます。"
 
-#: ../admin/dashboard.php:82
+#: ../admin/dashboard.php:109 ../test/dashboard.php:111
 msgid "Version:"
 msgstr "バージョン:"
 
-#: ../admin/search.php:9
+#: ../admin/page-settings.php:25
+msgid "CSS"
+msgstr "CSS"
+
+#: ../admin/page-settings.php:30
+msgid "Output css for Feedly button."
+msgstr "Feedly ボタン用の css を出力する"
+
+#: ../admin/page-settings.php:35
+msgid "Feed URL"
+msgstr "RSS フィードの URL"
+
+#: ../admin/page-settings.php:41
+msgid ""
+"If you don't use WordPress default feed URL ( Ex. feed burner or other ), "
+"please input the URL."
+msgstr ""
+"WordPress デフォルトの RSS フィード URL を使っていない場合、対象の URL を指定"
+"してください。"
+
+#: ../admin/page-settings.php:48
+msgid "Save Changes"
+msgstr "変更を保存"
+
+#: ../admin/search.php:13 ../test/search.php:13
 #, php-format
 msgid "%s result"
 msgid_plural "%s results"
 msgstr[0] "%s件"
 msgstr[1] "%s件"
 
-#: ../admin/search.php:10
+#: ../admin/search.php:14 ../test/search.php:14
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "&#8220;%s&#8221; の検索結果"
 
-#: ../admin/search.php:15
+#: ../admin/search.php:19 ../test/search.php:19
 msgid "No items."
 msgstr "項目はありません。"
 
-#: ../admin/search.php:25
+#: ../admin/search.php:29 ../test/search.php:29
 msgid "Clear results"
 msgstr "検索結果をクリア"
 
-#: ../admin/search.php:65
+#: ../admin/search.php:69 ../test/search.php:69
 msgid "Last update"
 msgstr "最終更新"
 
-#: ../admin/search.php:71
+#: ../admin/search.php:75 ../test/search.php:75
 msgid "Score"
 msgstr "スコア"
 
-#: ../admin/search.php:74
+#: ../admin/search.php:78 ../test/search.php:78
 msgid "Languages"
 msgstr "言語"
 
-#: ../admin/search.php:78
+#: ../admin/search.php:82 ../test/search.php:82
 msgid "Estimated"
 msgstr "評価？"
 
-#: ../admin/search.php:82
+#: ../admin/search.php:86 ../test/search.php:86
 msgid "Tags"
 msgstr "タグ"
 
-#: ../inc/template_tags.php:43
+#: ../inc/template_tags.php:46
 msgid "M j, Y @ G:i"
 msgstr "Y年n月j日 @ G:i"
 
-#: ../inc/template_tags.php:108
+#: ../inc/template_tags.php:111
 msgid "Syndicate this site using Feedly"
 msgstr "このサイトを Feedly で購読"
 
-#: ../test/class_Menu.php:22 ../test/class_Menu.php:23
 #, fuzzy
-msgid "Search"
-msgstr "検索:"
+#~ msgid "Search"
+#~ msgstr "検索:"
 
 #~ msgid "Feedly information of %s"
 #~ msgstr "%s の Feedly 情報"

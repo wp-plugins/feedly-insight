@@ -87,7 +87,7 @@ function fi_get_subscribers() {
 	// run below code when transient is old
 	if ( false === ( $subscribers = get_transient( 'feedly_subscribers' ) ) ) :
 		// encode RSS feed URL
-		$feed_url = rawurlencode( get_bloginfo( 'rss2_url' ) );
+		$feed_url = rawurlencode( FI::$option['feed_url'] );
 		require_once( FI_DIR . '/admin/class_Feedly_Get.php' );
 		$feed = new FI_Feedly_Get();
 		$feed->set( $feed_url );
@@ -105,7 +105,7 @@ function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) 
 	if ( empty( $value ) )
 		$value = number_format_i18n( fi_get_subscribers() );
 	if ( empty( $feed_url ) )
-		$feed_url = 'feed/' . get_bloginfo( 'rss2_url' );
+		$feed_url = 'feed/' . FI::$option['feed_url'];
 	$url = 'http://cloud.feedly.com/#subscription%2F' . rawurlencode( $feed_url );
 
 	$title = esc_attr( apply_filters( 'fi_the_button_title', __( 'Syndicate this site using Feedly', 'feedly_insight' ) ) );

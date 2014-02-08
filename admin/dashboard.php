@@ -9,9 +9,8 @@ add_action( 'admin_print_footer_scripts', 'fi_dashboard_footer_js' );
 
 function fi_show_dashboard() {
 
-	$feeds = new FI_Feedly_Get();
-
-	$feeds->set( get_bloginfo( 'rss2_url' ) );
+	$feeds   = new FI_Feedly_Get();
+	$feeds->set( FI::$option['feed_url'] );
 
 	$results = $feeds->feed();
 
@@ -29,10 +28,10 @@ function fi_show_dashboard() {
 			<?php
 			$url = 'https://twitter.com/share?';
 			$url = $url . http_build_query( array(
-					'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . get_bloginfo( 'rss2_url' ),
+					'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . FI::$option['feed_url'],
 					'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
 						date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
-						$website,
+						$title,
 						number_format_i18n( $subscribers ),
 						'' // todo オプションで文字入れれるようにする？
 					),

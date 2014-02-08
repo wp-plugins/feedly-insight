@@ -42,6 +42,7 @@ define( 'FI_IMG_URL', FI_URL . 'images/' );
 define( 'FI_BTN_URL', FI_IMG_URL . 'buttons/' );
 define( 'FI_TEXT_DOMAIN', 'feedly_insight' );
 define( 'FI_DASHBOARD_WIDGET_SLUG', FI_TEXT_DOMAIN );
+define( 'FI_OPTION_NAME', FI_TEXT_DOMAIN . '_settings' );
 define( 'FI_DB_VER', 1.0 );
 
 new FI();
@@ -49,15 +50,19 @@ new FI();
 class FI {
 
 	static $plugin_data;
+	static $option;
 
 	/**
 	 * constructor
 	 */
 	function __construct() {
 		$this->auto_load_admin();
+		self::$option = get_option( FI_OPTION_NAME );
 		load_plugin_textdomain( FI_TEXT_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		add_action( 'admin_init', array( $this, '_set_plugin_data' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
+		if ( self::$option['css_enqueue'] )
+			add_action( 'wp_enqueue_scripts', array( $this, 'fi_button_css' ) );
 
 		register_activation_hook( __FILE__, array( $this, '_activate' ) );
 		register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
@@ -87,16 +92,28 @@ class FI {
 		self::$plugin_data = get_plugin_data( __FILE__ );
 	}
 
-	function admin_css($hook) {
-		if( 'index.php' != $hook )
+	function admin_css( $hook ) {
+		if ( 'index.php' != $hook )
 			return;
 		wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, self::$plugin_data['Version'] );
 		wp_enqueue_style( 'fi_admin' );
 	}
 
+	function fi_button_css() {
+		$ver = get_plugin_data( __FILE__ );
+		wp_register_style( 'fi_buttons', FI_URL . 'css/fi-buttons.css', false, $ver['Version'] );
+		wp_enqueue_style( 'fi_buttons' );
+	}
+
 	function _activate() {
 		$db = FI_DB::init();
 		$db->activate();
+		if ( ! get_option( FI_OPTION_NAME ) ):
+			add_option( FI_OPTION_NAME, array(
+				'css_enqueue' => 1,
+				'feed_url'    => get_bloginfo( 'rss2_url' ),
+			) );
+		endif;
 	}
 
 	function _deactivate() {
