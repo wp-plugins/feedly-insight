@@ -60,6 +60,9 @@ function fi_settings_validate( $input ) {
 
 	// Say our second option must be safe text with no HTML tags
 	$input['feed_url'] = wp_filter_nohtml_kses( $input['feed_url'] );
+	if ( empty( $input['feed_url'] ) ) $input['feed_url'] = get_bloginfo( 'rss2_url' );
+
+	delete_transient( 'feedly_subscribers' );
 
 	return $input;
 }
