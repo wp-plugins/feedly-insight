@@ -48,6 +48,11 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.6.4 =
+
+* fix bug
+* redesign button style
+
 = 0.6.3 =
 
 * fix bug
