@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Feedly Insite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
-"POT-Creation-Date: 2014-02-08 02:38+0900\n"
-"PO-Revision-Date: 2014-02-08 02:38+0900\n"
+"POT-Creation-Date: 2014-02-11 17:17+0900\n"
+"PO-Revision-Date: 2014-02-11 17:18+0900\n"
 "Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.4\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n;esc_attr_e;esc_attr__;esc_html_e;esc_html__;"
@@ -38,79 +38,79 @@ msgstr "不明"
 msgid "Settings"
 msgstr "設定"
 
-#: ../admin/dashboard.php:33 ../test/dashboard.php:35
+#: ../admin/dashboard.php:32 ../test/dashboard.php:35
 #, php-format
 msgid "%1$s %2$s, Feedly subscribers are %3$d !! %4$s"
 msgstr "%1$s %2$s、Feedly 購読者数は %3$d 人です。%4$s"
 
-#: ../admin/dashboard.php:34 ../test/dashboard.php:36
+#: ../admin/dashboard.php:33 ../test/dashboard.php:36
 msgid "F j, Y"
 msgstr "Y年n月j日"
 
-#: ../admin/dashboard.php:45 ../admin/dashboard.php:157
+#: ../admin/dashboard.php:44 ../admin/dashboard.php:156
 #: ../test/dashboard.php:47 ../test/dashboard.php:159
 msgid "Subscribers"
 msgstr "購読者数"
 
-#: ../admin/dashboard.php:49 ../test/dashboard.php:51
+#: ../admin/dashboard.php:48 ../test/dashboard.php:51
 msgid "Tweet my Feedly"
 msgstr "Feedly 情報をつぶやく"
 
-#: ../admin/dashboard.php:52 ../test/dashboard.php:54
+#: ../admin/dashboard.php:51 ../test/dashboard.php:54
 #, php-format
 msgid "%s <small>subscribers</small>"
 msgstr "%s <small>人</small>"
 
-#: ../admin/dashboard.php:57 ../test/dashboard.php:59
+#: ../admin/dashboard.php:56 ../test/dashboard.php:59
 msgid "Maybe post/a week."
 msgstr "おそらく 投稿/週？"
 
-#: ../admin/dashboard.php:58 ../admin/search.php:72 ../test/dashboard.php:60
+#: ../admin/dashboard.php:57 ../admin/search.php:72 ../test/dashboard.php:60
 #: ../test/search.php:72
 msgid "Velocity"
 msgstr "更新頻度"
 
-#: ../admin/dashboard.php:62 ../test/dashboard.php:64
+#: ../admin/dashboard.php:61 ../test/dashboard.php:64
 msgid "Feedly sensed keywords."
 msgstr "Feedly が判断した重要なキーワード"
 
-#: ../admin/dashboard.php:63 ../test/dashboard.php:65
+#: ../admin/dashboard.php:62 ../test/dashboard.php:65
 msgid "Topics"
 msgstr "トピックス"
 
-#: ../admin/dashboard.php:79 ../admin/dashboard.php:96
+#: ../admin/dashboard.php:78 ../admin/dashboard.php:95
 #: ../test/dashboard.php:81 ../test/dashboard.php:98
 #: ../test/page-search.php:13 ../test/page-search.php:35
 msgid "Search RSS by Feedly"
 msgstr "Feedly で RSS 情報を検索"
 
-#: ../admin/dashboard.php:82 ../test/dashboard.php:84
+#: ../admin/dashboard.php:81 ../test/dashboard.php:84
 #: ../test/page-search.php:20
 msgid "How many search (default is 20)."
 msgstr "検索結果の取得件数 (デフォルト: 20件"
 
-#: ../admin/dashboard.php:98 ../test/dashboard.php:100
+#: ../admin/dashboard.php:97 ../test/dashboard.php:100
 #: ../test/page-search.php:39
 msgid "Input URL, domain and any words."
 msgstr "URL、ドメイン名、その他単語で検索できます。"
 
-#: ../admin/dashboard.php:109 ../test/dashboard.php:111
+#: ../admin/dashboard.php:108 ../test/dashboard.php:111
 msgid "Version:"
 msgstr "バージョン:"
 
-#: ../admin/page-settings.php:25
+#: ../admin/page-settings.php:23
 msgid "CSS"
 msgstr "CSS"
 
-#: ../admin/page-settings.php:30
+#: ../admin/page-settings.php:28
 msgid "Output css for Feedly button."
 msgstr "Feedly ボタン用の css を出力する"
 
-#: ../admin/page-settings.php:35
+#: ../admin/page-settings.php:33
 msgid "Feed URL"
 msgstr "RSS フィードの URL"
 
-#: ../admin/page-settings.php:41
+#: ../admin/page-settings.php:39
 msgid ""
 "If you don't use WordPress default feed URL ( Ex. feed burner or other ), "
 "please input the URL."
@@ -118,7 +118,7 @@ msgstr ""
 "WordPress デフォルトの RSS フィード URL を使っていない場合、対象の URL を指定"
 "してください。"
 
-#: ../admin/page-settings.php:48
+#: ../admin/page-settings.php:46
 msgid "Save Changes"
 msgstr "変更を保存"
 
@@ -162,11 +162,19 @@ msgstr "評価？"
 msgid "Tags"
 msgstr "タグ"
 
+#: ../inc/class_Jetpack.php:82 ../inc/class_Jetpack.php:92
+msgid "Feedly"
+msgstr "Feedly"
+
+#: ../inc/class_Jetpack.php:93
+msgid "Click to follow on Feedly"
+msgstr "クリックして Feedly で購読"
+
 #: ../inc/template_tags.php:46
 msgid "M j, Y @ G:i"
 msgstr "Y年n月j日 @ G:i"
 
-#: ../inc/template_tags.php:111
+#: ../inc/template_tags.php:113
 msgid "Syndicate this site using Feedly"
 msgstr "このサイトを Feedly で購読"
 
@@ -190,9 +198,6 @@ msgstr "このサイトを Feedly で購読"
 
 #~ msgid "Follow %s in feedly"
 #~ msgstr "%s を Feedly でフォローする"
-
-#~ msgid "Feedly Insight"
-#~ msgstr "Feedly Insight"
 
 #, fuzzy
 #~ msgid "http://"

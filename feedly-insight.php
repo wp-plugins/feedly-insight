@@ -59,6 +59,7 @@ class FI {
 		$this->auto_load_admin();
 		self::$option = get_option( FI_OPTION_NAME );
 		load_plugin_textdomain( FI_TEXT_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		add_action( 'init', array( $this, 'jetpack' ) );
 		add_action( 'admin_init', array( $this, '_set_plugin_data' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
 		if ( self::$option['css_enqueue'] )
@@ -69,6 +70,10 @@ class FI {
 		//add_action( 'plugins_loaded', array('FI_DB', 'update_db_check') );
 
 		FI_History::init();
+	}
+
+	function jetpack() {
+		require_once dirname( __FILE__ ) . '/inc/jetpack/class_Jetpack.php';
 	}
 
 	/**
