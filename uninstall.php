@@ -11,6 +11,6 @@ if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	$db = FI_DB::init();
 	$db->plugin_uninstall();
 	delete_option( 'feedly_insight_db_ver' );
-	delete_option( FI_OPTION_NAME );
+	delete_option( 'feedly_insight_settings' );
 }
 
