@@ -48,6 +48,10 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.7.0 =
+
+* Feedly button was corresponded Jetpack share.
+
 = 0.6.4 =
 
 * fix bug
