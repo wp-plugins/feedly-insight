@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'sharedaddy' ) ) {
 	FI_Jetpack::init();
-	include_once( WP_PLUGIN_DIR . '/jetpack/modules/sharedaddy/sharing-sources.php' );
 } else {
 	return;
 }
