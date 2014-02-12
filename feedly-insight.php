@@ -98,7 +98,7 @@ class FI {
 	}
 
 	function admin_css( $hook ) {
-		if ( 'index.php' != $hook )
+		if ( 'index.php' != $hook && 'settings_page_sharing' != $hook )
 			return;
 		wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, self::$plugin_data['Version'] );
 		wp_enqueue_style( 'fi_admin' );
