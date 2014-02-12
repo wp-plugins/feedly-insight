@@ -48,6 +48,11 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.7.1 =
+
+* code optimized
+* Hatena Bookmark button was corresponded Jetpack share ( yet count
+
 = 0.7.0 =
 
 * Feedly button was corresponded Jetpack share.
