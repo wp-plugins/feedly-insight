@@ -138,7 +138,7 @@ class Share_Hatena extends Sharing_Source {
 		if ( $this->smart ) {
 			echo '<script type="text/javascript" src="//api.b.st-hatena.com/js/bookmark_button_wo_al.js" charset="utf-8" async="async"></script>';
 		} else {
-			$this->js_dialog( $this->shortname, array( 'height' => 250, 'width' => 505, ) );
+			$this->js_dialog( $this->shortname, array( 'height' => 400, 'width' => 515, ) );
 		}
 
 		// if ( ! $this->button_style == 'icon' ) todo js で値取得して書き込む
