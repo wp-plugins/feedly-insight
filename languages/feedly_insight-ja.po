@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Feedly Insite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
-"POT-Creation-Date: 2014-02-11 17:17+0900\n"
-"PO-Revision-Date: 2014-02-11 17:18+0900\n"
+"POT-Creation-Date: 2014-02-12 21:03+0900\n"
+"PO-Revision-Date: 2014-02-12 21:03+0900\n"
 "Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -162,13 +162,25 @@ msgstr "評価？"
 msgid "Tags"
 msgstr "タグ"
 
-#: ../inc/class_Jetpack.php:82 ../inc/class_Jetpack.php:92
+#: ../inc/jetpack/class_Jetpack.php:67 ../inc/jetpack/class_Jetpack.php:79
 msgid "Feedly"
 msgstr "Feedly"
 
-#: ../inc/class_Jetpack.php:93
+#: ../inc/jetpack/class_Jetpack.php:80
 msgid "Click to follow on Feedly"
 msgstr "クリックして Feedly で購読"
+
+#: ../inc/jetpack/class_Jetpack.php:105 ../inc/jetpack/class_Jetpack.php:119
+msgid "Bookmark"
+msgstr "Bookmark"
+
+#: ../inc/jetpack/class_Jetpack.php:112
+msgid "Add this entry to Hatena Bookmark"
+msgstr "このエントリーをはてなブックマークに追加"
+
+#: ../inc/jetpack/class_Jetpack.php:120
+msgid "Click to share on Hatena Bookmark"
+msgstr "クリックしてはてなブックマークで共有"
 
 #: ../inc/template_tags.php:46
 msgid "M j, Y @ G:i"

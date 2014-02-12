@@ -37,6 +37,8 @@ class FI_Jetpack {
 	function add_sharing_services( $services ) {
 		if ( ! array_key_exists( 'feedly', $services ) )
 			$services['feedly'] = 'Share_Feedly';
+		if ( ! array_key_exists( 'hatena', $services ) )
+			$services['hatena'] = 'Share_Hatena';
 		return $services;
 	}
 
@@ -81,6 +83,65 @@ class Share_Feedly extends Sharing_Source {
 
 	public function display_footer() {
 		$this->js_dialog( $this->shortname, array( 'height' => 600, 'width' => 968, ) );
+	}
+
+}
+
+
+class Share_Hatena extends Sharing_Source {
+
+	var $shortname = 'hatena';
+
+	public function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if ( 'official' == $this->button_style )
+			$this->smart = true;
+		else
+			$this->smart = false;
+	}
+
+	public function get_share_url( $post_id ) {
+		return apply_filters( 'sharing_permalink', get_permalink( $post_id ), $post_id, $this->id );
+	}
+
+	public function get_share_title( $post_id ) {
+		$post  = get_post( $post_id );
+		$title = apply_filters( 'sharing_title', $post->post_title, $post_id, $this->id );
+
+		return html_entity_decode( wp_kses( $title, null ) );
+	}
+
+	public function get_name() {
+		return __( 'Bookmark', 'feedly_insight' );
+	}
+
+	public function get_display( $post ) {
+
+		$share_url  = $this->get_share_url( $post->ID );
+		$post_title = $this->get_share_title( $post->ID );
+
+		if ( $this->smart ):
+			$lang = 'en';
+			$lang = apply_filters( 'sharing_hatena_lang', $lang );
+			return '<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="' . $lang . '" data-hatena-bookmark-url="' . $share_url . '" data-hatena-bookmark-title="' . $post_title . '" title="' . __( 'Add this entry to Hatena Bookmark', 'feedly_insight' ) . '"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="' . __( 'Add this entry to Hatena Bookmark', 'feedly_insight' ) . '" width="20" height="20" style="border: none;" /></a>';
+		else:
+			return $this->get_link(
+				'http://b.hatena.ne.jp/add?mode=confirm&url=' . $share_url . '&title=' . $post_title,
+				_x( 'Bookmark', 'share to', 'feedly_insight' ),
+				__( 'Click to share on Hatena Bookmark', 'feedly_insight' ),
+				'share=hatena', 'sharing-hatena-' . $post->ID );
+		endif;
+	}
+
+	public function display_footer() {
+		if ( $this->smart ) {
+			echo '<script type="text/javascript" src="//api.b.st-hatena.com/js/bookmark_button_wo_al.js" charset="utf-8" async="async"></script>';
+		} else {
+			$this->js_dialog( $this->shortname, array( 'height' => 250, 'width' => 505, ) );
+		}
+
+		// if ( ! $this->button_style == 'icon' ) todo js で値取得して書き込む
 	}
 
 }
