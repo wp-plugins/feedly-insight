@@ -62,7 +62,7 @@ class Share_Feedly extends Sharing_Source {
 	}
 
 	public function get_name() {
-		return __( 'Feedly', 'jetpack' );
+		return __( 'Feedly', 'feedly_insight' );
 	}
 
 	public function get_display( $post ) {
