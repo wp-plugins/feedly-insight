@@ -88,7 +88,7 @@ class FI_DB {
 	 *
 	 * @return mixed
 	 */
-	function get_subscribers_history( $num = 14 ) {
+	function get_subscribers_history( $num = 30 ) {
 		global $wpdb;
 		$table = $this->history_table;
 		if ( ! isset( $wpdb->$table ) ) {
