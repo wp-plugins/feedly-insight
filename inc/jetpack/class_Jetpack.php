@@ -130,7 +130,7 @@ class Share_Hatena extends Sharing_Source {
 				__( 'Add this entry to Hatena Bookmark', 'feedly_insight' ),
 				'<img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="' . __( 'Add this entry to Hatena Bookmark', 'feedly_insight' ) . '" width="20" height="20" style="border: none;" />'
 			);
-			return $button;
+			return '<div class="hatena_button">' . $button . '</div>';
 		else:
 			return $this->get_link(
 				'http://b.hatena.ne.jp/add?mode=confirm&url=' . $share_url . '&title=' . $post_title,
@@ -147,7 +147,12 @@ class Share_Hatena extends Sharing_Source {
 			$this->js_dialog( $this->shortname, array( 'height' => 400, 'width' => 515, ) );
 		}
 
-		// if ( ! $this->button_style == 'icon' ) todo js で値取得して書き込む
+		if ( $this->button_style != 'icon' )
+			$this->hatena_enqueue();
+	}
+
+	public function hatena_enqueue() {
+		wp_enqueue_script( 'hatena-sharing-js', FI_URL . 'js/hatena-sharing.min.js', array( 'sharing-js' ), FI::$plugin_data['Version'] );
 	}
 
 }
