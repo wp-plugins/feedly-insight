@@ -48,6 +48,10 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.8.0 =
+
+* Hatena Bookmark button was corresponded completely even count
+
 = 0.7.2 =
 
 * code optimized
