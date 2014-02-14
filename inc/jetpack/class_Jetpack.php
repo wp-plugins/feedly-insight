@@ -118,13 +118,19 @@ class Share_Hatena extends Sharing_Source {
 
 	public function get_display( $post ) {
 
-		$share_url  = $this->get_share_url( $post->ID );
+		$share_url  = esc_attr( $this->get_share_url( $post->ID ) );
 		$post_title = $this->get_share_title( $post->ID );
 
 		if ( $this->smart ):
 			$lang = 'en';
 			$lang = apply_filters( 'sharing_hatena_lang', $lang );
-			return '<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="' . $lang . '" data-hatena-bookmark-url="' . $share_url . '" data-hatena-bookmark-title="' . $post_title . '" title="' . __( 'Add this entry to Hatena Bookmark', 'feedly_insight' ) . '"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="' . __( 'Add this entry to Hatena Bookmark', 'feedly_insight' ) . '" width="20" height="20" style="border: none;" /></a>';
+
+			$button = sprintf( '<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="%s" data-hatena-bookmark-url="%s"  data-hatena-bookmark-title="%s" title="%s">%s</a>',
+				$lang, $share_url, $post_title, __( 'Add this entry to Hatena Bookmark', 'feedly_insight' ),
+				__( 'Add this entry to Hatena Bookmark', 'feedly_insight' ),
+				'<img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="' . __( 'Add this entry to Hatena Bookmark', 'feedly_insight' ) . '" width="20" height="20" style="border: none;" />'
+			);
+			return $button;
 		else:
 			return $this->get_link(
 				'http://b.hatena.ne.jp/add?mode=confirm&url=' . $share_url . '&title=' . $post_title,
