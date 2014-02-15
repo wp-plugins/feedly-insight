@@ -59,7 +59,7 @@ class FI {
 		$this->auto_load_admin();
 		self::$option = get_option( FI_OPTION_NAME );
 		load_plugin_textdomain( FI_TEXT_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-		add_action( 'init', array( $this, '_set_plugin_data' ) );
+		add_action( 'admin_init', array( $this, '_set_plugin_data' ) );
 		add_action( 'wp_loaded', array( $this, 'jetpack' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
 		if ( self::$option['css_enqueue'] )
@@ -105,7 +105,7 @@ class FI {
 	}
 
 	function fi_button_css() {
-		wp_register_style( 'fi_buttons', FI_URL . 'css/fi-buttons.css', false, self::$plugin_data['Version'] );
+		wp_register_style( 'fi_buttons', FI_URL . 'css/fi-buttons.css', false, '0.8.1' );
 		wp_enqueue_style( 'fi_buttons' );
 	}
 
