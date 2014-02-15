@@ -4,7 +4,7 @@
 Plugin Name: Feedly Insight
 Plugin URI: http://wordpress.org/plugins/feedly-insight/
 Description: Add Feedly dashboard widget. Shows your site info, search website & feeds.
-Version: 0.8.1 beta
+Version: 0.8.2 beta
 Author: hayashikejinan
 Author URI: http://hayashikejinan.com/
 Text Domain: feedly_insight
@@ -44,7 +44,7 @@ define( 'FI_TEXT_DOMAIN', 'feedly_insight' );
 define( 'FI_DASHBOARD_WIDGET_SLUG', FI_TEXT_DOMAIN );
 define( 'FI_OPTION_NAME', FI_TEXT_DOMAIN . '_settings' );
 define( 'FI_DB_VER', 1.0 );
-define( 'FI_VER', '0.8.1 beta' );
+define( 'FI_VER', '0.8.2 beta' );
 
 new FI();
 

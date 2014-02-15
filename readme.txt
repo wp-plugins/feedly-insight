@@ -48,7 +48,7 @@ An answer to that question.
 
 == Changelog ==
 
-= 0.8.1 =
+= 0.8.2 =
 
 * Fix Fatal error
 
