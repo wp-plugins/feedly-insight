@@ -152,7 +152,7 @@ class Share_Hatena extends Sharing_Source {
 	}
 
 	public function hatena_enqueue() {
-		wp_enqueue_script( 'hatena-sharing-js', FI_URL . 'js/hatena-sharing.min.js', array( 'sharing-js' ), FI::$plugin_data['Version'] );
+		wp_enqueue_script( 'hatena-sharing-js', FI_URL . 'js/hatena-sharing.min.js', array( 'sharing-js' ), FI_VER );
 	}
 
 }
