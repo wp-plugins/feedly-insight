@@ -48,6 +48,10 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.8.1 =
+
+* Fix Fatal error
+
 = 0.8.0 =
 
 * Hatena Bookmark button was corresponded completely even count
