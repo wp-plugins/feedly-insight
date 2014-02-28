@@ -34,13 +34,14 @@ function fi_show_settings() {
 					<td>
 						<label>
 							<input type="text" name="<?php echo FI_OPTION_NAME; ?>[feed_url]" class="regular-text"
-								   value="<?php echo FI::$option['feed_url']; ?>" />
+								   value="<?php esc_html_e( FI::$option['feed_url'] ); ?>" />
 							<span style="display: block;">
 								<?php _e( 'If you don\'t use WordPress default feed URL ( Ex. feed burner or other ), please input the URL.', 'feedly_insight' ); ?>
 							</span>
 						</label>
 					</td>
 				</tr>
+				<?php do_action( 'fi_page_settings' ); ?>
 			</table>
 			<p class="submit">
 				<input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'feedly_insight' ) ?>" />
