@@ -44,7 +44,7 @@ define( 'FI_TEXT_DOMAIN', 'feedly_insight' );
 define( 'FI_DASHBOARD_WIDGET_SLUG', FI_TEXT_DOMAIN );
 define( 'FI_OPTION_NAME', FI_TEXT_DOMAIN . '_settings' );
 define( 'FI_DB_VER', 1.0 );
-define( 'FI_VER', '0.8.2 beta' );
+define( 'FI_VER', '0.8.21 beta' );
 
 new FI();
 
@@ -99,7 +99,7 @@ class FI {
 	}
 
 	function admin_css( $hook ) {
-		if ( 'index.php' != $hook && 'settings_page_sharing' != $hook )
+		if ( ! strstr( $hook, FI_TEXT_DOMAIN ) && 'settings_page_sharing' != $hook )
 			return;
 		wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, FI_VER );
 		wp_enqueue_style( 'fi_admin' );

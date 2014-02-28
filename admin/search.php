@@ -21,13 +21,11 @@ function fi_search_function( $search_words, $number ) {
 	} ?>
 
 	<div id="fi-results">
-		<h2 id='fi-block-title' class='activity-block clear'>
-			<?php echo $title; ?>
-			<button id="fi-clear-results" class="button alignright">
-				<img class="fi-icon" width="16" height="14"
-					 src="<?php echo FI_IMG_URL; ?>/buttons/feedly-follow-logo-green_2x.png" />
-				<?php _e( 'Clear results', 'feedly_insight' ); ?></button>
-		</h2>
+		<h2 id='fi-block-title' class='activity-block clear'><?php echo $title; ?></h2>
+		<button id="fi-clear-results" class="button">
+			<img class="fi-icon" width="16" height="14"
+				 src="<?php echo FI_IMG_URL; ?>/buttons/feedly-follow-logo-green_2x.png" />
+			<?php _e( 'Clear results', 'feedly_insight' ); ?></button>
 		<?php fi_create_html_search_results( $results ); ?>
 	</div>
 
@@ -55,8 +53,7 @@ function fi_create_html_search_results( $args ) {
 						<?php echo wp_trim_words( $title, 30, '&hellip;' ); ?></a>
 				</h2>
 
-				<div class="alignright">
-					<?php fi_the_button( 'vertical', number_format_i18n( $subscribers ), $feedId ); ?></div>
+				<?php fi_the_button( 'vertical', number_format_i18n( $subscribers ), $feedId ); ?>
 				<p><?php echo $description; ?></p>
 
 				<div class="clear"></div>
@@ -113,8 +110,7 @@ function fi_search_footer_js() {
 					input.val('');
 				});
 				input.focus();
-				var position = $('#feedly_insight').offset().top;
-				$('html,body').animate({ scrollTop: position }, 'slow', 'swing');
+				$('html,body').animate({ scrollTop: 0 }, 'slow', 'swing');
 			});
 
 			var top = button.offset().top;

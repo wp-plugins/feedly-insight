@@ -4,12 +4,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action( 'admin_print_footer_scripts', 'fi_dashboard_footer_js' );
+
+add_action( 'admin_print_footer_scripts', 'fi_main_footer_js' );
 
 
-function fi_show_dashboard() {
+function fi_main() {
 
-	$feeds   = new FI_Feedly_Get();
+	echo '<div class="wrap fi_wrap">';
+
+	?>
+
+	<h2><?php echo FI_NAME; ?></h2>
+
+	<?php
+
+	$feeds = new FI_Feedly_Get();
 	$feeds->set( FI::$option['feed_url'] );
 
 	$results = $feeds->feed();
@@ -93,9 +102,10 @@ function fi_show_dashboard() {
 			?>
 
 			<label class="screen-reader-text" for="fi-search-input"><?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?></label>
-			<input class="regular-text" id="fi-search-input" type="text" value="<?php if ( ! empty( $_GET ) ) echo $_GET['search-feedly']; ?>"
-				   placeholder="<?php _e( 'Input URL, domain and any words.', 'feedly_insight' ); ?>"
-				   name="search-feedly" />
+			<input type="hidden" name="page" value="feedly_insight" />
+			<input class="regular-text" id="fi-search-input" type="text"
+				   value="<?php if ( ! empty( $_GET['search-feedly'] ) ) echo $_GET['search-feedly']; ?>"
+				   placeholder="<?php _e( 'Input URL, domain and any words.', 'feedly_insight' ); ?>" name="search-feedly" />
 			<input class="button button-primary" type="submit"
 				   value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
 		</form>
@@ -132,14 +142,16 @@ function fi_show_dashboard() {
 
 	</div>
 
-<?php
+	<?php
+	// wrap
+	echo '</div>';
 
 }
 
 
-function fi_dashboard_footer_js() {
+function fi_main_footer_js() {
 	// todo 特定の環境でビジュアルエディタのボタンが表示されないため無理矢理
-	if ( get_current_screen()->id != 'dashboard' || ! empty( $_GET ) ) return;
+	if ( get_current_screen()->id != 'toplevel_page_feedly_insight' ) return;
 
 	$db = FI_DB::init();
 
@@ -206,7 +218,7 @@ function fi_dashboard_footer_js() {
 				},
 				xaxis : {
 					mode      : "time",
-					timeformat: "%m/%d"
+					timeformat: "%Y/%m/%d"
 				},
 				yaxis : {
 					//min: 0
@@ -222,9 +234,10 @@ function fi_dashboard_footer_js() {
 			$("<div id='fi-tooltip'></div>").css({
 				position          : "absolute",
 				display           : "none",
-				border            : "1px solid #fdd",
-				padding           : "2px",
+				border            : "1px solid #ccc",
+				padding           : "10px",
 				"background-color": "#eee",
+				"box-shadow"      : "0 0 5px #ccc",
 				opacity           : 0.80
 			}).appendTo("body");
 

@@ -118,8 +118,8 @@ class Share_Hatena extends Sharing_Source {
 
 	public function get_display( $post ) {
 
-		$share_url  = esc_attr( $this->get_share_url( $post->ID ) );
-		$post_title = $this->get_share_title( $post->ID );
+		$share_url  = esc_url( $this->get_share_url( $post->ID ) );
+		$post_title = esc_attr( $this->get_share_title( $post->ID ) );
 
 		if ( $this->smart ):
 			$lang = 'en';
