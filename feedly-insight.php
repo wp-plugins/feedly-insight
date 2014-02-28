@@ -101,12 +101,18 @@ class FI {
 	function admin_css( $hook ) {
 		if ( ! strstr( $hook, FI_TEXT_DOMAIN ) && 'settings_page_sharing' != $hook )
 			return;
-		wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, FI_VER );
+		if ( defined( 'WP_SHARING_PLUGIN_VERSION' ) && version_compare( WP_SHARING_PLUGIN_VERSION, '2.9-alpha', '=' ) )
+			wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, FI_VER );
+		else
+			wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin-deprecated.css', false, FI_VER );
 		wp_enqueue_style( 'fi_admin' );
 	}
 
 	function fi_button_css() {
-		wp_register_style( 'fi_buttons', FI_URL . 'css/fi-buttons.css', false, FI_VER );
+		if ( defined( 'WP_SHARING_PLUGIN_VERSION' ) && version_compare( WP_SHARING_PLUGIN_VERSION, '2.9-alpha', '=' ) )
+			wp_register_style( 'fi_buttons', FI_URL . 'css/fi-buttons.css', false, FI_VER );
+		else
+			wp_register_style( 'fi_buttons', FI_URL . 'css/fi-buttons-deprecated.css', false, FI_VER );
 		wp_enqueue_style( 'fi_buttons' );
 	}
 
