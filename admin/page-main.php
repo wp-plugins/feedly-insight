@@ -155,7 +155,7 @@ function fi_main_footer_js() {
 
 	$db = FI_DB::init();
 
-	$result_query = $db->get_subscribers_history();
+	$result_query = $db->get_subscribers_history( 45 );
 	$history      = array();
 	foreach ( $result_query as $h ) {
 		$history[] .= '[' . strtotime( $h['save_date'] ) * 1000 . ',' . $h['subscribers'] . ']';
