@@ -48,6 +48,13 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.9.0 =
+
+* Add Feedly Insight page & remove dashboard widget
+* Images optimized
+* Add Jetpack Twitter via option
+* Bug fix
+
 = 0.8.2 =
 
 * Fix Fatal error
