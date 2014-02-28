@@ -23,6 +23,8 @@ if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'sharedaddy' ) ) {
 class FI_Jetpack {
 
 	static $instance;
+	static $sharer;
+	static $global;
 
 	public static function init() {
 		if ( ! self::$instance )
@@ -31,7 +33,14 @@ class FI_Jetpack {
 	}
 
 	function __construct() {
+		self::$sharer = new Sharing_Service();
+		self::$global = self::$sharer->get_global_options();
+
 		add_filter( 'sharing_services', array( $this, 'add_sharing_services' ) );
+
+		add_action( 'sharing_global_options', array( $this, 'add_twitter_via_option' ) );
+		add_filter( 'sharing_default_global', array( $this, 'add_sharing_default_global' ) );
+		add_filter( 'jetpack_sharing_twitter_via', array( $this, 'twitter_via' ) );
 	}
 
 	function add_sharing_services( $services ) {
@@ -40,6 +49,28 @@ class FI_Jetpack {
 		if ( ! array_key_exists( 'hatena', $services ) )
 			$services['hatena'] = 'Share_Hatena';
 		return $services;
+	}
+
+	function twitter_via( $via ) {
+		return isset( self::$global['twitter_via'] ) ? esc_attr( self::$global['twitter_via'] ) : $via;
+	}
+
+	function add_twitter_via_option() {
+		$global = self::$global;
+		?>
+		<tr valign="top">
+			<th scope="row"><label>Twitter via</label></th>
+			<td>
+				&#64;<input type="text" value="<?php echo isset( $global['twitter_via'] ) ? esc_html( $global['twitter_via'] ) : ''; ?>" name="twitter_via">
+			</td>
+		</tr>
+	<?php
+	}
+
+	function add_sharing_default_global( $global ) {
+		$global['twitter_via'] = '';
+		if ( ! empty( $_POST['twitter_via'] ) ) $global['twitter_via'] = esc_html( $_POST['twitter_via'] );
+		return $global;
 	}
 
 }
