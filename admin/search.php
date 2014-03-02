@@ -20,14 +20,20 @@ function fi_search_function( $search_words, $number ) {
 		return;
 	} ?>
 
+	<h2 id='fi-block-title' class='activity-block clear'><?php echo $title; ?></h2>
+	<button id="fi-clear-results" class="button">
+		<img class="fi-icon" width="16" height="14"
+			 src="<?php echo FI_IMG_URL; ?>/buttons/feedly-follow-logo-green_2x.png" />
+		<?php _e( 'Clear results', 'feedly_insight' ); ?></button>
+
+	<hr />
+
 	<div id="fi-results">
-		<h2 id='fi-block-title' class='activity-block clear'><?php echo $title; ?></h2>
-		<button id="fi-clear-results" class="button">
-			<img class="fi-icon" width="16" height="14"
-				 src="<?php echo FI_IMG_URL; ?>/buttons/feedly-follow-logo-green_2x.png" />
-			<?php _e( 'Clear results', 'feedly_insight' ); ?></button>
+
 		<?php fi_create_html_search_results( $results ); ?>
+
 	</div>
+	<div class="clear"></div>
 
 <?php
 }
@@ -41,53 +47,50 @@ function fi_create_html_search_results( $args ) {
 		extract( $item );
 		?>
 
-		<div class="activity-block">
-			<div class="inside fi-item-<?php echo $counter; ?>">
+		<div class="fi-item fi-item-<?php echo $counter; ?>">
 
-				<h2>
-					<small><?php echo $counter . '. '; ?></small>
-					<?php if ( strstr( site_url(), $website ) ): ?>
-						<div class="dashicons dashicons-admin-home"></div>
-					<?php endif; ?>
-					<a href="<?php echo $website; ?>" target="_blank" title="<?php echo $description; ?>">
-						<?php echo wp_trim_words( $title, 30, '&hellip;' ); ?></a>
-				</h2>
+			<h2>
+				<small><?php echo $counter . '. '; ?></small>
+				<?php if ( strstr( site_url(), $website ) ): ?>
+					<div class="dashicons dashicons-admin-home"></div>
+				<?php endif; ?>
+				<a href="<?php echo $website; ?>" target="_blank" title="<?php echo $description; ?>">
+					<?php echo wp_trim_words( $title, 30, '&hellip;' ); ?></a>
+			</h2>
 
-				<?php fi_the_button( 'vertical', number_format_i18n( $subscribers ), $feedId ); ?>
-				<p><?php echo $description; ?></p>
+			<?php fi_the_button( 'vertical', number_format_i18n( $subscribers ), $feedId ); ?>
+			<p><?php echo $description; ?></p>
 
-				<div class="clear"></div>
+			<div class="clear"></div>
 
-				<?php echo fi_get_create_mshots_img( $website, 300, 'fi-img-ss' ); ?>
-				<div class="clear"></div>
+			<?php echo fi_get_create_mshots_img( $website, 480, 'fi-img-ss' ); ?>
+			<div class="clear"></div>
 
-				<dl class="fi-info-panel">
+			<dl class="fi-info-panel">
 
-					<dt><i class="dashicons dashicons-clock"></i> <?php _e( 'Last update', 'feedly_insight' ); ?></dt>
-					<dd><?php echo fi_convert_timestamp( $lastUpdated ) ?></dd>
+				<dt><i class="dashicons dashicons-clock"></i> <?php _e( 'Last update', 'feedly_insight' ); ?></dt>
+				<dd><?php echo fi_convert_timestamp( $lastUpdated ) ?></dd>
 
-					<dt><i class="dashicons dashicons-update"></i> <?php _e( 'Velocity', 'feedly_insight' ); ?></dt>
-					<dd><?php echo $velocity; ?></dd>
+				<dt><i class="dashicons dashicons-update"></i> <?php _e( 'Velocity', 'feedly_insight' ); ?></dt>
+				<dd><?php echo $velocity; ?></dd>
 
-					<dt><i class="dashicons dashicons-awards"></i> <?php _e( 'Score', 'feedly_insight' ); ?></dt>
-					<dd><?php echo number_format_i18n( $score ); ?></dd>
+				<dt><i class="dashicons dashicons-awards"></i> <?php _e( 'Score', 'feedly_insight' ); ?></dt>
+				<dd><?php echo number_format_i18n( $score ); ?></dd>
 
-					<dt><i class="dashicons dashicons-translation"></i> <?php _e( 'Languages', 'feedly_insight' ) ?>
-					</dt>
-					<dd><?php echo fi_format_code_lang( $language ); ?></dd>
+				<dt><i class="dashicons dashicons-translation"></i> <?php _e( 'Languages', 'feedly_insight' ) ?>
+				</dt>
+				<dd><?php echo fi_format_code_lang( $language ); ?></dd>
 
-					<dt><i class="dashicons dashicons-performance"></i> <?php _e( 'Estimated', 'feedly_insight' ); ?>
-					</dt>
-					<dd><?php echo $estimatedEngagement; ?></dd>
+				<dt><i class="dashicons dashicons-performance"></i> <?php _e( 'Estimated', 'feedly_insight' ); ?>
+				</dt>
+				<dd><?php echo $estimatedEngagement; ?></dd>
 
-					<dt><i class="dashicons dashicons-tag"></i> <?php _e( 'Tags', 'feedly_insight' ); ?></dt>
-					<dd><?php echo implode( ', ', $deliciousTags ); ?></dd>
+				<dt><i class="dashicons dashicons-tag"></i> <?php _e( 'Tags', 'feedly_insight' ); ?></dt>
+				<dd><?php echo implode( ', ', $deliciousTags ); ?></dd>
 
-				</dl>
+			</dl>
 
-			</div>
 		</div>
-		<div class="clear"></div>
 
 	<?php
 
@@ -131,8 +134,5 @@ function fi_search_footer_js() {
 
 if ( ! empty( $_GET['search-feedly'] ) ) {
 	add_action( 'admin_print_footer_scripts', 'fi_search_footer_js' );
-
-	// remove welcome panel
-	remove_action( 'welcome_panel', 'wp_welcome_panel' );
 }
 

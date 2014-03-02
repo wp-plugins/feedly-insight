@@ -16,6 +16,8 @@ function fi_main() {
 
 	<h2><?php echo FI_NAME; ?></h2>
 
+	<hr />
+
 	<?php
 
 	$feeds = new FI_Feedly_Get();
@@ -115,10 +117,10 @@ function fi_main() {
 
 		<?php extract( FI::$plugin_data ); ?>
 
-		<span><small><?php _e( 'Version:', 'feedly_insight' ); ?></small>
-			<?php echo $Version; ?></span>
+		<div>
+			<span><small><?php _e( 'Version:', 'feedly_insight' ); ?></small>
+				<?php echo $Version; ?></span>
 
-		<div class="alignright">
 			<i class="dashicons dashicons-admin-users"></i>Author:
 			<a href="<?php echo $AuthorURI . '?page_id=827'; ?>" target="_blank" title="Blog">
 				<i class="dashicons dashicons-admin-site"></i>
@@ -233,7 +235,7 @@ function fi_main_footer_js() {
 				});
 			}
 
-			$(window).on("load resize", function(){
+			$(window).on("load resize", function () {
 				plot();
 			});
 
