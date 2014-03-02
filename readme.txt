@@ -48,6 +48,10 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.9.1 =
+
+* Page styling (not enough
+
 = 0.9.0 =
 
 * Add Feedly Insight page & remove dashboard widget
