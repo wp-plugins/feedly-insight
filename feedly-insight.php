@@ -11,6 +11,7 @@ Text Domain: feedly_insight
 Domain Path: /languages/
 License: GPLv2 or later
 */
+define( 'FI_VER', '0.9.0 beta' );
 
 /*
 Copyright (C) 2014 hayashikejinan <hayashikejinan@gmail.com>
@@ -44,7 +45,6 @@ define( 'FI_TEXT_DOMAIN', 'feedly_insight' );
 define( 'FI_DASHBOARD_WIDGET_SLUG', FI_TEXT_DOMAIN );
 define( 'FI_OPTION_NAME', FI_TEXT_DOMAIN . '_settings' );
 define( 'FI_DB_VER', 1.0 );
-define( 'FI_VER', '0.8.21 beta' );
 
 new FI();
 
