@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Feedly Insite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
-"POT-Creation-Date: 2014-02-12 21:03+0900\n"
-"PO-Revision-Date: 2014-02-12 21:03+0900\n"
+"POT-Creation-Date: 2014-03-02 21:43+0900\n"
+"PO-Revision-Date: 2014-03-02 21:44+0900\n"
 "Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -32,71 +32,77 @@ msgstr "なし"
 msgid "Unknown"
 msgstr "不明"
 
-#: ../admin/class_Menu.php:27 ../admin/class_Menu.php:28
+#: ../admin/class_Menu.php:41 ../admin/class_Menu.php:42
 #: ../admin/page-settings.php:13 ../test/class_Menu.php:22
 #: ../test/class_Menu.php:23 ../test/page-settings.php:10
 msgid "Settings"
 msgstr "設定"
 
-#: ../admin/dashboard.php:32 ../test/dashboard.php:35
-#, php-format
-msgid "%1$s %2$s, Feedly subscribers are %3$d !! %4$s"
-msgstr "%1$s %2$s、Feedly 購読者数は %3$d 人です。%4$s"
-
-#: ../admin/dashboard.php:33 ../test/dashboard.php:36
-msgid "F j, Y"
-msgstr "Y年n月j日"
-
-#: ../admin/dashboard.php:44 ../admin/dashboard.php:156
-#: ../test/dashboard.php:47 ../test/dashboard.php:159
+#: ../admin/page-main.php:38 ../admin/page-main.php:169
+#: ../test/dashboard.php:44 ../test/dashboard.php:156
 msgid "Subscribers"
 msgstr "購読者数"
 
-#: ../admin/dashboard.php:48 ../test/dashboard.php:51
+#: ../admin/page-main.php:40 ../test/dashboard.php:48
 msgid "Tweet my Feedly"
 msgstr "Feedly 情報をつぶやく"
 
-#: ../admin/dashboard.php:51 ../test/dashboard.php:54
+#: ../admin/page-main.php:41 ../test/dashboard.php:51
 #, php-format
 msgid "%s <small>subscribers</small>"
 msgstr "%s <small>人</small>"
 
-#: ../admin/dashboard.php:56 ../test/dashboard.php:59
-msgid "Maybe post/a week."
-msgstr "おそらく 投稿/週？"
+#: ../admin/page-main.php:46 ../admin/search.php:76
+msgid ""
+"The average number of articles published weekly. This number is updated "
+"every few days."
+msgstr "投稿数/週 の平均値。この数値は数日ごとに更新されます。"
 
-#: ../admin/dashboard.php:57 ../admin/search.php:72 ../test/dashboard.php:60
+#: ../admin/page-main.php:47 ../admin/search.php:77 ../test/dashboard.php:57
 #: ../test/search.php:72
 msgid "Velocity"
 msgstr "更新頻度"
 
-#: ../admin/dashboard.php:61 ../test/dashboard.php:64
+#: ../admin/page-main.php:52 ../test/dashboard.php:61
 msgid "Feedly sensed keywords."
 msgstr "Feedly が判断した重要なキーワード"
 
-#: ../admin/dashboard.php:62 ../test/dashboard.php:65
+#: ../admin/page-main.php:53 ../test/dashboard.php:62
 msgid "Topics"
 msgstr "トピックス"
 
-#: ../admin/dashboard.php:78 ../admin/dashboard.php:95
-#: ../test/dashboard.php:81 ../test/dashboard.php:98
+#: ../admin/page-main.php:68 ../test/dashboard.php:32
+#, php-format
+msgid "%1$s %2$s, Feedly subscribers are %3$d !! %4$s"
+msgstr "%1$s %2$s、Feedly 購読者数は %3$d 人です。%4$s"
+
+#: ../admin/page-main.php:69 ../test/dashboard.php:33
+msgid "F j, Y"
+msgstr "Y年n月j日"
+
+#: ../admin/page-main.php:88 ../admin/page-main.php:105
+#: ../test/dashboard.php:78 ../test/dashboard.php:95
 #: ../test/page-search.php:13 ../test/page-search.php:35
 msgid "Search RSS by Feedly"
 msgstr "Feedly で RSS 情報を検索"
 
-#: ../admin/dashboard.php:81 ../test/dashboard.php:84
+#: ../admin/page-main.php:91 ../test/dashboard.php:81
 #: ../test/page-search.php:20
 msgid "How many search (default is 20)."
 msgstr "検索結果の取得件数 (デフォルト: 20件"
 
-#: ../admin/dashboard.php:97 ../test/dashboard.php:100
+#: ../admin/page-main.php:109 ../test/dashboard.php:97
 #: ../test/page-search.php:39
 msgid "Input URL, domain and any words."
 msgstr "URL、ドメイン名、その他単語で検索できます。"
 
-#: ../admin/dashboard.php:108 ../test/dashboard.php:111
+#: ../admin/page-main.php:120 ../test/dashboard.php:108
 msgid "Version:"
 msgstr "バージョン:"
+
+#: ../admin/page-main.php:264
+msgid "%a, %b, %d, %Y - %H:%M"
+msgstr "%Y年%m月%d日 %h時%M分"
 
 #: ../admin/page-settings.php:23
 msgid "CSS"
@@ -118,7 +124,7 @@ msgstr ""
 "WordPress デフォルトの RSS フィード URL を使っていない場合、対象の URL を指定"
 "してください。"
 
-#: ../admin/page-settings.php:46
+#: ../admin/page-settings.php:47
 msgid "Save Changes"
 msgstr "変更を保存"
 
@@ -138,47 +144,52 @@ msgstr "&#8220;%s&#8221; の検索結果"
 msgid "No items."
 msgstr "項目はありません。"
 
-#: ../admin/search.php:29 ../test/search.php:29
+#: ../admin/search.php:27 ../test/search.php:29
 msgid "Clear results"
 msgstr "検索結果をクリア"
 
-#: ../admin/search.php:69 ../test/search.php:69
+#: ../admin/search.php:72 ../test/search.php:69
 msgid "Last update"
 msgstr "最終更新"
 
-#: ../admin/search.php:75 ../test/search.php:75
+#: ../admin/search.php:81 ../admin/search.php:90
+msgid "What's meaning? I don't know..."
+msgstr "API に説明が載っていないため、何の数値なのかよくわかりません。"
+
+#: ../admin/search.php:82 ../test/search.php:75
 msgid "Score"
 msgstr "スコア"
 
-#: ../admin/search.php:78 ../test/search.php:78
+#: ../admin/search.php:85 ../test/search.php:78
 msgid "Languages"
 msgstr "言語"
 
-#: ../admin/search.php:82 ../test/search.php:82
-msgid "Estimated"
+#: ../admin/search.php:91
+msgid "Estimated engagement"
 msgstr "評価？"
 
-#: ../admin/search.php:86 ../test/search.php:86
+#: ../admin/search.php:94 ../test/search.php:86
 msgid "Tags"
 msgstr "タグ"
 
-#: ../inc/jetpack/class_Jetpack.php:67 ../inc/jetpack/class_Jetpack.php:79
+#: ../inc/jetpack/class_Jetpack.php:98 ../inc/jetpack/class_Jetpack.php:110
 msgid "Feedly"
 msgstr "Feedly"
 
-#: ../inc/jetpack/class_Jetpack.php:80
+#: ../inc/jetpack/class_Jetpack.php:111
 msgid "Click to follow on Feedly"
 msgstr "クリックして Feedly で購読"
 
-#: ../inc/jetpack/class_Jetpack.php:105 ../inc/jetpack/class_Jetpack.php:119
+#: ../inc/jetpack/class_Jetpack.php:147 ../inc/jetpack/class_Jetpack.php:168
 msgid "Bookmark"
 msgstr "Bookmark"
 
-#: ../inc/jetpack/class_Jetpack.php:112
+#: ../inc/jetpack/class_Jetpack.php:160 ../inc/jetpack/class_Jetpack.php:161
+#: ../inc/jetpack/class_Jetpack.php:162
 msgid "Add this entry to Hatena Bookmark"
 msgstr "このエントリーをはてなブックマークに追加"
 
-#: ../inc/jetpack/class_Jetpack.php:120
+#: ../inc/jetpack/class_Jetpack.php:169
 msgid "Click to share on Hatena Bookmark"
 msgstr "クリックしてはてなブックマークで共有"
 
@@ -189,6 +200,17 @@ msgstr "Y年n月j日 @ G:i"
 #: ../inc/template_tags.php:113
 msgid "Syndicate this site using Feedly"
 msgstr "このサイトを Feedly で購読"
+
+#: ../test/dashboard.php:56
+msgid "Maybe post/a week."
+msgstr "おそらく 投稿/週？"
+
+#: ../test/search.php:82
+msgid "Estimated"
+msgstr "評価？"
+
+#~ msgid "%Y/%m/%d"
+#~ msgstr "%Y年%m月%d日"
 
 #, fuzzy
 #~ msgid "Search"

@@ -16,7 +16,35 @@ function fi_main() {
 
 	<h2><?php echo FI_NAME; ?></h2>
 
-	<hr />
+	<div class="fi-author alignright">
+
+		<?php extract( FI::$plugin_data ); ?>
+
+		<span><small><?php _e( 'Version:', 'feedly_insight' ); ?></small>
+			<?php echo $Version; ?></span>
+
+		<i class="dashicons dashicons-admin-users"></i>Author:
+		<a href="<?php echo $AuthorURI . '?page_id=827'; ?>" target="_blank" title="Blog">
+			<i class="dashicons dashicons-admin-site"></i>
+		</a>
+		<a href="https://twitter.com/hayashikejinan" target="_blank" title="Twitter">
+			<i class="dashicons dashicons-twitter"></i>
+		</a>
+		<a href="https://www.facebook.com/pages/HayashikeJinan/471796902840013" target="_blank" title="Facebook page">
+			<i class="dashicons dashicons-facebook"></i>
+		</a>
+		<a href="https://plus.google.com/u/0/+hayashikejinantatsuo" target="_blank" title="Google+">
+			<i class="dashicons dashicons-googleplus"></i>
+		</a>
+		<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>"
+		   target="_blank" title="follow on Feedly">
+			<img src="http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png" alt="follow"
+				 width="18" height="18" class="button-selectable">
+		</a>
+
+	</div>
+
+	<hr class="clear" />
 
 	<?php
 
@@ -32,58 +60,53 @@ function fi_main() {
 		extract( $results );
 		?>
 
+		<ul class="fi-info">
+
+			<li>
+				<?php
+				$url = 'https://twitter.com/share?';
+				$url = $url . http_build_query( array(
+						'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . FI::$option['feed_url'],
+						'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
+							date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
+							$title,
+							number_format_i18n( $subscribers ),
+							'' // todo オプションで文字入れれるようにする？
+						),
+						'hashtags' => FI_TEXT_DOMAIN,
+					) );
+				?>
+
+				<i class="dashicons dashicons-groups"></i> <?php _e( 'Subscribers', 'feedly_insight' ) ?>
+				: <a class="dashicons dashicons-twitter" href="<?php echo $url; ?>" target="_blank"
+					 title="<?php _e( 'Tweet my Feedly', 'feedly_insight' ); ?>"></a>
+				<?php printf( __( '%s <small>subscribers</small>', 'feedly_insight' ),
+					number_format_i18n( $subscribers ) ); ?>
+			</li>
+			<li>
+				<i class="dashicons dashicons-update"></i>
+				<abbr title="<?php _e( 'The average number of articles published weekly. This number is updated every few days.', 'feedly_insight' ); ?>">
+					<?php _e( 'Velocity', 'feedly_insight' ) ?></abbr>
+				: <?php echo $velocity; ?>
+			</li>
+			<li>
+				<i class="dashicons dashicons-tag"></i>
+				<abbr title="<?php _e( 'Feedly sensed keywords.', 'feedly_insight' ); ?>">
+					<?php _e( 'Topics', 'feedly_insight' ) ?></abbr>
+				: <?php echo $topics; ?>
+			</li>
+
+		</ul>
+		<div class="clear"></div>
+
 		<div id="fi-history-placeholder" class="fi-history-placeholder"></div>
-
-		<div class="activity-block">
-
-			<?php
-			$url = 'https://twitter.com/share?';
-			$url = $url . http_build_query( array(
-					'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . FI::$option['feed_url'],
-					'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
-						date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
-						$title,
-						number_format_i18n( $subscribers ),
-						'' // todo オプションで文字入れれるようにする？
-					),
-					'hashtags' => FI_TEXT_DOMAIN,
-				) );
-			?>
-
-			<dl class="fi-info-panel">
-
-				<dt><i class="dashicons dashicons-groups"></i> <?php _e( 'Subscribers', 'feedly_insight' ) ?></dt>
-				<dd>
-					<span id="fi-tweet-button">
-						<a class="dashicons dashicons-twitter" href="<?php echo $url; ?>" target="_blank"
-						   title="<?php _e( 'Tweet my Feedly', 'feedly_insight' ); ?>">
-						</a>
-					</span>
-					<?php printf( __( '%s <small>subscribers</small>', 'feedly_insight' ),
-						number_format_i18n( $subscribers ) ); ?>
-				</dd>
-
-				<dt><i class="dashicons dashicons-update"></i>
-					<abbr title="<?php _e( 'Maybe post/a week.', 'feedly_insight' ); ?>">
-						<?php _e( 'Velocity', 'feedly_insight' ) ?></abbr></dt>
-				<dd><?php echo $velocity; ?></dd>
-
-				<dt><i class="dashicons dashicons-tag"></i>
-					<abbr title="<?php _e( 'Feedly sensed keywords.', 'feedly_insight' ); ?>">
-						<?php _e( 'Topics', 'feedly_insight' ) ?></abbr></dt>
-				<dd><?php echo $topics; ?></dd>
-
-			</dl>
-			<div class="clear"></div>
-
-		</div>
 
 	<?php
 	else:
 	endif;
 	?>
 
-	<div class="activity-block">
+	<div class="fi-search-form">
 		<h4>
 			<div class="dashicons dashicons-rss"></div>
 			<?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?></h4>
@@ -111,37 +134,6 @@ function fi_main() {
 			<input class="button button-primary" type="submit"
 				   value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
 		</form>
-	</div>
-
-	<div class="activity-block fi-footer">
-
-		<?php extract( FI::$plugin_data ); ?>
-
-		<div>
-			<span><small><?php _e( 'Version:', 'feedly_insight' ); ?></small>
-				<?php echo $Version; ?></span>
-
-			<i class="dashicons dashicons-admin-users"></i>Author:
-			<a href="<?php echo $AuthorURI . '?page_id=827'; ?>" target="_blank" title="Blog">
-				<i class="dashicons dashicons-admin-site"></i>
-			</a>
-			<a href="https://twitter.com/hayashikejinan" target="_blank" title="Twitter">
-				<i class="dashicons dashicons-twitter"></i>
-			</a>
-			<a href="https://www.facebook.com/pages/HayashikeJinan/471796902840013" target="_blank" title="Facebook page">
-				<i class="dashicons dashicons-facebook"></i>
-			</a>
-			<a href="https://plus.google.com/u/0/+hayashikejinantatsuo" target="_blank" title="Google+">
-				<i class="dashicons dashicons-googleplus"></i>
-			</a>
-			<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>"
-			   target="_blank" title="follow on Feedly">
-				<img src="http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png" alt="follow"
-					 width="18" height="18" class="button-selectable">
-			</a>
-		</div>
-		<div class="clear"></div>
-
 	</div>
 
 	<?php
@@ -216,7 +208,7 @@ function fi_main_footer_js() {
 					},
 					series: {
 						color : '#87c040',
-						lines : { show: true },
+						lines : { show: true},
 						points: { show: true }
 					},
 					xaxis : {
@@ -261,10 +253,12 @@ function fi_main_footer_js() {
 					if (item) {
 						var x = item.datapoint[0],
 							y = item.datapoint[1];
-						var time = $.plot.formatDate(new Date(x), "%Y/%m/%d");
+						var time = $.plot.formatDate(
+							new Date(x), "<?php _e('%a, %b, %d, %Y - %H:%M', 'feedly_insight');?>"
+						);
 
 						$("#fi-tooltip").html(time + " " + item.series.label + ": " + y)
-							.css({top: item.pageY + 5, left: item.pageX + 5})
+							.css({top: item.pageY + 5, left: item.pageX + -100})
 							.fadeIn(200);
 					} else {
 						$("#fi-tooltip").hide();

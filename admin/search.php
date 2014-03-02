@@ -72,18 +72,23 @@ function fi_create_html_search_results( $args ) {
 				<dt><i class="dashicons dashicons-clock"></i> <?php _e( 'Last update', 'feedly_insight' ); ?></dt>
 				<dd><?php echo fi_convert_timestamp( $lastUpdated ) ?></dd>
 
-				<dt><i class="dashicons dashicons-update"></i> <?php _e( 'Velocity', 'feedly_insight' ); ?></dt>
+				<dt><i class="dashicons dashicons-update"></i>
+					<abbr title="<?php _e( 'The average number of articles published weekly. This number is updated every few days.', 'feedly_insight' ); ?>">
+						<?php _e( 'Velocity', 'feedly_insight' ) ?></abbr></dt>
 				<dd><?php echo $velocity; ?></dd>
 
-				<dt><i class="dashicons dashicons-awards"></i> <?php _e( 'Score', 'feedly_insight' ); ?></dt>
+				<dt><i class="dashicons dashicons-awards"></i>
+					<abbr title="<?php _e( 'What\'s meaning? I don\'t know...', 'feedly_insight' ); ?>">
+						<?php _e( 'Score', 'feedly_insight' ); ?></abbr></dt>
 				<dd><?php echo number_format_i18n( $score ); ?></dd>
 
 				<dt><i class="dashicons dashicons-translation"></i> <?php _e( 'Languages', 'feedly_insight' ) ?>
 				</dt>
 				<dd><?php echo fi_format_code_lang( $language ); ?></dd>
 
-				<dt><i class="dashicons dashicons-performance"></i> <?php _e( 'Estimated', 'feedly_insight' ); ?>
-				</dt>
+				<dt><i class="dashicons dashicons-performance"></i>
+					<abbr title="<?php _e( 'What\'s meaning? I don\'t know...', 'feedly_insight' ); ?>">
+						<?php _e( 'Estimated engagement', 'feedly_insight' ); ?></abbr></dt>
 				<dd><?php echo $estimatedEngagement; ?></dd>
 
 				<dt><i class="dashicons dashicons-tag"></i> <?php _e( 'Tags', 'feedly_insight' ); ?></dt>
