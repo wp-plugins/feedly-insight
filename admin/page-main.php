@@ -170,7 +170,6 @@ function fi_main_footer_js() {
 			var target = '#fi-history-placeholder';
 
 			// helper for returning the weekends in a period
-
 			function weekendAreas(axes) {
 
 				var markings = [],
@@ -192,45 +191,53 @@ function fi_main_footer_js() {
 				return markings;
 			}
 
-			$.plot(target, [
-				{
-					data : data,
-					label: label
-				}
-			], {
-				grid  : {
-					borderWidth  : 0,
-					borderColor  : {
-						//top:
-						left : '#fff',
-						//bottom:
-						right: '#fff'
+			// plot draw graph
+			function plot() {
+				$.plot(target, [
+					{
+						data : data,
+						label: label
+					}
+				], {
+					grid  : {
+						borderWidth  : 0,
+						borderColor  : {
+							//top:
+							left : '#fff',
+							//bottom:
+							right: '#fff'
+						},
+						clickable    : true,
+						hoverable    : true,
+						autoHighlight: true,
+						markings     : weekendAreas
 					},
-					clickable    : true,
-					hoverable    : true,
-					autoHighlight: true,
-					markings     : weekendAreas
-				},
-				series: {
-					color : '#87c040',
-					lines : { show: true },
-					points: { show: true }
-				},
-				xaxis : {
-					mode      : "time",
-					timeformat: "%Y/%m/%d"
-				},
-				yaxis : {
-					//min: 0
-					minTickSize : 1,
-					tickDecimals: 0
-				},
-				legend: {
-					position: "se",
-					show    : true
-				}
+					series: {
+						color : '#87c040',
+						lines : { show: true },
+						points: { show: true }
+					},
+					xaxis : {
+						mode      : "time",
+						timeformat: "%Y/%m/%d"
+					},
+					yaxis : {
+						//min: 0
+						minTickSize : 1,
+						tickDecimals: 0
+					},
+					legend: {
+						position: "se",
+						show    : true
+					}
+				});
+			}
+
+			$(window).on("load resize", function(){
+				plot();
 			});
 
+			// tooltip
 			$("<div id='fi-tooltip'></div>").css({
 				position          : "absolute",
 				display           : "none",
@@ -240,7 +247,7 @@ function fi_main_footer_js() {
 				"box-shadow"      : "0 0 5px #ccc",
 				opacity           : 0.80
 			}).appendTo("body");
-
+			// hover function
 			$(target).bind("plothover", function (event, pos, item) {
 
 				if ($("#enablePosition:checked").length > 0) {
