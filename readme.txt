@@ -48,9 +48,9 @@ An answer to that question.
 
 == Changelog ==
 
-= 0.9.1 =
+= 0.9.2 =
 
-* Page styling (not enough
+* Page & result styling completed
 
 = 0.9.0 =
 
