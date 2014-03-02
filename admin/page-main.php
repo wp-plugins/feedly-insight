@@ -10,7 +10,7 @@ add_action( 'admin_print_footer_scripts', 'fi_main_footer_js' );
 
 function fi_main() {
 
-	echo '<div class="wrap fi_wrap">';
+	echo '<div class="wrap fi-wrap">';
 
 	?>
 
@@ -254,7 +254,7 @@ function fi_main_footer_js() {
 						var x = item.datapoint[0],
 							y = item.datapoint[1];
 						var time = $.plot.formatDate(
-							new Date(x), "<?php _e('%a, %b, %d, %Y - %H:%M', 'feedly_insight');?>"
+							new Date(x), "<?php _e('%a, %b, %d, %Y', 'feedly_insight');?>"
 						);
 
 						$("#fi-tooltip").html(time + " " + item.series.label + ": " + y)
