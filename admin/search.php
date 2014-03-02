@@ -63,8 +63,9 @@ function fi_create_html_search_results( $args ) {
 
 			<div class="clear"></div>
 
-			<?php echo fi_get_create_mshots_img( $website, 480, 'fi-img-ss' ); ?>
-			<div class="clear"></div>
+			<a href="<?php echo $website; ?>" target="_blank" title="<?php echo $title; ?>">
+				<?php echo fi_get_create_mshots_img( $website, 480, 'fi-img-ss' ); ?>
+			</a>
 
 			<dl class="fi-info-panel">
 
