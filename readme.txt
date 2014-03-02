@@ -48,7 +48,7 @@ An answer to that question.
 
 == Changelog ==
 
-= 0.9.2 =
+= 0.9.3 =
 
 * Page & result styling completed
 
