@@ -19,6 +19,11 @@ class FI_Menu {
 	private function __construct() {
 		add_action( 'admin_menu', array( $this, 'register_menu_page' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
+
+		// old WP
+		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && ! function_exists( 'mp6_register_dashicons' ) ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'deprecated_enqueue' ) );
+		}
 	}
 
 	function register_menu_page() {
@@ -53,8 +58,17 @@ class FI_Menu {
 			return;
 		wp_enqueue_script( 'jquery-flot', FI_URL . '/js/jquery.flot.js', array( 'jquery' ), '0.8.3-alpha', true );
 		wp_enqueue_script( 'jquery-flot-time', FI_URL . '/js/jquery.flot.time.js', array( 'jquery-flot' ), '0.8.3-alpha', true );
-		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && ! function_exists( 'mp6_register_dashicons' ) )
-			wp_enqueue_style( 'dash-icons', '//melchoyce.github.io/dashicons/css/dashicons.css' );
+	}
+
+	function deprecated_dashicons() {
+		echo '<style type="text/css" media="screen">.fi_wrap .dashicons { font-family: "dashicons" !important; }</style>';
+	}
+
+	function deprecated_enqueue( $hook ) {
+		if ( 'toplevel_page_feedly_insight' != $hook )
+			return;
+		wp_enqueue_style( 'dash-icons', '//melchoyce.github.io/dashicons/css/dashicons.css' );
+		add_action( 'admin_head', array( $this, 'deprecated_dashicons' ) );
 	}
 
 }
