@@ -110,6 +110,10 @@ function fi_search_footer_js() {
 	<script type="text/javascript">
 		// <![CDATA[
 		(function ($) {
+			// lazy load img
+			$("img").unveil(200);
+
+			// click clear
 			var target = $("#fi-results");
 			var button = $("#fi-clear-results");
 			var input = $('#fi-search-input');
@@ -122,6 +126,7 @@ function fi_search_footer_js() {
 				$('html,body').animate({ scrollTop: 0 }, 'slow', 'swing');
 			});
 
+			// fixed clear button
 			var top = button.offset().top;
 			$(window).scroll(function (event) {
 				var y = $(this).scrollTop();
@@ -129,7 +134,6 @@ function fi_search_footer_js() {
 					button.addClass('fi-fixed');
 				else
 					button.removeClass('fi-fixed');
-				//button.width(button.parent().width());
 			});
 		})(jQuery);
 		// ]]>

@@ -56,6 +56,10 @@ class FI_Menu {
 	function enqueue( $hook ) {
 		if ( 'toplevel_page_feedly_insight' != $hook )
 			return;
+		if ( ! empty( $_GET['search-feedly'] ) ) {
+			wp_enqueue_script( 'jquery-lazyload', FI_URL . '/js/jquery.unveil.min.js', array( 'jquery' ), '1.9.1', true );
+			return;
+		}
 		wp_enqueue_script( 'jquery-flot', FI_URL . '/js/jquery.flot.js', array( 'jquery' ), '0.8.3-alpha', true );
 		wp_enqueue_script( 'jquery-flot-time', FI_URL . '/js/jquery.flot.time.js', array( 'jquery-flot' ), '0.8.3-alpha', true );
 	}

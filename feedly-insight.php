@@ -4,14 +4,14 @@
 Plugin Name: Feedly Insight
 Plugin URI: http://wordpress.org/plugins/feedly-insight/
 Description: Add Feedly dashboard widget. Shows your site info, search website & feeds.
-Version: 0.9.4 beta
+Version: 0.9.41 beta
 Author: hayashikejinan
 Author URI: http://hayashikejinan.com/
 Text Domain: feedly_insight
 Domain Path: /languages/
 License: GPLv2 or later
 */
-define( 'FI_VER', '0.9.4 beta' );
+define( 'FI_VER', '0.9.41 beta' );
 
 /*
 Copyright (C) 2014 hayashikejinan <hayashikejinan@gmail.com>
@@ -101,7 +101,7 @@ class FI {
 	function admin_css( $hook ) {
 		if ( ! strstr( $hook, FI_TEXT_DOMAIN ) && 'settings_page_sharing' != $hook )
 			return;
-		if ( defined( 'WP_SHARING_PLUGIN_VERSION' ) && version_compare( WP_SHARING_PLUGIN_VERSION, '2.9-alpha', '=' ) )
+		if ( defined( 'WP_SHARING_PLUGIN_VERSION' ) && version_compare( WP_SHARING_PLUGIN_VERSION, '2.9', '>' ) )
 			wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, FI_VER );
 		else
 			wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin-deprecated.css', false, FI_VER );
@@ -109,7 +109,7 @@ class FI {
 	}
 
 	function fi_button_css() {
-		if ( defined( 'WP_SHARING_PLUGIN_VERSION' ) && version_compare( WP_SHARING_PLUGIN_VERSION, '2.9-alpha', '=' ) )
+		if ( defined( 'WP_SHARING_PLUGIN_VERSION' ) && version_compare( WP_SHARING_PLUGIN_VERSION, '2.9', '>' ) )
 			wp_register_style( 'fi_buttons', FI_URL . 'css/fi-buttons.css', false, FI_VER );
 		else
 			wp_register_style( 'fi_buttons', FI_URL . 'css/fi-buttons-deprecated.css', false, FI_VER );
