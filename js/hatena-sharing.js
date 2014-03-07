@@ -1,4 +1,4 @@
-(function ($) {
+jQuery(document).ready(function(){
 	if ('undefined' != typeof WPCOM_sharing_counts) {
 		for (var url in WPCOM_sharing_counts) {
 			get_hatena_counts(url);
@@ -19,4 +19,4 @@
 		}
 	}
 
-})(jQuery);
+});
