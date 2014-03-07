@@ -48,6 +48,11 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.9.5 =
+
+* Lazy loading images search result.
+* Fix for latest Jetpack 2.9.1
+
 = 0.9.4 =
 
 * Page & result styling completed
