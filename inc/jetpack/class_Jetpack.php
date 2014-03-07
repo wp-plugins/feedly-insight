@@ -151,6 +151,8 @@ class Share_Hatena extends Sharing_Source {
 
 		$share_url  = esc_url( $this->get_share_url( $post->ID ) );
 		$post_title = esc_attr( $this->get_share_title( $post->ID ) );
+		// replace white space
+		$post_title = str_replace( ' ', '%20', $post_title );
 
 		if ( $this->smart ):
 			$lang = 'en';
@@ -164,7 +166,7 @@ class Share_Hatena extends Sharing_Source {
 			return '<div class="hatena_button">' . $button . '</div>';
 		else:
 			return $this->get_link(
-				'http://b.hatena.ne.jp/add?mode=confirm&url=' . $share_url . '&title=' . $post_title,
+				'http://b.hatena.ne.jp/add?mode=confirm&amp;url=' . $share_url . '&amp;title=' . $post_title,
 				_x( 'Bookmark', 'share to', 'feedly_insight' ),
 				__( 'Click to share on Hatena Bookmark', 'feedly_insight' ),
 				'share=hatena', 'sharing-hatena-' . $post->ID );
