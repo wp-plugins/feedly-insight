@@ -48,6 +48,10 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.9.7 =
+
+* Add duplicate option for graph
+
 = 0.9.6 =
 
 * Code optimized
