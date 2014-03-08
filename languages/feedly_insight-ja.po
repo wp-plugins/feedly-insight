@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Feedly Insite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
-"POT-Creation-Date: 2014-03-08 18:06+0900\n"
-"PO-Revision-Date: 2014-03-08 18:06+0900\n"
+"POT-Creation-Date: 2014-03-08 23:33+0900\n"
+"PO-Revision-Date: 2014-03-08 23:34+0900\n"
 "Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -32,10 +32,29 @@ msgstr "なし"
 msgid "Unknown"
 msgstr "不明"
 
-#: ../admin/class_Menu.php:41 ../admin/class_Menu.php:42
+#: ../admin/class_Menu.php:43 ../admin/class_Menu.php:44
+msgid "Import"
+msgstr "インポート"
+
+#: ../admin/class_Menu.php:51 ../admin/class_Menu.php:52
+#: ../admin/page-export.php:13
+msgid "Export"
+msgstr "エクスポート"
+
+#: ../admin/class_Menu.php:59 ../admin/class_Menu.php:60
 #: ../admin/page-settings.php:13
 msgid "Settings"
 msgstr "設定"
+
+#: ../admin/page-export.php:17
+msgid "You can download Feedly Insight subscribers history as the CSV file."
+msgstr ""
+"Feedly Insight で取得した購読者数履歴を CSV 形式のファイルでダウンロードでき"
+"ます。"
+
+#: ../admin/page-export.php:21
+msgid "Export CSV"
+msgstr "CSV としてエクスポート"
 
 #: ../admin/page-main.php:23 ../test/page-main_tab.php:23
 msgid "Version:"

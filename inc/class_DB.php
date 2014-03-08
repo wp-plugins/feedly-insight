@@ -109,7 +109,6 @@ class FI_DB {
 
 		$count = (int) $wpdb->get_var( "SELECT count({$c_query}) FROM {$wpdb->$table}" );
 		if ( $num === 0 ) {
-			echo 111;
 			$num = $count;
 		} elseif ( $num < $count ) {
 			$offset = $count - $num;
@@ -143,6 +142,19 @@ class FI_DB {
 			$history[] .= '[' . strtotime( $h['save_date'] ) * 1000 . ',' . $h['subscribers'] . ']';
 		}
 		return $history;
+	}
+
+
+	function export_history() {
+		global $wpdb;
+		$table = $this->history_table;
+		if ( ! isset( $wpdb->$table ) ) $wpdb->$table = $table;
+		$result_query = $wpdb->get_results( "
+			SELECT subscribers, save_date
+			FROM {$wpdb->$table}
+			ORDER BY save_date
+			", ARRAY_A );
+		return $result_query;
 	}
 
 

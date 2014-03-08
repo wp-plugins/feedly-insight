@@ -27,6 +27,7 @@ class FI_Menu {
 	}
 
 	function register_menu_page() {
+		// root page
 		add_menu_page(
 			FI_NAME,
 			FI_NAME,
@@ -35,7 +36,16 @@ class FI_Menu {
 			'fi_main',
 			FI_IMG_URL . 'feedly-follow-square-flat-green_16x16.png',
 			'1.11' );
-		//create new sub-level menu
+
+		// export sub page
+		add_submenu_page(
+			FI_TEXT_DOMAIN,
+			FI_NAME . ' ' . __( 'Export', 'feedly_insight' ),
+			__( 'Export', 'feedly_insight' ),
+			'manage_options',
+			FI_TEXT_DOMAIN . '_export',
+			'fi_show_export' );
+		// settings sub page
 		add_submenu_page(
 			FI_TEXT_DOMAIN,
 			FI_NAME . ' ' . __( 'Settings', 'feedly_insight' ),
