@@ -93,25 +93,6 @@ class FI_DB {
 
 
 	/**
-	 * how many columns saved history
-	 *
-	 * @return int
-	 */
-	function get_history_count() {
-		global $wpdb;
-		$table = $this->history_table;
-		if ( ! isset( $wpdb->$table ) ) {
-			$wpdb->$table = $table;
-		}
-		$result_query = $wpdb->get_var( "
-			SELECT count(*)
-			FROM {$wpdb->$table}
-			" );
-		return (int) $result_query;
-	}
-
-
-	/**
 	 * get saved subscribers history
 	 *
 	 * @param int $num default=30, 0=all data
@@ -122,18 +103,26 @@ class FI_DB {
 		global $wpdb;
 		$table = $this->history_table;
 		if ( ! isset( $wpdb->$table ) ) $wpdb->$table = $table;
+		// duplicate check
+		$c_query = '*';
+		if ( empty( FI::$option['duplicate'] ) ) $c_query = 'DISTINCT subscribers';
 
-		$columns = $this->get_history_count();
+		$count = (int) $wpdb->get_var( "SELECT count({$c_query}) FROM {$wpdb->$table}" );
 		if ( $num === 0 ) {
-			$num = $columns;
-		} elseif ( $num < $columns ) {
-			$offset = $columns - $num;
+			echo 111;
+			$num = $count;
+		} elseif ( $num < $count ) {
+			$offset = $count - $num;
 			$num    = "{$offset}, {$num}";
 		}
 
+		$duplicate_query = '';
+		if ( empty( FI::$option['duplicate'] ) ) $duplicate_query = 'GROUP BY subscribers';
+
 		$result_query = $wpdb->get_results( "
-			SELECT save_date, subscribers
+			SELECT subscribers, save_date
 			FROM {$wpdb->$table}
+			{$duplicate_query}
 			ORDER BY save_date LIMIT {$num}
 			", ARRAY_A );
 		return $result_query;

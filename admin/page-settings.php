@@ -41,6 +41,16 @@ function fi_show_settings() {
 						</label>
 					</td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Duplicate history', 'feedly_insight' ); ?></th>
+					<td>
+						<label>
+							<input name="<?php echo FI_OPTION_NAME; ?>[duplicate]" type="checkbox" value="1"
+								<?php checked( '1', ! empty( FI::$option['duplicate'] ) ? FI::$option['duplicate'] : 0 ); ?> />
+							<?php _e( 'Exclude duplicated subscribers from history graph.', 'feedly_insight' ); ?>
+						</label>
+					</td>
+				</tr>
 				<?php do_action( 'fi_page_settings' ); ?>
 			</table>
 			<p class="submit">
@@ -62,6 +72,8 @@ function fi_settings_validate( $input ) {
 	// Say our second option must be safe text with no HTML tags
 	$input['feed_url'] = wp_filter_nohtml_kses( $input['feed_url'] );
 	if ( empty( $input['feed_url'] ) ) $input['feed_url'] = get_bloginfo( 'rss2_url' );
+
+	$input['duplicate'] = ( $input['duplicate'] == 1 ? 1 : 0 );
 
 	delete_transient( 'feedly_subscribers' );
 
