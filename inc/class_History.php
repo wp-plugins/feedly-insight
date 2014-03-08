@@ -4,6 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Class FI_History
+ *
+ * save subscribers history by WP-cron
+ */
 class FI_History {
 
 	static $instance;

@@ -4,16 +4,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Class FI_DB
+ *
+ * management database
+ */
 class FI_DB {
 
 	static $instance;
 	var $history_table;
+
 
 	public static function init() {
 		if ( ! self::$instance )
 			self::$instance = new FI_DB;
 		return self::$instance;
 	}
+
 
 	function __construct() {
 		global $wpdb;
@@ -60,13 +67,15 @@ class FI_DB {
 			array( '%d', '%d', ) );
 	}
 
+
 	function insert_site_history() {
 		require_once( FI_DIR . 'admin/class_Feedly_Get.php' );
-		$feeds   = new FI_Feedly_Get();
+		$feeds = new FI_Feedly_Get();
 		$feeds->set( FI::$option['feed_url'] );
 		$results = $feeds->feed();
 		$this->insert_history( date( 'Ymd' ), $results['subscribers'] );
 	}
+
 
 	function update() {
 		/*
@@ -76,24 +85,52 @@ class FI_DB {
 		*/
 	}
 
+
 	static function update_db_check() {
 		if ( get_option( 'feedly_insight_db_ver' ) != FI_DB_VER )
 			self::update();
 	}
 
+
+	/**
+	 * how many columns saved history
+	 *
+	 * @return int
+	 */
+	function get_history_count() {
+		global $wpdb;
+		$table = $this->history_table;
+		if ( ! isset( $wpdb->$table ) ) {
+			$wpdb->$table = $table;
+		}
+		$result_query = $wpdb->get_var( "
+			SELECT count(*)
+			FROM {$wpdb->$table}
+			" );
+		return (int) $result_query;
+	}
+
+
 	/**
 	 * get saved subscribers history
 	 *
-	 * @param int $num
+	 * @param int $num default=30, 0=all data
 	 *
 	 * @return mixed
 	 */
 	function get_subscribers_history( $num = 30 ) {
 		global $wpdb;
 		$table = $this->history_table;
-		if ( ! isset( $wpdb->$table ) ) {
-			$wpdb->$table = $table;
+		if ( ! isset( $wpdb->$table ) ) $wpdb->$table = $table;
+
+		$columns = $this->get_history_count();
+		if ( $num === 0 ) {
+			$num = $columns;
+		} elseif ( $num < $columns ) {
+			$offset = $columns - $num;
+			$num    = "{$offset}, {$num}";
 		}
+
 		$result_query = $wpdb->get_results( "
 			SELECT save_date, subscribers
 			FROM {$wpdb->$table}
@@ -103,6 +140,26 @@ class FI_DB {
 	}
 
 
+	/**
+	 * return subscribers history array for graph drawing
+	 *
+	 * @param int $num
+	 *
+	 * @return array [i] =>  [timestamp,subscribers]
+	 */
+	function get_subscribers_history_for_graph( $num ) {
+		$history      = array();
+		$result_query = $this->get_subscribers_history( $num );
+		foreach ( $result_query as $h ) {
+			$history[] .= '[' . strtotime( $h['save_date'] ) * 1000 . ',' . $h['subscribers'] . ']';
+		}
+		return $history;
+	}
+
+
+	/**
+	 * delete table when plugin uninstalled
+	 */
 	function plugin_uninstall() {
 		global $wpdb;
 		$wpdb->query( "DROP TABLE IF EXISTS $this->history_table" );

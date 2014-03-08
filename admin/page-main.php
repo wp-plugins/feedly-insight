@@ -61,25 +61,9 @@ function fi_main() {
 		?>
 
 		<ul class="fi-info">
-
 			<li>
-				<?php
-				$url = 'https://twitter.com/share?';
-				$url = $url . http_build_query( array(
-						'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . FI::$option['feed_url'],
-						'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
-							date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
-							$title,
-							number_format_i18n( $subscribers ),
-							'' // todo オプションで文字入れれるようにする？
-						),
-						'hashtags' => FI_TEXT_DOMAIN,
-					) );
-				?>
-
 				<i class="dashicons dashicons-groups"></i> <?php _e( 'Subscribers', 'feedly_insight' ) ?>
-				: <a class="dashicons dashicons-twitter" href="<?php echo $url; ?>" target="_blank"
-					 title="<?php _e( 'Tweet my Feedly', 'feedly_insight' ); ?>"></a>
+				: <?php echo fi_create_tweet_button( $title, $subscribers ); ?>
 				<?php printf( __( '%s <small>subscribers</small>', 'feedly_insight' ),
 					number_format_i18n( $subscribers ) ); ?>
 			</li>
@@ -99,7 +83,9 @@ function fi_main() {
 		</ul>
 		<div class="clear"></div>
 
-		<div id="fi-history-placeholder" class="fi-history-placeholder"></div>
+		<div class="fi-history-container">
+			<div id="fi-history-placeholder" class="fi-history-placeholder"></div>
+		</div>
 
 	<?php
 	else:
@@ -144,20 +130,17 @@ function fi_main() {
 
 
 function fi_main_footer_js() {
-	// todo 特定の環境でビジュアルエディタのボタンが表示されないため無理矢理
 	if ( get_current_screen()->id != 'toplevel_page_feedly_insight' ) return;
 
 	$db = FI_DB::init();
 
-	$result_query = $db->get_subscribers_history( 45 );
-	$history      = array();
-	foreach ( $result_query as $h ) {
-		$history[] .= '[' . strtotime( $h['save_date'] ) * 1000 . ',' . $h['subscribers'] . ']';
-	}
+	$history = $db->get_subscribers_history_for_graph( 30 );
 	?>
 
 	<script type="text/javascript">
 		// <![CDATA[
+
+		// flot
 		(function ($) {
 			var label = '<?php _e('Subscribers', 'feedly_insight'); ?>';
 			var data = [<?php echo implode( ',' , $history ); ?>];
@@ -272,5 +255,23 @@ function fi_main_footer_js() {
 
 <?php
 
+}
+
+
+function fi_create_tweet_button( $title, $subscribers ) {
+	$href   = 'https://twitter.com/share?' . http_build_query( array(
+			'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . FI::$option['feed_url'],
+			'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
+				date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
+				$title,
+				number_format_i18n( $subscribers ),
+				'' // todo オプションで文字入れれるようにする？
+			),
+			'hashtags' => FI_TEXT_DOMAIN,
+		) );
+	$output = sprintf( '<a class="dashicons dashicons-twitter" href="%s" target="_blank" title="%s"  onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=350\');return false;"></a>',
+		$href, __( 'Tweet my Feedly', 'feedly_insight' )
+	);
+	return $output;
 }
 
