@@ -119,6 +119,9 @@ class Share_Feedly extends Sharing_Source {
 }
 
 
+/**
+ * Class Share_Hatena
+ */
 class Share_Hatena extends Sharing_Source {
 
 	var $shortname = 'hatena';

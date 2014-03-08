@@ -74,13 +74,5 @@ class FI_Feedly_Get extends FI_Feedly {
 		return apply_filters( 'fi_search_result', $results );
 	}
 
-	protected function curl_get_contents( $url, $timeout = 5, $decode = true ) {
-		return parent::curl_get_contents( $url, $timeout, $decode );
-	}
-
-	protected function callback_curl_get_contents( $url, $timeout, $decode ) {
-		return parent::callback_curl_get_contents( $url, $timeout, $decode );
-	}
-
 }
 

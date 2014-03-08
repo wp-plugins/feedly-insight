@@ -83,6 +83,11 @@ function fi_format_code_lang( $code = '' ) {
 }
 
 
+/**
+ * Simpler get subscribers function
+ *
+ * @return int
+ */
 function fi_get_subscribers() {
 	// run below code when transient is old
 	if ( false === ( $subscribers = get_transient( 'feedly_subscribers' ) ) ) :
@@ -100,6 +105,15 @@ function fi_get_subscribers() {
 }
 
 
+/**
+ * Create follow feedly button HTML
+ *
+ * @param string $size
+ * @param null   $value
+ * @param null   $feed_url
+ *
+ * @return mixed|void
+ */
 function fi_get_button( $size = 'horizontal', $value = null, $feed_url = null ) {
 	if ( empty( $value ) )
 		$value = number_format_i18n( fi_get_subscribers() );
@@ -140,6 +154,13 @@ function fi_get_button( $size = 'horizontal', $value = null, $feed_url = null ) 
 }
 
 
+/**
+ * Output follow feedly button
+ *
+ * @param string $size
+ * @param null   $value
+ * @param null   $feed_url
+ */
 function fi_the_button( $size = 'horizontal', $value = null, $feed_url = null ) {
 	echo( fi_get_button( $size, $value, $feed_url ) );
 }
