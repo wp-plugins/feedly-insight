@@ -48,6 +48,11 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.9.6 =
+
+* Code optimized
+* Change graph showing latest 30 days subscribers history (might be choosable how to show
+
 = 0.9.5 =
 
 * Lazy loading images search result.
