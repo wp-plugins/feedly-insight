@@ -146,6 +146,39 @@ class Share_Hatena extends Sharing_Source {
 		return html_entity_decode( wp_kses( $title, null ) );
 	}
 
+	public function get_link( $url, $text, $title, $query = '', $id = false ) {
+		$klasses = array( 'share-' . $this->get_class(), 'sd-button' );
+
+		if ( $this->button_style == 'icon' || $this->button_style == 'icon-text' )
+			$klasses[] = 'share-icon';
+
+		if ( $this->button_style == 'icon' ) {
+			$text      = '';
+			$klasses[] = 'no-text';
+		}
+
+		$url = apply_filters( 'sharing_display_link', $url );
+		if ( ! empty( $query ) ) {
+			if ( stripos( $url, '?' ) === false )
+				$url .= '?' . $query;
+			else
+				$url .= '&amp;' . $query;
+		}
+
+		if ( $this->button_style == 'text' )
+			$klasses[] = 'no-icon';
+
+		return sprintf(
+			'<a rel="nofollow" class="%s" href="%s"%s title="%s"%s><span>%s</span></a>',
+			implode( ' ', $klasses ),
+			$url,
+			' onclick="window.location=this.href;"',
+			$title,
+			( $id ? ' id="' . esc_attr( $id ) . '"' : '' ),
+			$text
+		);
+	}
+
 	public function get_name() {
 		return __( 'Bookmark', 'feedly_insight' );
 	}
@@ -179,8 +212,6 @@ class Share_Hatena extends Sharing_Source {
 	public function display_footer() {
 		if ( $this->smart ) {
 			echo '<script type="text/javascript" src="//api.b.st-hatena.com/js/bookmark_button_wo_al.js" charset="utf-8" async="async"></script>';
-		} else {
-			$this->js_dialog( $this->shortname, array( 'height' => 400, 'width' => 515, ) );
 		}
 
 		if ( $this->button_style != 'icon' )
