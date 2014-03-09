@@ -39,10 +39,12 @@ function fi_export_csv() {
 		$db           = FI_DB::init();
 		$result_query = $db->export_history();
 		$first_date   = reset( $result_query );
-		$first_date   = $first_date['save_date'];
 		$last_date    = end( $result_query );
-		$last_date    = $last_date['save_date'];
-		$timestamp    = $first_date . '-' . $last_date;
+		$timestamp    = array(
+			date( 'Ymd', strtotime( $first_date['save_date'] ) ),
+			date( 'Ymd', strtotime( $last_date['save_date'] ) )
+		);
+		$timestamp    = implode( '_', $timestamp );
 
 		$csv_data = '';
 		foreach ( $result_query as $r ) {
