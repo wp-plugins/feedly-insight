@@ -49,9 +49,7 @@ An answer to that question.
 == Changelog ==
 
 
-= 0.9.9 =
-
-* Revert dashboard graph with option ( requested
+= 0.9.9.1 =
 
 = 0.9.8 =
 
