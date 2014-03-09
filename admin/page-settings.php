@@ -51,6 +51,16 @@ function fi_show_settings() {
 						</label>
 					</td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Dashboard widget', 'feedly_insight' ); ?></th>
+					<td>
+						<label>
+							<input name="<?php echo FI_OPTION_NAME; ?>[dashboard]" type="checkbox" value="1"
+								<?php checked( '1', ! empty( FI::$option['dashboard'] ) ? FI::$option['dashboard'] : 0 ); ?> />
+							<?php _e( 'Enable Feedly Insight dashboard widget.', 'feedly_insight' ); ?>
+						</label>
+					</td>
+				</tr>
 				<?php do_action( 'fi_page_settings' ); ?>
 			</table>
 			<p class="submit">
@@ -74,6 +84,7 @@ function fi_settings_validate( $input ) {
 	if ( empty( $input['feed_url'] ) ) $input['feed_url'] = get_bloginfo( 'rss2_url' );
 
 	$input['duplicate'] = ( $input['duplicate'] == 1 ? 1 : 0 );
+	$input['dashboard'] = ( $input['dashboard'] == 1 ? 1 : 0 );
 
 	delete_transient( 'feedly_subscribers' );
 

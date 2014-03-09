@@ -71,6 +71,7 @@ class FI {
 		//add_action( 'plugins_loaded', array('FI_DB', 'update_db_check') );
 
 		FI_History::init();
+		if ( ! empty( FI::$option['dashboard'] ) ) FI_Dashboard_Widget::init();
 	}
 
 	/**
@@ -99,7 +100,7 @@ class FI {
 	}
 
 	function admin_css( $hook ) {
-		if ( ! strstr( $hook, FI_TEXT_DOMAIN ) && 'settings_page_sharing' != $hook )
+		if ( $hook != 'index.php' && ! strstr( $hook, FI_TEXT_DOMAIN ) && 'settings_page_sharing' != $hook )
 			return;
 		if ( defined( 'WP_SHARING_PLUGIN_VERSION' ) && version_compare( WP_SHARING_PLUGIN_VERSION, '3.0-alpha', '>=' ) )
 			wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, FI_VER );
