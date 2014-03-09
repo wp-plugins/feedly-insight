@@ -16,7 +16,33 @@ function fi_main() {
 
 	<h2><?php echo FI_NAME; ?></h2>
 
-	<?php fi_author_html(); ?>
+	<div class="fi-author alignright">
+
+		<?php extract( FI::$plugin_data ); ?>
+
+		<span><small><?php _e( 'Version:', 'feedly_insight' ); ?></small>
+			<?php echo $Version; ?></span>
+
+		<i class="dashicons dashicons-admin-users"></i>Author:
+		<a href="<?php echo $AuthorURI . '?page_id=827'; ?>" target="_blank" title="Blog">
+			<i class="dashicons dashicons-admin-site"></i>
+		</a>
+		<a href="https://twitter.com/hayashikejinan" target="_blank" title="Twitter">
+			<i class="dashicons dashicons-twitter"></i>
+		</a>
+		<a href="https://www.facebook.com/pages/HayashikeJinan/471796902840013" target="_blank" title="Facebook page">
+			<i class="dashicons dashicons-facebook"></i>
+		</a>
+		<a href="https://plus.google.com/u/0/+hayashikejinantatsuo" target="_blank" title="Google+">
+			<i class="dashicons dashicons-googleplus"></i>
+		</a>
+		<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>"
+		   target="_blank" title="follow on Feedly">
+			<img src="http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png" alt="follow"
+				 width="18" height="18" class="button-selectable">
+		</a>
+
+	</div>
 
 	<hr class="clear" />
 
@@ -104,8 +130,7 @@ function fi_main() {
 
 
 function fi_main_footer_js() {
-	$id = get_current_screen()->id;
-	if ( $id != 'dashboard' && $id != 'toplevel_page_feedly_insight' ) return;
+	if ( get_current_screen()->id != 'toplevel_page_feedly_insight' ) return;
 
 	$db = FI_DB::init();
 
@@ -230,39 +255,6 @@ function fi_main_footer_js() {
 
 <?php
 
-}
-
-
-function fi_author_html() {
-	?>
-	<div class="fi-author alignright">
-
-		<?php extract( FI::$plugin_data ); ?>
-
-		<span><small><?php _e( 'Version:', 'feedly_insight' ); ?></small>
-			<?php echo $Version; ?></span>
-
-		<i class="dashicons dashicons-admin-users"></i>Author:
-		<a href="<?php echo $AuthorURI . '?page_id=827'; ?>" target="_blank" title="Blog">
-			<i class="dashicons dashicons-admin-site"></i>
-		</a>
-		<a href="https://twitter.com/hayashikejinan" target="_blank" title="Twitter">
-			<i class="dashicons dashicons-twitter"></i>
-		</a>
-		<a href="https://www.facebook.com/pages/HayashikeJinan/471796902840013" target="_blank" title="Facebook page">
-			<i class="dashicons dashicons-facebook"></i>
-		</a>
-		<a href="https://plus.google.com/u/0/+hayashikejinantatsuo" target="_blank" title="Google+">
-			<i class="dashicons dashicons-googleplus"></i>
-		</a>
-		<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>"
-		   target="_blank" title="follow on Feedly">
-			<img src="http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png" alt="follow"
-				 width="18" height="18" class="button-selectable">
-		</a>
-
-	</div>
-<?php
 }
 
 
