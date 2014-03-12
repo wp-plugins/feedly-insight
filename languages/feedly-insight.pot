@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Feedly Insight package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Feedly Insight 0.2.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
-"POT-Creation-Date: 2014-01-28 11:30:21+00:00\n"
+"Project-Id-Version: Feedly Insight 0.9.10 beta\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/feedly-insight\n"
+"POT-Creation-Date: 2014-03-12 12:18:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,135 +12,229 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: inc/class_Dashboard.php:23
-msgid "Feedly information of %s"
-msgstr ""
-
-#: inc/class_Feedly_Get.php:21 inc/class_Feedly_Get.php:23
-#: inc/class_Feedly_Get.php:25 inc/class_Feedly_Get.php:26
-#: inc/class_Feedly_Get.php:41 inc/class_Feedly_Get.php:42
-#: inc/class_Feedly_Get.php:43 inc/class_Feedly_Get.php:44
-#: inc/class_Feedly_Get.php:46 inc/class_Feedly_Get.php:47
-#: inc/class_Feedly_Get.php:48 inc/class_Feedly_Get.php:49
-#: inc/template_tags.php:19
+#: admin/class_Feedly_Get.php:29 admin/class_Feedly_Get.php:31
+#: admin/class_Feedly_Get.php:33 admin/class_Feedly_Get.php:34
+#: admin/class_Feedly_Get.php:57 admin/class_Feedly_Get.php:58
+#: admin/class_Feedly_Get.php:59 admin/class_Feedly_Get.php:60
+#: admin/class_Feedly_Get.php:62 admin/class_Feedly_Get.php:63
+#: admin/class_Feedly_Get.php:64 admin/class_Feedly_Get.php:65
+#: inc/template_tags.php:45
 msgid "none"
 msgstr ""
 
-#: inc/class_Feedly_Get.php:27 inc/class_Feedly_Get.php:50
+#: admin/class_Feedly_Get.php:35 admin/class_Feedly_Get.php:66
 msgid "Unknown"
 msgstr ""
 
-#: inc/class_Menu.php:14 inc/class_Menu.php:15
-msgid "Search"
+#: admin/class_Menu.php:43 admin/class_Menu.php:44
+msgid "Import"
 msgstr ""
 
-#: inc/dashboard.php:46
-msgid "Site name"
+#: admin/class_Menu.php:51 admin/class_Menu.php:52 admin/page-export.php:13
+msgid "Export"
 msgstr ""
 
-#: inc/dashboard.php:49
-msgid "Description"
+#: admin/class_Menu.php:59 admin/class_Menu.php:60 admin/page-settings.php:13
+msgid "Settings"
 msgstr ""
 
-#: inc/dashboard.php:52 inc/search.php:91
+#: admin/page-export.php:17
+msgid "You can download Feedly Insight subscribers history as the CSV file."
+msgstr ""
+
+#: admin/page-export.php:21
+msgid "Export CSV"
+msgstr ""
+
+#: admin/page-main.php:39 admin/page-main.php:120 test/page-main_tab.php:65
+#: test/page-main_tab.php:150
 msgid "Subscribers"
 msgstr ""
 
-#: inc/dashboard.php:53 inc/search.php:92
+#: admin/page-main.php:41 test/page-main_tab.php:67
 msgid "%s <small>subscribers</small>"
 msgstr ""
 
-#: inc/dashboard.php:57
-msgid "Maybe post/a week."
+#: admin/page-main.php:46 admin/search.php:76 test/page-main_tab.php:72
+msgid "The average number of articles published weekly. This number is updated every few days."
 msgstr ""
 
-#: inc/dashboard.php:58 inc/search.php:88
+#: admin/page-main.php:47 admin/search.php:77 test/page-main_tab.php:73
 msgid "Velocity"
 msgstr ""
 
-#: inc/dashboard.php:62
+#: admin/page-main.php:52 test/page-main_tab.php:78
 msgid "Feedly sensed keywords."
 msgstr ""
 
-#: inc/dashboard.php:63
+#: admin/page-main.php:53 test/page-main_tab.php:79
 msgid "Topics"
 msgstr ""
 
-#: inc/dashboard.php:75 inc/dashboard.php:92 inc/page-search.php:13
-#: inc/page-search.php:34
+#: admin/page-main.php:72 admin/page-main.php:89 test/page-main_tab.php:103
+#: test/page-main_tab.php:120
 msgid "Search RSS by Feedly"
 msgstr ""
 
-#: inc/dashboard.php:78 inc/page-search.php:19
+#: admin/page-main.php:75 test/page-main_tab.php:106
 msgid "How many search (default is 20)."
 msgstr ""
 
-#: inc/dashboard.php:95 inc/page-search.php:38
+#: admin/page-main.php:93 test/page-main_tab.php:124
 msgid "Input URL, domain and any words."
 msgstr ""
 
-#: inc/dashboard.php:98 inc/page-search.php:39
+#: admin/page-main.php:95 test/page-main_tab.php:126
 msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: inc/dashboard.php:107
+#: admin/page-main.php:215 test/page-main_tab.php:245
+msgid "%a, %b, %d, %Y"
+msgstr ""
+
+#: admin/page-main.php:242 test/page-main_tab.php:23
 msgid "Version:"
 msgstr ""
 
-#: inc/search.php:9
+#: admin/page-main.php:272 test/page-main_tab.php:302
+msgid "%1$s %2$s, Feedly subscribers are %3$d !! %4$s"
+msgstr ""
+
+#: admin/page-main.php:273 test/page-main_tab.php:303
+msgid "F j, Y"
+msgstr ""
+
+#: admin/page-main.php:281 test/page-main_tab.php:311
+msgid "Tweet my Feedly"
+msgstr ""
+
+#: admin/page-settings.php:23
+msgid "CSS"
+msgstr ""
+
+#: admin/page-settings.php:28
+msgid "Output css for Feedly button."
+msgstr ""
+
+#: admin/page-settings.php:33
+msgid "Feed URL"
+msgstr ""
+
+#: admin/page-settings.php:39
+msgid "If you don't use WordPress default feed URL ( Ex. feed burner or other ), please input the URL."
+msgstr ""
+
+#: admin/page-settings.php:45
+msgid "Duplicate history"
+msgstr ""
+
+#: admin/page-settings.php:50
+msgid "Exclude duplicated subscribers from history graph."
+msgstr ""
+
+#: admin/page-settings.php:55
+msgid "Dashboard widget"
+msgstr ""
+
+#: admin/page-settings.php:60
+msgid "Enable Feedly Insight dashboard widget."
+msgstr ""
+
+#: admin/page-settings.php:67
+msgid "Save Changes"
+msgstr ""
+
+#: admin/search.php:13
 msgid "%s result"
 msgid_plural "%s results"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/search.php:10
+#: admin/search.php:14
 msgid "Search results for &#8220;%s&#8221;"
 msgstr ""
 
-#: inc/search.php:15
+#: admin/search.php:19
 msgid "No items."
 msgstr ""
 
-#: inc/search.php:72
-msgid "Follow %s in feedly"
+#: admin/search.php:27
+msgid "Clear results"
 msgstr ""
 
-#: inc/search.php:85
+#: admin/search.php:72
 msgid "Last update"
 msgstr ""
 
-#: inc/search.php:95
+#: admin/search.php:81 admin/search.php:90
+msgid "What's meaning? I don't know..."
+msgstr ""
+
+#: admin/search.php:82
 msgid "Score"
 msgstr ""
 
-#: inc/search.php:98
+#: admin/search.php:85
 msgid "Languages"
 msgstr ""
 
-#: inc/search.php:101
-msgid "Estimated"
+#: admin/search.php:91
+msgid "Estimated engagement"
 msgstr ""
 
-#: inc/search.php:104
+#: admin/search.php:94
 msgid "Tags"
 msgstr ""
 
-#: inc/template_tags.php:20
+#: inc/jetpack/class_Jetpack.php:98
+msgid "Feedly"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack.php:110
+msgctxt "follow us"
+msgid "Feedly"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack.php:111
+msgid "Click to follow on Feedly"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack.php:183
+msgid "Bookmark"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack.php:198 inc/jetpack/class_Jetpack.php:199
+#: inc/jetpack/class_Jetpack.php:200
+msgid "Add this entry to Hatena Bookmark"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack.php:206
+msgctxt "share to"
+msgid "Bookmark"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack.php:207
+msgid "Click to share on Hatena Bookmark"
+msgstr ""
+
+#: inc/template_tags.php:46
 msgid "M j, Y @ G:i"
 msgstr ""
 
+#: inc/template_tags.php:127
+msgid "Syndicate this site using Feedly"
+msgstr ""
 #. Plugin Name of the plugin/theme
 msgid "Feedly Insight"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://"
+msgid "http://hayashikejinan.com/feedly-insight/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid ""
-"Add Feedly dashboard widget. Shows your site info, search website & feeds."
+msgid "Add Feedly dashboard widget. Shows your site info, search website & feeds."
 msgstr ""
 
 #. Author of the plugin/theme

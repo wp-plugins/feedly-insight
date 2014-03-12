@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Feedly Insite\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/feedly-insight\n"
-"POT-Creation-Date: 2014-03-09 21:56+0900\n"
-"PO-Revision-Date: 2014-03-09 21:56+0900\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/feedly-insight\n"
+"POT-Creation-Date: 2014-03-12 11:59:02+00:00\n"
+"PO-Revision-Date: 2014-03-12 21:19+0900\n"
 "Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -18,117 +18,121 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../admin/class_Feedly_Get.php:29 ../admin/class_Feedly_Get.php:31
-#: ../admin/class_Feedly_Get.php:33 ../admin/class_Feedly_Get.php:34
-#: ../admin/class_Feedly_Get.php:57 ../admin/class_Feedly_Get.php:58
-#: ../admin/class_Feedly_Get.php:59 ../admin/class_Feedly_Get.php:60
-#: ../admin/class_Feedly_Get.php:62 ../admin/class_Feedly_Get.php:63
-#: ../admin/class_Feedly_Get.php:64 ../admin/class_Feedly_Get.php:65
-#: ../inc/template_tags.php:45
+#: admin/class_Feedly_Get.php:29 admin/class_Feedly_Get.php:31
+#: admin/class_Feedly_Get.php:33 admin/class_Feedly_Get.php:34
+#: admin/class_Feedly_Get.php:57 admin/class_Feedly_Get.php:58
+#: admin/class_Feedly_Get.php:59 admin/class_Feedly_Get.php:60
+#: admin/class_Feedly_Get.php:62 admin/class_Feedly_Get.php:63
+#: admin/class_Feedly_Get.php:64 admin/class_Feedly_Get.php:65
+#: inc/template_tags.php:45
 msgid "none"
 msgstr "なし"
 
-#: ../admin/class_Feedly_Get.php:35 ../admin/class_Feedly_Get.php:66
+#: admin/class_Feedly_Get.php:35 admin/class_Feedly_Get.php:66
 msgid "Unknown"
 msgstr "不明"
 
-#: ../admin/class_Menu.php:43 ../admin/class_Menu.php:44
-#: ../admin/page-export.php:13
+#: admin/class_Menu.php:43 admin/class_Menu.php:44
+msgid "Import"
+msgstr "インポート"
+
+#: admin/class_Menu.php:51 admin/class_Menu.php:52 admin/page-export.php:13
 msgid "Export"
 msgstr "エクスポート"
 
-#: ../admin/class_Menu.php:51 ../admin/class_Menu.php:52
-#: ../admin/page-settings.php:13
+#: admin/class_Menu.php:59 admin/class_Menu.php:60 admin/page-settings.php:13
 msgid "Settings"
 msgstr "設定"
 
-#: ../admin/page-export.php:17
+#: admin/page-export.php:17
 msgid "You can download Feedly Insight subscribers history as the CSV file."
 msgstr ""
 "Feedly Insight で取得した購読者数履歴を CSV 形式のファイルでダウンロードでき"
 "ます。"
 
-#: ../admin/page-export.php:21
+#: admin/page-export.php:21
 msgid "Export CSV"
 msgstr "CSV としてエクスポート"
 
-#: ../admin/page-main.php:39 ../admin/page-main.php:120
-#: ../test/page-main_tab.php:65 ../test/page-main_tab.php:150
+#: admin/page-main.php:39 admin/page-main.php:120 test/page-main_tab.php:65
+#: test/page-main_tab.php:150
 msgid "Subscribers"
 msgstr "購読者数"
 
-#: ../admin/page-main.php:41 ../test/page-main_tab.php:67
-#, php-format
+#: admin/page-main.php:41 test/page-main_tab.php:67
 msgid "%s <small>subscribers</small>"
 msgstr "%s <small>人</small>"
 
-#: ../admin/page-main.php:46 ../admin/search.php:76
-#: ../test/page-main_tab.php:72
+#: admin/page-main.php:46 admin/search.php:76 test/page-main_tab.php:72
 msgid ""
 "The average number of articles published weekly. This number is updated "
 "every few days."
 msgstr "投稿数/週 の平均値。この数値は数日ごとに更新されます。"
 
-#: ../admin/page-main.php:47 ../admin/search.php:77
-#: ../test/page-main_tab.php:73
+#: admin/page-main.php:47 admin/search.php:77 test/page-main_tab.php:73
 msgid "Velocity"
 msgstr "更新頻度"
 
-#: ../admin/page-main.php:52 ../test/page-main_tab.php:78
+#: admin/page-main.php:52 test/page-main_tab.php:78
 msgid "Feedly sensed keywords."
 msgstr "Feedly が判断した重要なキーワード"
 
-#: ../admin/page-main.php:53 ../test/page-main_tab.php:79
+#: admin/page-main.php:53 test/page-main_tab.php:79
 msgid "Topics"
 msgstr "トピックス"
 
-#: ../admin/page-main.php:72 ../admin/page-main.php:89
-#: ../test/page-main_tab.php:103 ../test/page-main_tab.php:120
+#: admin/page-main.php:72 admin/page-main.php:89 test/page-main_tab.php:103
+#: test/page-main_tab.php:120
 msgid "Search RSS by Feedly"
 msgstr "Feedly で RSS 情報を検索"
 
-#: ../admin/page-main.php:75 ../test/page-main_tab.php:106
+#: admin/page-main.php:75 test/page-main_tab.php:106
 msgid "How many search (default is 20)."
 msgstr "検索結果の取得件数 (デフォルト: 20件"
 
-#: ../admin/page-main.php:93 ../test/page-main_tab.php:124
+#: admin/page-main.php:93 test/page-main_tab.php:124
 msgid "Input URL, domain and any words."
 msgstr "URL、ドメイン名、その他単語で検索できます。"
 
-#: ../admin/page-main.php:215 ../test/page-main_tab.php:245
+#: admin/page-main.php:95 test/page-main_tab.php:126
+#, fuzzy
+msgctxt "submit button"
+msgid "Search"
+msgstr "検索:"
+
+#: admin/page-main.php:215 test/page-main_tab.php:245
 msgid "%a, %b, %d, %Y"
 msgstr "%Y年%m月%d日"
 
-#: ../admin/page-main.php:242 ../test/page-main_tab.php:23
+#: admin/page-main.php:242 test/page-main_tab.php:23
 msgid "Version:"
 msgstr "バージョン:"
 
-#: ../admin/page-main.php:272 ../test/page-main_tab.php:302
-#, php-format
+#: admin/page-main.php:272 test/page-main_tab.php:302
 msgid "%1$s %2$s, Feedly subscribers are %3$d !! %4$s"
 msgstr "%1$s %2$s、Feedly 購読者数は %3$d 人です。%4$s"
 
-#: ../admin/page-main.php:273 ../test/page-main_tab.php:303
+#: admin/page-main.php:273 test/page-main_tab.php:303
 msgid "F j, Y"
 msgstr "Y年n月j日"
 
-#: ../admin/page-main.php:281 ../test/page-main_tab.php:311
+#: admin/page-main.php:281 test/page-main_tab.php:311
 msgid "Tweet my Feedly"
 msgstr "Feedly 情報をつぶやく"
 
-#: ../admin/page-settings.php:23
+#: admin/page-settings.php:23
 msgid "CSS"
 msgstr "CSS"
 
-#: ../admin/page-settings.php:28
+#: admin/page-settings.php:28
 msgid "Output css for Feedly button."
 msgstr "Feedly ボタン用の css を出力する"
 
-#: ../admin/page-settings.php:33
+#: admin/page-settings.php:33
 msgid "Feed URL"
 msgstr "RSS フィードの URL"
 
-#: ../admin/page-settings.php:39
+#: admin/page-settings.php:39
 msgid ""
 "If you don't use WordPress default feed URL ( Ex. feed burner or other ), "
 "please input the URL."
@@ -136,101 +140,128 @@ msgstr ""
 "WordPress デフォルトの RSS フィード URL を使っていない場合、対象の URL を指定"
 "してください。"
 
-#: ../admin/page-settings.php:45
+#: admin/page-settings.php:45
 msgid "Duplicate history"
 msgstr "重複履歴"
 
-#: ../admin/page-settings.php:50
+#: admin/page-settings.php:50
 msgid "Exclude duplicated subscribers from history graph."
 msgstr "重複した購読者数をグラフに表示する"
 
-#: ../admin/page-settings.php:55
+#: admin/page-settings.php:55
 msgid "Dashboard widget"
 msgstr "ダッシュボードウィジェット"
 
-#: ../admin/page-settings.php:60
+#: admin/page-settings.php:60
 msgid "Enable Feedly Insight dashboard widget."
 msgstr "Feedly Insight ダッシュボードウィジェットを有効化"
 
-#: ../admin/page-settings.php:67
+#: admin/page-settings.php:67
 msgid "Save Changes"
 msgstr "変更を保存"
 
-#: ../admin/search.php:13
-#, php-format
+#: admin/search.php:13
 msgid "%s result"
 msgid_plural "%s results"
 msgstr[0] "%s件"
 msgstr[1] "%s件"
 
-#: ../admin/search.php:14
-#, php-format
+#: admin/search.php:14
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "&#8220;%s&#8221; の検索結果"
 
-#: ../admin/search.php:19
+#: admin/search.php:19
 msgid "No items."
 msgstr "項目はありません。"
 
-#: ../admin/search.php:27
+#: admin/search.php:27
 msgid "Clear results"
 msgstr "検索結果をクリア"
 
-#: ../admin/search.php:72
+#: admin/search.php:72
 msgid "Last update"
 msgstr "最終更新"
 
-#: ../admin/search.php:81 ../admin/search.php:90
+#: admin/search.php:81 admin/search.php:90
 msgid "What's meaning? I don't know..."
 msgstr "API に説明が載っていないため、何の数値なのかよくわかりません。"
 
-#: ../admin/search.php:82
+#: admin/search.php:82
 msgid "Score"
 msgstr "スコア"
 
-#: ../admin/search.php:85
+#: admin/search.php:85
 msgid "Languages"
 msgstr "言語"
 
-#: ../admin/search.php:91
+#: admin/search.php:91
 msgid "Estimated engagement"
 msgstr "評価？"
 
-#: ../admin/search.php:94
+#: admin/search.php:94
 msgid "Tags"
 msgstr "タグ"
 
-#: ../inc/jetpack/class_Jetpack.php:98 ../inc/jetpack/class_Jetpack.php:110
+#: inc/jetpack/class_Jetpack.php:98
 msgid "Feedly"
 msgstr "Feedly"
 
-#: ../inc/jetpack/class_Jetpack.php:111
+#: inc/jetpack/class_Jetpack.php:110
+msgctxt "follow us"
+msgid "Feedly"
+msgstr "Feedly"
+
+#: inc/jetpack/class_Jetpack.php:111
 msgid "Click to follow on Feedly"
 msgstr "クリックして Feedly で購読"
 
-#: ../inc/jetpack/class_Jetpack.php:183 ../inc/jetpack/class_Jetpack.php:206
+#: inc/jetpack/class_Jetpack.php:183
 msgid "Bookmark"
 msgstr "Bookmark"
 
-#: ../inc/jetpack/class_Jetpack.php:198 ../inc/jetpack/class_Jetpack.php:199
-#: ../inc/jetpack/class_Jetpack.php:200
+#: inc/jetpack/class_Jetpack.php:198 inc/jetpack/class_Jetpack.php:199
+#: inc/jetpack/class_Jetpack.php:200
 msgid "Add this entry to Hatena Bookmark"
 msgstr "このエントリーをはてなブックマークに追加"
 
-#: ../inc/jetpack/class_Jetpack.php:207
+#: inc/jetpack/class_Jetpack.php:206
+msgctxt "share to"
+msgid "Bookmark"
+msgstr "Bookmark"
+
+#: inc/jetpack/class_Jetpack.php:207
 msgid "Click to share on Hatena Bookmark"
 msgstr "クリックしてはてなブックマークで共有"
 
-#: ../inc/template_tags.php:46
+#: inc/template_tags.php:46
 msgid "M j, Y @ G:i"
 msgstr "Y年n月j日 @ G:i"
 
-#: ../inc/template_tags.php:127
+#: inc/template_tags.php:127
 msgid "Syndicate this site using Feedly"
 msgstr "このサイトを Feedly で購読"
 
-#~ msgid "Import"
-#~ msgstr "インポート"
+#. Plugin Name of the plugin/theme
+msgid "Feedly Insight"
+msgstr "Feedly Insight"
+
+#. Plugin URI of the plugin/theme
+msgid "http://hayashikejinan.com/feedly-insight/"
+msgstr "http://hayashikejinan.com/feedly-insight/"
+
+#. Description of the plugin/theme
+msgid ""
+"Add Feedly dashboard widget. Shows your site info, search website & feeds."
+msgstr ""
+"ダッシュボードに Feedly ウィジェットを追加し、サイトの情報や検索が可能に。"
+
+#. Author of the plugin/theme
+msgid "hayashikejinan"
+msgstr "hayashikejinan"
+
+#. Author URI of the plugin/theme
+msgid "http://hayashikejinan.com/"
+msgstr "http://hayashikejinan.com/"
 
 #~ msgid "Maybe post/a week."
 #~ msgstr "おそらく 投稿/週？"
@@ -254,29 +285,11 @@ msgstr "このサイトを Feedly で購読"
 #~ msgid "Description"
 #~ msgstr "サイト説明文"
 
-#, fuzzy
-#~ msgctxt "submit button"
-#~ msgid "Search"
-#~ msgstr "検索:"
-
 #~ msgid "Follow %s in feedly"
 #~ msgstr "%s を Feedly でフォローする"
 
 #, fuzzy
 #~ msgid "http://"
-#~ msgstr "http://ma.tt/"
-
-#~ msgid ""
-#~ "Add Feedly dashboard widget. Shows your site info, search website & feeds."
-#~ msgstr ""
-#~ "ダッシュボードに Feedly ウィジェットを追加し、サイトの情報や検索が可能に。"
-
-#, fuzzy
-#~ msgid "hayashikejinan"
-#~ msgstr "http://ma.tt/"
-
-#, fuzzy
-#~ msgid "http://hayashikejinan.com/"
 #~ msgstr "http://ma.tt/"
 
 #~ msgid "Clear feedly search results when click this button."
