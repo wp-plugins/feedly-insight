@@ -3,7 +3,7 @@
 /*
 Plugin Name: Feedly Insight
 Plugin URI: http://hayashikejinan.com/feedly-insight/
-Description: Add Feedly dashboard widget. Shows your site info, search website & feeds.
+Description: Add Feedly subscribers history & it's widget. Shows your site info, search website & feeds. Also supported Jetpack share.
 Version: 0.9.10 beta
 Author: hayashikejinan
 Author URI: http://hayashikejinan.com/

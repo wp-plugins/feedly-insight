@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Feedly Insite\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/feedly-insight\n"
-"POT-Creation-Date: 2014-03-12 11:59:02+00:00\n"
-"PO-Revision-Date: 2014-03-12 21:19+0900\n"
+"POT-Creation-Date: 2014-03-14 14:36:28+00:00\n"
+"PO-Revision-Date: 2014-03-14 23:37+0900\n"
 "Last-Translator: hayashikejinan <hayashikejinan@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -95,10 +95,9 @@ msgid "Input URL, domain and any words."
 msgstr "URL、ドメイン名、その他単語で検索できます。"
 
 #: admin/page-main.php:95 test/page-main_tab.php:126
-#, fuzzy
 msgctxt "submit button"
 msgid "Search"
-msgstr "検索:"
+msgstr "検索"
 
 #: admin/page-main.php:215 test/page-main_tab.php:245
 msgid "%a, %b, %d, %Y"
@@ -251,9 +250,11 @@ msgstr "http://hayashikejinan.com/feedly-insight/"
 
 #. Description of the plugin/theme
 msgid ""
-"Add Feedly dashboard widget. Shows your site info, search website & feeds."
+"Add Feedly subscribers history & it's widget. Shows your site info, search "
+"website & feeds. Also supported Jetpack share."
 msgstr ""
-"ダッシュボードに Feedly ウィジェットを追加し、サイトの情報や検索が可能に。"
+"Feedly 購読者数履歴・ダッシュボードウィジェット。サイトの情報や検索が可能。"
+"Jetpack の共有ボタンもサポート。"
 
 #. Author of the plugin/theme
 msgid "hayashikejinan"
