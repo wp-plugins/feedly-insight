@@ -37,6 +37,14 @@ class FI_Menu {
 			FI_IMG_URL . 'feedly-follow-square-flat-green_16x16.png',
 			'1.11' );
 
+		// import sub page
+		add_submenu_page(
+			FI_TEXT_DOMAIN,
+			FI_NAME . ' ' . __( 'Import', 'feedly_insight' ),
+			__( 'Import', 'feedly_insight' ),
+			'manage_options',
+			FI_TEXT_DOMAIN . '_import',
+			'__return_true' );
 		// export sub page
 		add_submenu_page(
 			FI_TEXT_DOMAIN,
