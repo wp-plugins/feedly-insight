@@ -1,6 +1,6 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -10,7 +10,7 @@ class FI_Feedly_Get extends FI_Feedly {
 
 	private $id;
 
-	const FEEDS  = 'feeds/';
+	const FEEDS = 'feeds/';
 	const SEARCH = 'search/feeds?';
 
 	function set( $id ) {

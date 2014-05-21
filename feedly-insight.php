@@ -31,7 +31,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -71,7 +71,7 @@ class FI {
 		//add_action( 'plugins_loaded', array('FI_DB', 'update_db_check') );
 
 		FI_History::init();
-		if ( ! empty( FI::$option['dashboard'] ) && is_admin() ) FI_Dashboard_Widget::init();
+		if ( !empty( FI::$option['dashboard'] ) && is_admin() ) FI_Dashboard_Widget::init();
 	}
 
 	/**
@@ -102,7 +102,7 @@ class FI {
 	}
 
 	function admin_css( $hook ) {
-		if ( $hook != 'index.php' && ! strstr( $hook, FI_TEXT_DOMAIN ) && 'settings_page_sharing' != $hook )
+		if ( $hook != 'index.php' && !strstr( $hook, FI_TEXT_DOMAIN ) && 'settings_page_sharing' != $hook )
 			return;
 		if ( defined( 'WP_SHARING_PLUGIN_VERSION' ) && version_compare( WP_SHARING_PLUGIN_VERSION, '3.0-alpha', '>=' ) )
 			wp_register_style( 'fi_admin', FI_URL . 'css/fi-admin.css', false, FI_VER );
@@ -122,7 +122,7 @@ class FI {
 	function _activate() {
 		$db = FI_DB::init();
 		$db->activate();
-		if ( ! get_option( FI_OPTION_NAME ) ):
+		if ( !get_option( FI_OPTION_NAME ) ):
 			add_option( FI_OPTION_NAME, array(
 				'css_enqueue' => 1,
 				'feed_url'    => get_bloginfo( 'rss2_url' ),
