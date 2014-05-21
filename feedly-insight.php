@@ -61,7 +61,7 @@ class FI {
 		self::$option = get_option( FI_OPTION_NAME );
 		load_plugin_textdomain( FI_TEXT_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		add_action( 'admin_init', array( $this, '_set_plugin_data' ) );
-		add_action( 'wp_loaded', array( $this, 'jetpack' ) );
+		add_action( 'plugins_loaded', array( $this, 'jetpack' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
 		if ( self::$option['css_enqueue'] )
 			add_action( 'wp_enqueue_scripts', array( $this, 'fi_button_css' ) );
@@ -89,7 +89,9 @@ class FI {
 	}
 
 	function jetpack() {
-		require_once dirname( __FILE__ ) . '/inc/jetpack/class_Jetpack.php';
+		if ( class_exists( 'Jetpack' ) ) {
+			require_once dirname( __FILE__ ) . '/inc/jetpack/class_Jetpack.php';
+		}
 	}
 
 	/**
