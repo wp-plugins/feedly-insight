@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -31,7 +31,7 @@ class FI_Feedly {
 
 		$this->request = $url;
 
-		if ( !function_exists( 'curl_version' ) )
+		if ( ! function_exists( 'curl_version' ) )
 			return $this->callback_curl_get_contents( $url, $timeout, $decode );
 
 		// 取得
@@ -71,7 +71,7 @@ class FI_Feedly {
 			$url,
 			array( 'timeout' => $timeout, 'sslverify' => false, 'headers' => array( 'Accept-Encoding' => '' ) )
 		);
-		if ( is_wp_error( $results ) || !$results['response']['code'] === 200 )
+		if ( is_wp_error( $results ) || ! $results['response']['code'] === 200 )
 			return false;
 		if ( empty( $results['body'] ) )
 			return false;

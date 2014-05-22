@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -35,7 +35,7 @@ function fi_show_export() {
  * Export subscribers history CSV
  */
 function fi_export_csv() {
-	if ( !empty( $_POST['mode'] ) && $_POST['mode'] === 'fi_download_csv' ) {
+	if ( ! empty( $_POST['mode'] ) && $_POST['mode'] === 'fi_download_csv' ) {
 		$db           = FI_DB::init();
 		$result_query = $db->export_history();
 		$first_date   = reset( $result_query );

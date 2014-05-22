@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -46,7 +46,7 @@ function fi_show_settings() {
 					<td>
 						<label>
 							<input name="<?php echo FI_OPTION_NAME; ?>[duplicate]" type="checkbox" value="1"
-								<?php checked( '1', !empty( FI::$option['duplicate'] ) ? FI::$option['duplicate'] : 0 ); ?> />
+								<?php checked( '1', ! empty( FI::$option['duplicate'] ) ? FI::$option['duplicate'] : 0 ); ?> />
 							<?php _e( 'Exclude duplicated subscribers from history graph.', 'feedly_insight' ); ?>
 						</label>
 					</td>
@@ -56,7 +56,7 @@ function fi_show_settings() {
 					<td>
 						<label>
 							<input name="<?php echo FI_OPTION_NAME; ?>[dashboard]" type="checkbox" value="1"
-								<?php checked( '1', !empty( FI::$option['dashboard'] ) ? FI::$option['dashboard'] : 0 ); ?> />
+								<?php checked( '1', ! empty( FI::$option['dashboard'] ) ? FI::$option['dashboard'] : 0 ); ?> />
 							<?php _e( 'Enable Feedly Insight dashboard widget.', 'feedly_insight' ); ?>
 						</label>
 					</td>

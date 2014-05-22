@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -16,7 +16,7 @@ class FI_DB {
 
 
 	public static function init() {
-		if ( !self::$instance )
+		if ( ! self::$instance )
 			self::$instance = new FI_DB;
 		return self::$instance;
 	}
@@ -102,7 +102,7 @@ class FI_DB {
 	function get_subscribers_history( $num = 30 ) {
 		global $wpdb;
 		$table = $this->history_table;
-		if ( !isset( $wpdb->$table ) ) $wpdb->$table = $table;
+		if ( ! isset( $wpdb->$table ) ) $wpdb->$table = $table;
 		// duplicate check
 		$c_query = '*';
 		if ( empty( FI::$option['duplicate'] ) ) $c_query = 'DISTINCT subscribers';
@@ -148,7 +148,7 @@ class FI_DB {
 	function export_history() {
 		global $wpdb;
 		$table = $this->history_table;
-		if ( !isset( $wpdb->$table ) ) $wpdb->$table = $table;
+		if ( ! isset( $wpdb->$table ) ) $wpdb->$table = $table;
 		$result_query = $wpdb->get_results( "
 			SELECT subscribers, save_date
 			FROM {$wpdb->$table}

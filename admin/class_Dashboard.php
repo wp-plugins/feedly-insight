@@ -1,17 +1,17 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( !empty( FI::$option['dashboard'] ) ) FI_Dashboard_Widget::init();
+if ( ! empty( FI::$option['dashboard'] ) ) FI_Dashboard_Widget::init();
 
 class FI_Dashboard_Widget {
 
 	static $instance;
 
 	public static function init() {
-		if ( !self::$instance )
+		if ( ! self::$instance )
 			self::$instance = new FI_Dashboard_Widget;
 		return self::$instance;
 	}
@@ -23,7 +23,7 @@ class FI_Dashboard_Widget {
 		add_action( 'admin_print_footer_scripts', 'fi_main_footer_js' );
 
 		// old WP
-		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && !function_exists( 'mp6_register_dashicons' ) ) {
+		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && ! function_exists( 'mp6_register_dashicons' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'deprecated_enqueue' ) );
 		}
 	}
@@ -46,7 +46,7 @@ class FI_Dashboard_Widget {
 			return;
 		wp_enqueue_script( 'jquery-flot', FI_URL . '/js/jquery.flot.js', array( 'jquery' ), '0.8.3-alpha', true );
 		wp_enqueue_script( 'jquery-flot-time', FI_URL . '/js/jquery.flot.time.js', array( 'jquery-flot' ), '0.8.3-alpha', true );
-		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && !function_exists( 'mp6_register_dashicons' ) )
+		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && ! function_exists( 'mp6_register_dashicons' ) )
 			wp_enqueue_style( 'dash-icons', '//melchoyce.github.io/dashicons/css/dashicons.css' );
 	}
 

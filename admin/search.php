@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -14,7 +14,7 @@ function fi_search_function( $search_words, $number ) {
 	$title = sprintf( __( 'Search results for &#8220;%s&#8221;', 'feedly_insight' ),
 			urldecode( $search_words ) ) . ': <strong>' . $title . '</strong>';
 
-	if ( !count( $results ) ) {
+	if ( ! count( $results ) ) {
 		echo $title;
 		echo '<p>' . __( 'No items.', 'feedly_insight' ) . '</p>';
 		return;
@@ -123,7 +123,7 @@ function fi_search_footer_js() {
 					input.val('');
 				});
 				input.focus();
-				$('html,body').animate({scrollTop: 0}, 'slow', 'swing');
+				$('html,body').animate({ scrollTop: 0 }, 'slow', 'swing');
 			});
 
 			// fixed clear button
@@ -142,7 +142,7 @@ function fi_search_footer_js() {
 }
 
 
-if ( !empty( $_GET['search-feedly'] ) ) {
+if ( ! empty( $_GET['search-feedly'] ) ) {
 	add_action( 'admin_print_footer_scripts', 'fi_search_footer_js' );
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -11,7 +11,7 @@ class FI_Menu {
 	static $instance;
 
 	public static function init() {
-		if ( !self::$instance )
+		if ( ! self::$instance )
 			self::$instance = new FI_Menu;
 		return self::$instance;
 	}
@@ -21,7 +21,7 @@ class FI_Menu {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
 
 		// old WP
-		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && !function_exists( 'mp6_register_dashicons' ) ) {
+		if ( version_compare( $GLOBALS['wp_version'], '3.8', '<' ) && ! function_exists( 'mp6_register_dashicons' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'deprecated_enqueue' ) );
 		}
 	}
@@ -74,7 +74,7 @@ class FI_Menu {
 	function enqueue( $hook ) {
 		if ( 'toplevel_page_feedly_insight' != $hook )
 			return;
-		if ( !empty( $_GET['search-feedly'] ) ) {
+		if ( ! empty( $_GET['search-feedly'] ) ) {
 			wp_enqueue_script( 'jquery-lazyload', FI_URL . '/js/jquery.unveil.min.js', array( 'jquery' ), '1.9.1', true );
 			return;
 		}

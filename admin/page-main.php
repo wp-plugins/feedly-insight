@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -27,7 +27,7 @@ function fi_main() {
 
 	$results = $feeds->feed();
 
-	if ( !empty( $_GET['search-feedly'] ) ):
+	if ( ! empty( $_GET['search-feedly'] ) ):
 		fi_search_function( esc_attr( $_GET['search-feedly'] ), esc_attr( $_GET['c'] ) );
 
 	elseif ( $results ):
@@ -75,11 +75,11 @@ function fi_main() {
 			<label for="fi-select-number"><?php _e( 'How many search (default is 20).', 'feedly_insight' ); ?></label>
 
 			<?php $values = array( 3, 5, 10, 20, 50, 100 );
-			$html         = '<select name="c" id="fi-select-number">';
+			$html = '<select name="c" id="fi-select-number">';
 			foreach ( $values as $value ) {
 				$html .= '<option ';
 				$html .= "value='{$value}'";
-				if ( empty( $_GET['c'] ) && $value === 20 || !empty( $_GET['c'] ) && $value === (int) $_GET['c'] )
+				if ( empty( $_GET['c'] ) && $value === 20 || ! empty( $_GET['c'] ) && $value === (int) $_GET['c'] )
 					$html .= ' selected="selected"';
 				$html .= ">{$value}</option>";
 			}
@@ -89,7 +89,7 @@ function fi_main() {
 			<label class="screen-reader-text" for="fi-search-input"><?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?></label>
 			<input type="hidden" name="page" value="feedly_insight" />
 			<input class="regular-text" id="fi-search-input" type="text"
-				   value="<?php if ( !empty( $_GET['search-feedly'] ) ) echo $_GET['search-feedly']; ?>"
+				   value="<?php if ( ! empty( $_GET['search-feedly'] ) ) echo $_GET['search-feedly']; ?>"
 				   placeholder="<?php _e( 'Input URL, domain and any words.', 'feedly_insight' ); ?>" name="search-feedly" />
 			<input class="button button-primary" type="submit"
 				   value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
@@ -137,7 +137,7 @@ function fi_main_footer_js() {
 				// when we don't set yaxis, the rectangle automatically
 				// extends to infinity upwards and downwards
 				do {
-					markings.push({xaxis: {from: i, to: i + 2 * 24 * 60 * 60 * 1000}});
+					markings.push({ xaxis: { from: i, to: i + 2 * 24 * 60 * 60 * 1000 } });
 					i += 7 * 24 * 60 * 60 * 1000;
 				} while (i < axes.xaxis.max);
 				return markings;
@@ -166,8 +166,8 @@ function fi_main_footer_js() {
 					},
 					series: {
 						color : '#87c040',
-						lines : {show: true},
-						points: {show: true}
+						lines : { show: true},
+						points: { show: true }
 					},
 					xaxis : {
 						mode      : "time",
