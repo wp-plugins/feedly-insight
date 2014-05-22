@@ -48,8 +48,12 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.9.13 =
 
-= 0.9.12 =
+* Bug fix with Jetpack
+* Restyling CSS
+
+= 0.9.10 =
 
 * Revert dashboard graph with option ( requested
 
