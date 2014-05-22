@@ -49,12 +49,7 @@ An answer to that question.
 == Changelog ==
 
 
-= 0.9.11 =
-
-* Bug fix with Jetpack
-* Restyling CSS
-
-= 0.9.10 =
+= 0.9.12 =
 
 * Revert dashboard graph with option ( requested
 
