@@ -1,6 +1,6 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -27,7 +27,7 @@ class FI_Jetpack {
 	static $global;
 
 	public static function init() {
-		if ( ! self::$instance )
+		if ( !self::$instance )
 			self::$instance = new FI_Jetpack;
 		return self::$instance;
 	}
@@ -44,9 +44,9 @@ class FI_Jetpack {
 	}
 
 	function add_sharing_services( $services ) {
-		if ( ! array_key_exists( 'feedly', $services ) )
+		if ( !array_key_exists( 'feedly', $services ) )
 			$services['feedly'] = 'Share_Feedly';
-		if ( ! array_key_exists( 'hatena', $services ) )
+		if ( !array_key_exists( 'hatena', $services ) )
 			$services['hatena'] = 'Share_Hatena';
 		return $services;
 	}
@@ -69,7 +69,7 @@ class FI_Jetpack {
 
 	function add_sharing_default_global( $global ) {
 		$global['twitter_via'] = '';
-		if ( ! empty( $_POST['twitter_via'] ) ) $global['twitter_via'] = esc_html( $_POST['twitter_via'] );
+		if ( !empty( $_POST['twitter_via'] ) ) $global['twitter_via'] = esc_html( $_POST['twitter_via'] );
 		return $global;
 	}
 
