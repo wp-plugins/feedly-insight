@@ -64,17 +64,6 @@ class Share_Hatena extends Sharing_Source {
 			$this->smart = false;
 	}
 
-	public function get_share_url( $post_id ) {
-		return apply_filters( 'sharing_permalink', get_permalink( $post_id ), $post_id, $this->id );
-	}
-
-	public function get_share_title( $post_id ) {
-		$post  = get_post( $post_id );
-		$title = apply_filters( 'sharing_title', $post->post_title, $post_id, $this->id );
-
-		return html_entity_decode( wp_kses( $title, null ) );
-	}
-
 	public function get_name() {
 		return __( 'Bookmark', 'feedly_insight' );
 	}
