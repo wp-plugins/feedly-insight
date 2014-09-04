@@ -5,10 +5,6 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 
-/**
- * condition Jetpack share daddy is active or not.
- */
-
 add_action( 'jetpack_modules_loaded', array( 'FI_Jetpack', 'init' ), 11 );
 
 

@@ -89,7 +89,7 @@ class FI {
 	}
 
 	function jetpack() {
-		if ( class_exists( 'Jetpack' ) ) {
+		if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'sharedaddy' ) ) {
 			require_once dirname( __FILE__ ) . '/inc/jetpack/class_Jetpack.php';
 		}
 	}
