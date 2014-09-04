@@ -111,3 +111,58 @@ class Share_Hatena extends Sharing_Source {
 
 }
 
+
+/**
+ * Class Share_Feedly
+ *
+ * for share daddy
+ */
+class Share_RSS extends Sharing_Source {
+
+	var $shortname = 'rss';
+
+	public function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if ( 'official' == $this->button_style )
+			$this->smart = true;
+		else
+			$this->smart = false;
+	}
+
+	public function get_name() {
+		return __( 'RSS', 'feedly_insight' );
+	}
+
+	public function get_link( $text, $title, $query = '', $id = false ) {
+		$klasses = array( 'share-'.$this->get_class(), 'sd-button' );
+
+		if ( $this->button_style == 'icon' || $this->button_style == 'icon-text' )
+			$klasses[] = 'share-icon';
+
+		if ( $this->button_style == 'icon' ) {
+			$text = '';
+			$klasses[] = 'no-text';
+		}
+
+		if ( $this->button_style == 'text' )
+			$klasses[] = 'no-icon';
+
+		return sprintf(
+			'<a rel="nofollow" class="%s" href="%s"%s title="%s"%s><span>%s</span></a>',
+			implode( ' ', $klasses ),
+			FI::$option['feed_url'],
+			( $this->open_links == 'new' ) ? ' target="_blank"' : '',
+			$title,
+			( $id ? ' id="' . esc_attr( $id ) . '"' : '' ),
+			$text
+		);
+	}
+
+	public function get_display( $post ) {
+		return $this->get_link(
+			_x( 'RSS', 'follow us', 'feedly_insight' ),
+			__( 'Click to follow on RSS', 'feedly_insight' ) );
+	}
+
+}

@@ -50,6 +50,8 @@ class FI_Jetpack {
 			$services['feedly'] = 'Share_Feedly';
 		if ( !array_key_exists( 'hatena', $services ) )
 			$services['hatena'] = 'Share_Hatena';
+		if ( !array_key_exists( 'rss', $services ) )
+			$services['rss'] = 'Share_RSS';
 		return $services;
 	}
 
