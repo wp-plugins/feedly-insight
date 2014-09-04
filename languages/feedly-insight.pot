@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Feedly Insight package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Feedly Insight 0.9.10 beta\n"
+"Project-Id-Version: Feedly Insight 0.9.14 beta\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/feedly-insight\n"
-"POT-Creation-Date: 2014-03-14 14:36:28+00:00\n"
+"POT-Creation-Date: 2014-09-04 13:22:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -187,35 +187,49 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: inc/jetpack/class_Jetpack.php:98
+#: inc/jetpack/class_Jetpack_Share.php:27
 msgid "Feedly"
 msgstr ""
 
-#: inc/jetpack/class_Jetpack.php:110
+#: inc/jetpack/class_Jetpack_Share.php:39
 msgctxt "follow us"
 msgid "Feedly"
 msgstr ""
 
-#: inc/jetpack/class_Jetpack.php:111
+#: inc/jetpack/class_Jetpack_Share.php:40
 msgid "Click to follow on Feedly"
 msgstr ""
 
-#: inc/jetpack/class_Jetpack.php:183
+#: inc/jetpack/class_Jetpack_Share.php:68
 msgid "Bookmark"
 msgstr ""
 
-#: inc/jetpack/class_Jetpack.php:198 inc/jetpack/class_Jetpack.php:199
-#: inc/jetpack/class_Jetpack.php:200
+#: inc/jetpack/class_Jetpack_Share.php:83
+#: inc/jetpack/class_Jetpack_Share.php:84
+#: inc/jetpack/class_Jetpack_Share.php:85
 msgid "Add this entry to Hatena Bookmark"
 msgstr ""
 
-#: inc/jetpack/class_Jetpack.php:206
+#: inc/jetpack/class_Jetpack_Share.php:91
 msgctxt "share to"
 msgid "Bookmark"
 msgstr ""
 
-#: inc/jetpack/class_Jetpack.php:207
+#: inc/jetpack/class_Jetpack_Share.php:92
 msgid "Click to share on Hatena Bookmark"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack_Share.php:134
+msgid "RSS"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack_Share.php:164
+msgctxt "follow us"
+msgid "RSS"
+msgstr ""
+
+#: inc/jetpack/class_Jetpack_Share.php:165
+msgid "Click to follow on RSS"
 msgstr ""
 
 #: inc/template_tags.php:46
@@ -238,7 +252,7 @@ msgid "Add Feedly subscribers history & it's widget. Shows your site info, searc
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "hayashikejinan"
+msgid "hayashikejinan (ﾎﾎ冢次男)"
 msgstr ""
 
 #. Author URI of the plugin/theme
