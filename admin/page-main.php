@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -27,7 +27,7 @@ function fi_main() {
 
 	$results = $feeds->feed();
 
-	if ( !empty( $_GET['search-feedly'] ) ):
+	if ( ! empty( $_GET['search-feedly'] ) ):
 		fi_search_function( esc_attr( $_GET['search-feedly'] ), esc_attr( $_GET['c'] ) );
 
 	elseif ( $results ):
@@ -39,7 +39,8 @@ function fi_main() {
 				<i class="dashicons dashicons-groups"></i> <?php _e( 'Subscribers', 'feedly_insight' ) ?>
 				: <?php echo fi_create_tweet_button( $title, $subscribers ); ?>
 				<?php printf( __( '%s <small>subscribers</small>', 'feedly_insight' ),
-					number_format_i18n( $subscribers ) ); ?>
+					number_format_i18n( $subscribers )
+				); ?>
 			</li>
 			<li>
 				<i class="dashicons dashicons-update"></i>
@@ -79,8 +80,9 @@ function fi_main() {
 			foreach ( $values as $value ) {
 				$html .= '<option ';
 				$html .= "value='{$value}'";
-				if ( empty( $_GET['c'] ) && $value === 20 || !empty( $_GET['c'] ) && $value === (int) $_GET['c'] )
+				if ( empty( $_GET['c'] ) && $value === 20 || ! empty( $_GET['c'] ) && $value === (int) $_GET['c'] ) {
 					$html .= ' selected="selected"';
+				}
 				$html .= ">{$value}</option>";
 			}
 			echo $html . '</select>';
@@ -89,7 +91,9 @@ function fi_main() {
 			<label class="screen-reader-text" for="fi-search-input"><?php _e( 'Search RSS by Feedly', 'feedly_insight' ); ?></label>
 			<input type="hidden" name="page" value="feedly_insight" />
 			<input class="regular-text" id="fi-search-input" type="text"
-				   value="<?php if ( !empty( $_GET['search-feedly'] ) ) echo $_GET['search-feedly']; ?>"
+				   value="<?php if ( ! empty( $_GET['search-feedly'] ) ) {
+					   echo $_GET['search-feedly'];
+				   } ?>"
 				   placeholder="<?php _e( 'Input URL, domain and any words.', 'feedly_insight' ); ?>" name="search-feedly" />
 			<input class="button button-primary" type="submit"
 				   value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
@@ -105,7 +109,9 @@ function fi_main() {
 
 function fi_main_footer_js() {
 	$id = get_current_screen()->id;
-	if ( $id != 'dashboard' && $id != 'toplevel_page_feedly_insight' ) return;
+	if ( $id != 'dashboard' && $id != 'toplevel_page_feedly_insight' ) {
+		return;
+	}
 
 	$db = FI_DB::init();
 
@@ -257,7 +263,7 @@ function fi_author_html() {
 		</a>
 		<a href="http://cloud.feedly.com/#subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>"
 		   target="_blank" title="follow on Feedly">
-			<img src="http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png" alt="follow"
+			<img src="<?php echo set_url_scheme( 'http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png' ); ?>" alt="follow"
 				 width="18" height="18" class="button-selectable">
 		</a>
 
@@ -268,18 +274,20 @@ function fi_author_html() {
 
 function fi_create_tweet_button( $title, $subscribers ) {
 	$href   = 'https://twitter.com/share?' . http_build_query( array(
-			'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . FI::$option['feed_url'],
-			'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
-				date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
-				$title,
-				number_format_i18n( $subscribers ),
-				'' // todo オプションで文字入れれるようにする？
-			),
-			'hashtags' => FI_TEXT_DOMAIN,
-		) );
+				'url'      => 'http://cloud.feedly.com/#subscription%2Ffeed/' . FI::$option['feed_url'],
+				'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
+					date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
+					$title,
+					number_format_i18n( $subscribers ),
+					'' // todo オプションで文字入れれるようにする？
+				),
+				'hashtags' => FI_TEXT_DOMAIN,
+			)
+		);
 	$output = sprintf( '<a class="dashicons dashicons-twitter" href="%s" target="_blank" title="%s"  onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=350\');return false;"></a>',
 		$href, __( 'Tweet my Feedly', 'feedly_insight' )
 	);
+
 	return $output;
 }
 

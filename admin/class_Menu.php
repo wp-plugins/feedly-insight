@@ -35,7 +35,7 @@ class FI_Menu {
 			FI_TEXT_DOMAIN,
 			'fi_main',
 			FI_IMG_URL . 'feedly-follow-square-flat-green_16x16.png',
-			'1.11' );
+			'2.11' );
 
 		// import sub page
 		add_submenu_page(

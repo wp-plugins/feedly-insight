@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -12,11 +12,13 @@ function fi_search_function( $search_words, $number ) {
 
 	$title = sprintf( _n( '%s result', '%s results', count( $results ), 'feedly_insight' ), number_format_i18n( count( $results ) ) );
 	$title = sprintf( __( 'Search results for &#8220;%s&#8221;', 'feedly_insight' ),
-			urldecode( $search_words ) ) . ': <strong>' . $title . '</strong>';
+			urldecode( $search_words )
+		) . ': <strong>' . $title . '</strong>';
 
-	if ( !count( $results ) ) {
+	if ( ! count( $results ) ) {
 		echo $title;
 		echo '<p>' . __( 'No items.', 'feedly_insight' ) . '</p>';
+
 		return;
 	} ?>
 
@@ -54,12 +56,12 @@ function fi_create_html_search_results( $args ) {
 				<?php if ( strstr( site_url(), $website ) ): ?>
 					<div class="dashicons dashicons-admin-home"></div>
 				<?php endif; ?>
-				<a href="<?php echo $website; ?>" target="_blank" title="<?php echo $description; ?>">
+				<a href="<?php echo $website; ?>" target="_blank" title="<?php echo $title; ?>">
 					<?php echo wp_trim_words( $title, 30, '&hellip;' ); ?></a>
 			</h2>
 
 			<?php fi_the_button( 'vertical', number_format_i18n( $subscribers ), $feedId ); ?>
-			<p><?php echo $description; ?></p>
+			<p><?php echo strip_tags( $description ); ?></p>
 
 			<div class="clear"></div>
 
@@ -101,6 +103,7 @@ function fi_create_html_search_results( $args ) {
 	<?php
 
 	}
+
 	return;
 }
 
@@ -142,7 +145,7 @@ function fi_search_footer_js() {
 }
 
 
-if ( !empty( $_GET['search-feedly'] ) ) {
+if ( ! empty( $_GET['search-feedly'] ) ) {
 	add_action( 'admin_print_footer_scripts', 'fi_search_footer_js' );
 }
 

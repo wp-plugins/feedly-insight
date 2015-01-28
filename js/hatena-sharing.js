@@ -5,7 +5,7 @@ jQuery(document).ready(function(){
 		}
 	}
 	function get_hatena_counts(url) {
-		$.ajax({
+		jQuery.ajax({
 			url     : "http://api.b.st-hatena.com/entry.count",
 			data    : {url: encodeURI(url)},
 			dataType: "jsonp",

@@ -134,7 +134,7 @@ class Share_RSS extends Sharing_Source {
 		return __( 'RSS', 'feedly_insight' );
 	}
 
-	public function get_link( $text, $title, $query = '', $id = false ) {
+	public function get_link( $url, $text, $title, $query = '', $id = false ) {
 		$klasses = array( 'share-'.$this->get_class(), 'sd-button' );
 
 		if ( $this->button_style == 'icon' || $this->button_style == 'icon-text' )
@@ -161,8 +161,10 @@ class Share_RSS extends Sharing_Source {
 
 	public function get_display( $post ) {
 		return $this->get_link(
+			'',
 			_x( 'RSS', 'follow us', 'feedly_insight' ),
 			__( 'Click to follow on RSS', 'feedly_insight' ) );
 	}
 
 }
+
