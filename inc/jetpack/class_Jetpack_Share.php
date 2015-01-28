@@ -35,7 +35,7 @@ class Share_Feedly extends Sharing_Source {
 			if ( fi_get_subscribers() )
 				$share_count = '<span class="share-count">' . fi_get_subscribers() . '</span>';
 			return $this->get_link(
-				'http://feedly.com/i/subscription/feed%2F' . rawurlencode( 'feed/' . FI::$option['feed_url'] ),
+				'http://feedly.com/i/subscription%2F' . rawurlencode( 'feed/' . FI::$option['feed_url'] ),
 				_x( 'Feedly', 'follow us', 'feedly_insight' ) . $share_count,
 				__( 'Click to follow on Feedly', 'feedly_insight' ) );
 		endif;

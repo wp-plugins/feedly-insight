@@ -261,7 +261,7 @@ function fi_author_html() {
 		<a href="https://plus.google.com/u/0/+hayashikejinantatsuo" target="_blank" title="Google+">
 			<i class="dashicons dashicons-googleplus"></i>
 		</a>
-		<a href="http://feedly.com/i/subscription/feed%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>"
+		<a href="http://feedly.com/i/subscription%2F<?php echo 'feed/' . $AuthorURI . 'feed/'; ?>"
 		   target="_blank" title="follow on Feedly">
 			<img src="<?php echo set_url_scheme( 'http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png' ); ?>" alt="follow"
 				 width="18" height="18" class="button-selectable">
@@ -274,7 +274,7 @@ function fi_author_html() {
 
 function fi_create_tweet_button( $title, $subscribers ) {
 	$href   = 'https://twitter.com/share?' . http_build_query( array(
-				'url'      => 'http://feedly.com/i/subscription/feed%2Ffeed/' . FI::$option['feed_url'],
+				'url'      => 'http://feedly.com/i/subscription%2Ffeed/' . FI::$option['feed_url'],
 				'text'     => sprintf( __( '%1$s %2$s, Feedly subscribers are %3$d !! %4$s', 'feedly_insight' ),
 					date_i18n( __( 'F j, Y', 'feedly_insight' ), time( 'now' ) ),
 					$title,
