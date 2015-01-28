@@ -4,14 +4,14 @@
 Plugin Name: Feedly Insight
 Plugin URI: http://hayashikejinan.com/feedly-insight/
 Description: Add Feedly subscribers history & it's widget. Shows your site info, search website & feeds. Also supported Jetpack share.
-Version: 0.9.14 beta
+Version: 0.9.15 beta
 Author: hayashikejinan (ﾎﾎ冢次男)
 Author URI: http://hayashikejinan.com/
 Text Domain: feedly_insight
 Domain Path: /languages/
 License: GPLv2 or later
 */
-define( 'FI_VER', '0.9.14 beta' );
+define( 'FI_VER', '0.9.15 beta' );
 
 /*
 Copyright (C) 2014 hayashikejinan <hayashikejinan@gmail.com>

@@ -122,7 +122,7 @@ function fi_get_button( $size = 'horizontal', $value = null, $feed_url = null ) 
 
 	if ( empty( $feed_url ) )
 		$feed_url = 'feed/' . FI::$option['feed_url'];
-	$url = 'http://cloud.feedly.com/#subscription%2F' . rawurlencode( $feed_url );
+	$url = 'http://feedly.com/i/subscription/feed%2F' . rawurlencode( $feed_url );
 
 	$title = esc_attr( apply_filters( 'fi_the_button_title', __( 'Syndicate this site using Feedly', 'feedly_insight' ) ) );
 	$class = 'fi-';
