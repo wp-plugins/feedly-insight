@@ -48,6 +48,10 @@ An answer to that question.
 
 == Changelog ==
 
+= 0.9.17 =
+
+* fix bugs
+
 = 0.9.15 =
 
 * fix for subscription URL changed by feedly

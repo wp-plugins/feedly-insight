@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -17,10 +17,11 @@ class Share_Feedly extends Sharing_Source {
 	public function __construct( $id, array $settings ) {
 		parent::__construct( $id, $settings );
 
-		if ( 'official' == $this->button_style )
+		if ( 'official' == $this->button_style ) {
 			$this->smart = true;
-		else
+		} else {
 			$this->smart = false;
+		}
 	}
 
 	public function get_name() {
@@ -32,12 +33,15 @@ class Share_Feedly extends Sharing_Source {
 			return '<div class="feedly_button">' . fi_get_button() . '</div>';
 		else:
 			$share_count = '';
-			if ( fi_get_subscribers() )
+			if ( fi_get_subscribers() ) {
 				$share_count = '<span class="share-count">' . fi_get_subscribers() . '</span>';
+			}
+
 			return $this->get_link(
 				'http://feedly.com/i/subscription%2F' . rawurlencode( 'feed/' . FI::$option['feed_url'] ),
 				_x( 'Feedly', 'follow us', 'feedly_insight' ) . $share_count,
-				__( 'Click to follow on Feedly', 'feedly_insight' ) );
+				__( 'Click to follow on Feedly', 'feedly_insight' )
+			);
 		endif;
 	}
 
@@ -58,10 +62,11 @@ class Share_Hatena extends Sharing_Source {
 	public function __construct( $id, array $settings ) {
 		parent::__construct( $id, $settings );
 
-		if ( 'official' == $this->button_style )
+		if ( 'official' == $this->button_style ) {
 			$this->smart = true;
-		else
+		} else {
 			$this->smart = false;
+		}
 	}
 
 	public function get_name() {
@@ -84,25 +89,34 @@ class Share_Hatena extends Sharing_Source {
 				__( 'Add this entry to Hatena Bookmark', 'feedly_insight' ),
 				'<img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="' . __( 'Add this entry to Hatena Bookmark', 'feedly_insight' ) . '" width="20" height="20" style="border: none;" />'
 			);
+
 			return '<div class="hatena_button">' . $button . '</div>';
 		else:
 			return $this->get_link(
 				'http://b.hatena.ne.jp/entry/panel/?url=' . $share_url . '&amp;btitle=' . $post_title,
 				_x( 'Bookmark', 'share to', 'feedly_insight' ),
 				__( 'Click to share on Hatena Bookmark', 'feedly_insight' ),
-				'share=hatena', 'sharing-hatena-' . $post->ID );
+				'share=hatena', 'sharing-hatena-' . $post->ID
+			);
 		endif;
 	}
 
 	public function display_footer() {
-		if ( $this->smart ) {
-			echo '<script type="text/javascript" src="//api.b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>';
-		} else {
+		if ( $this->smart ): ?>
+			<script>
+				function jetpack_sharing_hatena_init() {
+					jQuery.getScript( '//api.b.st-hatena.com/js/bookmark_button.js' );
+				}
+				jQuery( document ).on( 'ready', jetpack_sharing_hatena_init );
+				jQuery( document.body ).on( 'post-load', jetpack_sharing_hatena_init );
+			</script>
+		<?php else:
 			$this->js_dialog( $this->shortname, array( 'height' => 220, 'width' => 365, ) );
-		}
+		endif;
 
-		if ( $this->button_style != 'icon' )
+		if ( $this->button_style != 'official' ) {
 			$this->hatena_enqueue();
+		}
 	}
 
 	public function hatena_enqueue() {
@@ -124,10 +138,11 @@ class Share_RSS extends Sharing_Source {
 	public function __construct( $id, array $settings ) {
 		parent::__construct( $id, $settings );
 
-		if ( 'official' == $this->button_style )
+		if ( 'official' == $this->button_style ) {
 			$this->smart = true;
-		else
+		} else {
 			$this->smart = false;
+		}
 	}
 
 	public function get_name() {
@@ -135,24 +150,26 @@ class Share_RSS extends Sharing_Source {
 	}
 
 	public function get_link( $url, $text, $title, $query = '', $id = false ) {
-		$klasses = array( 'share-'.$this->get_class(), 'sd-button' );
+		$klasses = array( 'share-' . $this->get_class(), 'sd-button' );
 
-		if ( $this->button_style == 'icon' || $this->button_style == 'icon-text' )
+		if ( $this->button_style == 'icon' || $this->button_style == 'icon-text' ) {
 			$klasses[] = 'share-icon';
+		}
 
 		if ( $this->button_style == 'icon' ) {
-			$text = '';
+			$text      = '';
 			$klasses[] = 'no-text';
 		}
 
-		if ( $this->button_style == 'text' )
+		if ( $this->button_style == 'text' ) {
 			$klasses[] = 'no-icon';
+		}
 
 		return sprintf(
 			'<a rel="nofollow" class="%s" href="%s"%s title="%s"%s><span>%s</span></a>',
 			implode( ' ', $klasses ),
 			FI::$option['feed_url'],
-			( $this->open_links == 'new' ) ? ' target="_blank"' : '',
+			( isset( $this->open_links ) && $this->open_links === 'new' ) ? ' target="_blank"' : '',
 			$title,
 			( $id ? ' id="' . esc_attr( $id ) . '"' : '' ),
 			$text
@@ -163,7 +180,8 @@ class Share_RSS extends Sharing_Source {
 		return $this->get_link(
 			'',
 			_x( 'RSS', 'follow us', 'feedly_insight' ),
-			__( 'Click to follow on RSS', 'feedly_insight' ) );
+			__( 'Click to follow on RSS', 'feedly_insight' )
+		);
 	}
 
 }
